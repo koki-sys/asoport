@@ -13,7 +13,7 @@ Windowsの方はPowershellから実行お願いします。
 
 ```bash
 cd ~ &&
-git clone remote https://github.com/koki-sys/asoport.git
+git clone https://github.com/koki-sys/asoport.git
 ```
 
 2. ディレクトリの移動
