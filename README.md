@@ -4,6 +4,14 @@
 
 執筆中です。
 
+## makeコマンドのインストール
+**初回セットアップを行う前に実行してください。**
+Windows(Powershell)
+```powershell
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+scoop install gow
+```
 ## 初回セットアップ
 
 ※コマンドの部分をコピペして使用してください。
