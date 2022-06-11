@@ -5,7 +5,7 @@
 執筆中です。
 
 ## makeコマンドのインストール
-**初回セットアップを行う前に実行してください。**
+**初回セットアップを行う前に実行してください。**<br>
 Windows(Powershell)
 ```powershell
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
