@@ -6,7 +6,7 @@
 
 ## makeコマンドのインストール
 **初回セットアップを行う前に実行してください。**<br>
-Windows(Powershell)
+Windows(Powershell、管理者権限なしで実行してください。)
 ```powershell
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
@@ -19,8 +19,15 @@ Windowsの方はPowershellから実行お願いします。
 
 1. Github から開発環境をインストール
 
+Powershell Core(v7),ターミナル(mac)
 ```bash
 cd ~ &&
+git clone https://github.com/koki-sys/asoport.git
+```
+
+Powershell(最初から入っているもの)
+```bash
+cd ~
 git clone https://github.com/koki-sys/asoport.git
 ```
 
