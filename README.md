@@ -33,7 +33,7 @@ cd ~/asoport
 3. ライブラリなどのインストール
 
 ```bash
-make install
+make init
 ```
 
 ローカルサーバー:http://localhost:80
