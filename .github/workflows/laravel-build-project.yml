@@ -32,8 +32,9 @@ jobs:
       - name: Composer Version
         run: docker compose exec app composer --version
 
-      - name: Create Laravel Project
-        run: docker compose exec app composer create-project --prefer-dist laravel/laravel .
+      - name: Build Laravel Project
+        run: |
+          docker compose up -d --build
 
       - name: Laravel Version
         run: docker compose exec app php artisan --version
@@ -69,7 +70,6 @@ jobs:
         run: |
           composer validate
           composer install --no-dev
-          composer dump-autoload
                 - name: composer
         working-directory: ./src
       - name: npm
@@ -77,24 +77,3 @@ jobs:
           yarn
           yarn build
         working-directory: ./src
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          name: id_rsa
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
-          if_key_exists: replace
-      - name: deploy
-        run: |
-          echo "${SSH_EMOVEE_PROD_USER}"
-          echo "${SSH_EMOVEE_PROD_HOST}"
-          rsync -rlOtcv -e 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' --exclude='docker/mysql/data/*' --exclude='node_modules' ./ ${SSH_EMOVEE_PROD_USER}@${SSH_EMOVEE_PROD_HOST}:/home/service-user/projects/emovee
-        env:
-          SSH_EMOVEE_PROD_USER: ${{ secrets.SSH_EMOVEE_PROD_USER }}
-          SSH_EMOVEE_PROD_HOST: ${{ secrets.SSH_EMOVEE_PROD_HOST }}
-      - name: execute start scripts
-        run: |
-          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ${SSH_EMOVEE_PROD_USER}@${SSH_EMOVEE_PROD_HOST} "/bin/bash /home/service-user/projects/emovee/deploy_scripts/prod_deploy.sh"
-        env:
-          SSH_EMOVEE_PROD_USER: ${{ secrets.SSH_EMOVEE_PROD_USER }}
-          SSH_EMOVEE_PROD_HOST: ${{ secrets.SSH_EMOVEE_PROD_HOST }}
