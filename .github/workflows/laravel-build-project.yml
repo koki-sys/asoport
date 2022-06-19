@@ -32,10 +32,6 @@ jobs:
       - name: Composer Version
         run: docker compose exec app composer --version
 
-      - name: Build Laravel Project
-        run: |
-          docker compose up -d --build
-
       - name: Laravel Version
         run: docker compose exec app php artisan --version
 
