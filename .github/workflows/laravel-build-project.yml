@@ -51,7 +51,7 @@ jobs:
         run: docker compose exec app php artisan db:seed
 
       - name: Laravel PHPUnit Testing
-        run: docker compose exec app php artisan test
+        run: docker compose exec app ./vendor/bin/phpunit
 
       - name: set docker compose file
         run: |
