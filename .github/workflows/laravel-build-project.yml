@@ -19,7 +19,9 @@ jobs:
         run: docker compose build
 
       - name: Start Docker Containers
-        run: docker compose up -d
+        run: |
+          docker compose up -d
+          docker compose exec app composer install
 
       - name: OS Version
         run: |
@@ -65,7 +67,7 @@ jobs:
       - name: composer
         run: |
           composer validate
-          composer install --no-dev
+          composer install
                 - name: composer
         working-directory: ./src
       - name: npm
