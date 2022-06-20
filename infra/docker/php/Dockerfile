@@ -1,4 +1,4 @@
-FROM php:8.0-fpm-bullseye AS base
+FROM php:7.4-fpm-bullseye AS base
 
 WORKDIR /data
 
