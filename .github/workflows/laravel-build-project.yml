@@ -3,10 +3,10 @@ name: laravel-create-project
 on:
   pull_request:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
-  docker-build:
+  docker-build-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,10 +18,10 @@ jobs:
       - name: Build Docker Images
         run: docker compose build
 
-      - name: Create & Start Docker Containers
+      - name: Start Docker Containers
         run: |
-          mkdir src
           docker compose up -d
+          docker compose exec app composer install
 
       - name: OS Version
         run: |
@@ -33,9 +33,6 @@ jobs:
 
       - name: Composer Version
         run: docker compose exec app composer --version
-
-      - name: Create Laravel Project
-        run: docker compose exec app composer create-project --prefer-dist laravel/laravel .
 
       - name: Laravel Version
         run: docker compose exec app php artisan --version
@@ -54,4 +51,27 @@ jobs:
         run: docker compose exec app php artisan db:seed
 
       - name: Laravel PHPUnit Testing
-        run: docker compose exec app php artisan test
+        run: docker compose exec app ./vendor/bin/phpunit
+
+      - name: set docker compose file
+        run: |
+          cp ./config/docker-compose-prod.yml ./docker-compose.yml
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: set docker-compose file
+        run: cp ./config/docker-compose-prod.yml ./docker-compose.yml
+      - name: composer
+        run: |
+          composer validate
+          composer install
+                - name: composer
+        working-directory: ./src
+      - name: npm
+        run: |
+          yarn
+          yarn build
+        working-directory: ./src
