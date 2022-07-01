@@ -98,7 +98,7 @@ make sql
 ### app コンテナ
 
 -   使用イメージファイル
-    -   [php](https://hub.docker.com/_/php):8.0-fpm-bullseye
+    -   [php](https://hub.docker.com/_/php):7.4-fpm-bullseye
     -   [composer](https://hub.docker.com/_/composer):2.2
 
 ### web コンテナ
