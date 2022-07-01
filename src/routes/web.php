@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
+use App\post;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,4 +13,10 @@
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/post', function () {
+    return view('post_test');
+});
+Route::post('/post_submit', 'PostController@post');
