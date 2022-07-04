@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Request;
-
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Post;
 
-class SerchController extends BaseController
+class SearchController extends BaseController
 {
     public function PostIndex()
-    {   
+    {
+        /*
         $articles = Post::orderBy('created_at','asc')->where(function($query){
             $search = Request::input('search');
             $language = Request::input('language');
@@ -25,7 +22,14 @@ class SerchController extends BaseController
                 };
                 $users=$query;
             }
-            return view('',compact($users));
+            // return view('',compact($users));
         });
-    }   
+
+        dd($articles);
+        */
+        $posts = Post::all();
+        foreach ($posts as $post) {
+            echo $post;
+        }
+    }
 }
