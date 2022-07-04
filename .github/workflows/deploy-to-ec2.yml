@@ -8,63 +8,39 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  deployEC2:
+  # ジョブの名前
+  deploy:
+    #ジョブ実行の環境
     runs-on: ubuntu-latest
 
+    # 実際のジョブ内容　ステップとして表現
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Settings
-        run: echo APP_BUILD_TARGET=deploy > .env
+      # composer インストール
+      - name: composer install
+        run: composer install -n --prefer-dist
 
-      - name: Docker Version
-        run: docker version
+      # Envoy インストール
+      - name: Envoy install
+        run: composer require laravel/envoy:1.6.1
 
-      - name: Build Docker Images
-        run: docker compose build
-
-      - name: Start Docker Containers
-        run: docker compose up -d
-
-      - name: OS Version
+      # laravel envoyを利用してEC2に接続、デプロイ
+      - name: EC2 connection
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          HOST_NAME: ${{ secrets.HOST_NAME }}
         run: |
-          docker compose exec app cat /etc/os-release
-          docker compose exec app cat /etc/debian_version
+          # 秘密鍵をgithubactionsにコピー
+          mkdir -p /home/runner/.ssh
+          touch /home/runner/.ssh/id_rsa
+          echo "$PRIVATE_KEY" > /home/runner/.ssh/id_rsa
+          # パーミッション変更
+          chmod 600 /home/runner/.ssh/id_rsa
+          ssh-keyscan ${{ secrets.HOST_NAME }} >> ~/.ssh/known_hosts
 
-      - name: PHP Version
-        run: docker compose exec app php --version
-
-      - name: Composer Version
-        run: docker compose exec app composer --version
-
-      - name: init Laravel Project
-        run: |
-          docker compose up -d --build
-          docker compose exec app composer install
-          docker compose exec app npm install
-          docker compose exec app cp .env.example .env
-          echo APP_BUILD_TARGET=deploy > .env
-          docker compose exec app composer dump-autoload
-          docker compose exec app php artisan key:generate
-          docker compose exec app php artisan storage:link
-          docker compose exec app chmod -R 777 storage bootstrap/cache
-          docker compose exec app php artisan migrate:fresh --seed
-
-      - name: Laravel Version
-        run: docker compose exec app php artisan --version
-
-      - name: Wait for the MySQL container to start
-        run: sleep 5s
-        shell: bash
-
-      - name: Laravel Migrate Testing
-        run: docker compose exec app php artisan migrate
-
-      - name: Laravel Rollback Testing
-        run: docker compose exec app php artisan migrate:refresh
-
-      - name: Laravel Seeding Testing
-        run: docker compose exec app php artisan db:seed
-
-      - name: Laravel PHPUnit Testing
-        run: docker compose exec app ./vendor/bin/phpunit
+      # Envoy 実行
+      - name: Envoy
+        run: ./vendor/bin/envoy run deploy
