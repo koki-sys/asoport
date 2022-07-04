@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
         $data = [
             [
                 'user_id' => 1,
-                'port_url' => Str::random(10) . 'example.com',
+                'port_url' => Str::random(10) . '/example.com',
                 'class' => Str::random(4),
                 'git_url' => Str::random(10) . '/github.com',
                 'comment' => Str::random(50),
@@ -26,7 +26,7 @@ class PostsTableSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'port_url' => Str::random(10) . 'example.com',
+                'port_url' => Str::random(10) . '/example.com',
                 'class' => Str::random(4),
                 'git_url' => Str::random(10) . '/github.com',
                 'comment' => Str::random(50),
@@ -35,7 +35,7 @@ class PostsTableSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'port_url' => Str::random(10) . 'example.com',
+                'port_url' => Str::random(10) . '/example.com',
                 'class' => Str::random(4),
                 'git_url' => Str::random(10) . '/github.com',
                 'comment' => Str::random(50),
@@ -44,7 +44,7 @@ class PostsTableSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'port_url' => Str::random(10) . 'example.com',
+                'port_url' => Str::random(10) . '/example.com',
                 'class' => Str::random(4),
                 'git_url' => Str::random(10) . '/github.com',
                 'comment' => Str::random(50),
