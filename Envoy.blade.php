@@ -3,8 +3,7 @@
 
 {{-- serversで記述した「web」のサーバーを対象に、taskで囲った範囲のコマンドを[foo]として定義して実行する --}}
 @task('deploy', ['on' => 'web'])
-    pwd
-    cd src {{-- ここは環境に合わせて変更する --}}
+    cd ~ {{-- ここは環境に合わせて変更する --}}
     git pull git@github.com:koki-sys/asoport.git
     cp -f .env.production .env
     cd ../
