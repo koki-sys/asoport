@@ -1,0 +1,55 @@
+name: pr-build-testing
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  # ジョブの名前
+  deploy:
+    #ジョブ実行の環境
+    runs-on: ubuntu-latest
+
+    # 実際のジョブ内容　ステップとして表現
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # composer インストール
+      - name: Docker Version
+        run: docker version
+
+      - name: Build Docker Images
+        run: docker compose build
+
+      - name: Start Docker Containers
+        run: docker compose up -d
+
+      - name: composer install
+        run: docker compose exec app composer install
+
+      # Envoy インストール
+      - name: Envoy install
+        run: composer require laravel/envoy:1.6.1
+
+      # laravel envoyを利用してEC2に接続、デプロイ
+      - name: EC2 connection
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          HOST_NAME: ${{ secrets.HOST_NAME }}
+        run: |
+          # 秘密鍵をgithubactionsにコピー
+          mkdir -p /home/runner/.ssh
+          touch /home/runner/.ssh/id_rsa
+          echo "$PRIVATE_KEY" > /home/runner/.ssh/id_rsa
+          # パーミッション変更
+          chmod 600 /home/runner/.ssh/id_rsa
+          ssh-keyscan ${{ secrets.HOST_NAME }} >> ~/.ssh/known_hosts
+
+      # Envoy 実行
+      - name: Envoy
+        run: ./vendor/bin/envoy run deploy

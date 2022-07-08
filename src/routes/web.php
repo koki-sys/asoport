@@ -20,3 +20,4 @@ Route::get('/post', function () {
     return view('post_test');
 });
 Route::post('/post_submit', 'PostController@post');
+Route::get('/search', 'SearchController@PostIndex');
