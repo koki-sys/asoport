@@ -3,10 +3,8 @@
 
 {{-- serversで記述した「web」のサーバーを対象に、taskで囲った範囲のコマンドを[foo]として定義して実行する --}}
 @task('deploy', ['on' => 'web'])
-    cd ~ {{-- ここは環境に合わせて変更する --}}
-    rm -rf asoport
-    git clone git@github.com:koki-sys/asoport.git
-    cd asoport
+    cd asoport {{-- ここは環境に合わせて変更する --}}
+    git pull git@github.com:koki-sys/asoport.git
     docker-compose down
     docker-compose up -d --build
     docker-compose exec app composer install
