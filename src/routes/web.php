@@ -13,11 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/post', function () {
     return view('post_test');
 });
 Route::post('/post_submit', 'PostController@post');
 Route::get('/search', 'SearchController@PostIndex');
+Route::get('/','TopController@index');
