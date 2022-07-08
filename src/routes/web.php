@@ -11,5 +11,5 @@
 |
 */
 
-Route::view('/', 'welcome');
 Route::get('/search', 'SearchController@PostIndex');
+Route::get('/','TopController@index');
