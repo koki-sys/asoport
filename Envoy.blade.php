@@ -14,5 +14,6 @@
     docker-compose exec app php artisan key:generate
     docker-compose exec app php artisan storage:link
     docker-compose exec app chmod -R 777 storage bootstrap/cache
+    docker-compose exec app chmod -R 777 storage framework/
     docker-compose exec app php artisan migrate:fresh --seed
 @endtask
