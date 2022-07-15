@@ -1,12 +1,14 @@
 #dragDropArea {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     margin: 10px;
     padding: 10px;
-    border: #ddd dashed 5px;
-    min-height: 200px;
-    min-width: 400px;
+    height: 30rem;
+    width: 40rem;
     text-align: center;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #dragDropArea p {
@@ -21,18 +23,41 @@
     font-size: 12px;
     font-size: 1.2em;
 }
-
 .drag-drop-buttons input {
     margin: auto;
 }
 
 .input-field {
-    padding: 0.8rem;
-    width: 100%;
+    padding: 1rem;
+    width: 80%;
     border-radius: 100vh;
+    border: none;
+    margin: 1rem 0;
 }
 
 .back-box {
     color: #eeeeee;
     text-align: left;
+}
+
+.box {
+    height: 100%;
+}
+
+.container {
+    margin-top: 5rem;
+}
+
+.post-btn {
+    color: #FFFFFF;
+    background: rgb(99, 190, 245);
+    background: linear-gradient(
+        90deg,
+        rgba(99, 190, 245, 1) 0%,
+        rgba(112, 209, 187, 1) 100%
+    );
+    width: 30%;
+    border-radius: 30px;
+    margin: 1rem 0;
+    margin-bottom: 2rem;
 }
