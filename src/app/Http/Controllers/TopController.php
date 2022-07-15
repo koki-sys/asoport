@@ -20,6 +20,4 @@ class TopController extends Controller
 
         return view('top',compact('posts'));
     }
-
-    
 }
