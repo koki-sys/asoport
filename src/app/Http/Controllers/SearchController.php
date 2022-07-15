@@ -11,7 +11,7 @@ class SearchController extends BaseController
     {
         /*
         $articles = Post::orderBy('created_at','asc')->where(function($query){
-            $search = Request::input('search');
+            $keyword = Request::input('keyword');
             $language = Request::input('language');
             if($search){
                 foreach($search as $value){
