@@ -1,9 +1,9 @@
 #dragDropArea {
     background-color: #ffffff;
-    margin: 10px;
+    margin: 10px auto;
     padding: 10px;
     height: 30rem;
-    width: 40rem;
+    width: 100%;
     text-align: center;
     border-radius: 30px;
     display: flex;
@@ -23,21 +23,63 @@
     font-size: 12px;
     font-size: 1.2em;
 }
+
+.preview-size {
+    width: 50%;
+    height: auto;
+}
+
 .drag-drop-buttons input {
     margin: auto;
 }
 
 .input-field {
+    outline: none;
     padding: 1rem;
-    width: 80%;
+    width: 100%;
     border-radius: 100vh;
     border: none;
     margin: 1rem 0;
+    &:focus {
+        outline: 4px solid rgb(99, 190, 245);
+    }
+}
+
+.lang-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 50px;
+    p {
+        text-align: left;
+        margin-left: 1rem;
+    }
+}
+
+.lang-label {
+    margin: 1rem; /* ボタン同士の間隔 */
+    input {
+        display: none; /* デフォルトのinputは非表示にする */
+    }
+    span {
+        color: #333; /* 文字色を黒に */
+        font-size: 1.2rem; /* 文字サイズを14pxに */
+        border: 3px solid #333; /* 淵の線を指定 */
+        border-radius: 5px; /* 角丸を入れて、左右が丸いボタンにする */
+        padding: 5px 50px; /* 上下左右に余白をトル */
+    }
+    input:checked + span {
+        color: #fff; /* 文字色を白に */
+        background: #9900ff; /* 背景色を薄い赤に */
+        border: 3px solid #9900ff; /* 淵の線を薄い赤に */
+    }
 }
 
 .back-box {
-    color: #eeeeee;
     text-align: left;
+    a {
+        color: #eeeeee;
+    }
 }
 
 .box {
@@ -49,7 +91,7 @@
 }
 
 .post-btn {
-    color: #FFFFFF;
+    color: #ffffff;
     background: rgb(99, 190, 245);
     background: linear-gradient(
         90deg,
