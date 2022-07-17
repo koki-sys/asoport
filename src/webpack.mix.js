@@ -19,6 +19,6 @@ mix.webpackConfig({
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/dragDrop.js', 'public/js')
-    .js('resouces/js/createValidation.js', 'public/js')
+    .js('resources/js/createValidation.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 

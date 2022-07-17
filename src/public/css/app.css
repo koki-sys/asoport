@@ -9310,14 +9310,23 @@ h3 {
   width: 100%;
   border-radius: 100vh;
   border: none;
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem 0;
 }
 .input-field:focus {
   outline: 4px solid rgb(99, 190, 245);
 }
 
+.error {
+  width: 100%;
+  padding: 0;
+  display: inline-block;
+  font-size: 90%;
+  color: #fff;
+  box-sizing: border-box;
+}
+
 .lang-box {
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem 0;
   padding: 1rem;
   background-color: #fff;
   border-radius: 50px;
