@@ -11,6 +11,12 @@ $(function(){
         }
     });
 
+    $(".portfolio_close").on("click", function () {
+        $(".portfolio_list").children("div").removeClass("img_horizon img_vertical active c_flex_center");
+        $(".portfolio_list").removeClass("active");
+        return false;
+    });
+
     $(window, ".portfolio_list").on("load imagesLoaded", function () { // ウィンドウを更新した後に画像サイズを取得
         // Masonryの関数
         $('.portfolio_list').masonry({ //オプション指定箇所
@@ -26,18 +32,15 @@ $(function(){
             //画像のアスペクト比に応じてポートフォリオ詳細画面の表示形式を変えるようにする
             if (height > width) {
                 // 縦表示
-                $(this).toggleClass("active img_vertical c_flex_center");
-                $(".portfolio_list").toggleClass("active");
+                $(this).addClass("active img_vertical c_flex_center");
+                $(".portfolio_list").addClass("active");
             } else {
                 // 横表示
-                $(this).toggleClass("active img_horizon c_flex_center");
-                $(".portfolio_list").toggleClass("active");
+                $(this).addClass("active img_horizon c_flex_center");
+                $(".portfolio_list").addClass("active");
             }
-        });
 
-        $(".img_horizon, .img_vertical").on("click", function () {
-            $(".portfolio_list").children("div").removeClass("horizon_line vertical_line active c_flex_center");
-            $(".portfolio_list").removeClass("active");
+            return false;
         });
     });
 });
