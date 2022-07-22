@@ -6,6 +6,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class SearchController extends BaseController
 {
     /**
@@ -18,30 +19,28 @@ class SearchController extends BaseController
      */
     public function PostIndex(Request $request)
     {
-        $post = null;
+        // 三項演算子
+        $keyword = (!empty($request->input('keyword'))) ?
+            '%' . addcslashes($request->input('keyword'), '%_\\') . '%' : null;
+        $langArray = (!empty($request->input('language'))) ?
+            $request->input('language') : null;
 
-        if (!empty($request->input('keyword'))) {
-            // キーワード検索処理
-            $pat = '%' . addcslashes($request->input('keyword'), '%_\\') . '%';
-            $post = DB::table('posts')
-                ->join('users', 'users.id', '=', 'posts.user_id')
-                ->orWhere('comment', 'LIKE', $pat)
-                ->orWhere('class', 'LIKE', $pat)
-                ->orWhere('users.name', 'LIKE', $pat)
-                ->get();
-        }
-        if(!empty($request->input('checkbox'))){
-            //使用言語処理
-            $check = new Form($request->input('checkbox'));
-            //文字列変換
-            $checkbox = '';
-            if(isset($request->checkbox)){
-                $checkbox = implode("\n",$request->checkbox);
-            }
-            $post2 = DB::table('posts')
-            ->where('use_language','LIKE',$checkbox)
-            ->get();
-        }
-        return view('PostIndex',compact('$post','$post2'));
+        $posts = DB::table('posts')
+            ->join('users', 'users.id', '=', 'posts.user_id')
+            ->when($keyword, function ($query) use ($keyword) {
+                // キーワード検索
+                return $query->orWhere('comment', 'LIKE', $keyword)
+                    ->orWhere('class', 'LIKE', $keyword)
+                    ->orWhere('users.name', 'LIKE', $keyword);
+            })->when($langArray, function ($query) use ($langArray) {
+                // 言語の処理
+                foreach ($langArray as $lang) {
+                    $langFormat = '%' . addcslashes($lang, '%_\\') . '%';
+                    $query = $query->where('use_language', 'LIKE', $langFormat);
+                }
+                return $query;
+            })->get();
+
+        return view('welcome', compact('posts'));
     }
 }
