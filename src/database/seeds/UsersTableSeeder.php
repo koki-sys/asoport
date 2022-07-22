@@ -17,13 +17,13 @@ class UsersTableSeeder extends Seeder
         $data = [
             [
                 'id' => 1,
-                'name' => Str::random(10),
+                'name' => '松浦豪毅',
                 'email' => Str::random(10) . '@example.com',
                 'password' => Hash::make('password')
             ],
             [
                 'id' => 2,
-                'name' => Str::random(10),
+                'name' => '髙橋 幸暉',
                 'email' => Str::random(10).'@example.com',
                 'password' => Hash::make('password')
             ]
