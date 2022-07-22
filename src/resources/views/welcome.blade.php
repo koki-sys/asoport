@@ -52,98 +52,37 @@
     <!-- ===== Portfolio List ===== -->
     <div class="portfolio_list">
         <!-- ===== ポートフォリオの一塊 ===== -->
+        @foreach($posts as $post)
         <div class="portfolio">
             <div class="portfolio_background">
                 <div class="portfolio_img">
-                    <img src="img/500x750.png" alt="" />
+                    <img src="{{ $post -> img_url}}" alt="" />
                     <div class="img_hover_style c_font_bold">
                         <ion-icon name="camera-outline"></ion-icon>
                         詳細を見る
                     </div>
                 </div>
                 <div class="content">
-                    <p><a href="#">https://www.demo.demo.demo.demo.demo.demo.demo.demo.demo.demo</a></p>
+                    <p><a href="{{ $post -> port_url }}">{{ $post -> port_url }}</a></p>
                     <h1 class="c_font_bold">
-                        松浦豪毅<span>情報システム専攻科システムエンジニア専攻アドバンスコース</span>
+                        {{ $post -> name }}<span>{{ $post -> class }}</span>
                     </h1>
                     <h3>
-                        <a href="/">
+                        <a href="{{ $post -> git_url }}">
                             <ion-icon name="logo-github"></ion-icon>
-                            GitHub <span>https://www.github.demo.demo.demo.demo.demo.demo.demo.demo.demo.demo.demo</span>
+                            GitHub <span>{{ $post -> git_url }}</span>
                         </a>
                     </h3>
-                    <h2>
-                        ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-                    </h2>
+                    <h2>{{ $post -> comment }}</h2>
                     <h4>
                         <p>使用言語</p>
-                        HTML / CSS/ JavaScript / PHP / React / Next.js / microCMS
+                        {{ $post -> use_language }}
                     </h4>
                 </div>
                 <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
             </div>
         </div>
-        <div class="portfolio">
-            <div class="portfolio_background">
-                <div class="portfolio_img">
-                    <img src="img/200x200.png" alt="" />
-                    <div class="img_hover_style c_font_bold">
-                        <ion-icon name="camera-outline"></ion-icon>
-                        詳細を見る
-                    </div>
-                </div>
-                <div class="content">
-                    <p><a href="#">https://www.demo.demo</a></p>
-                    <h1 class="c_font_bold">
-                        松浦豪毅<span>情報工学科</span>
-                    </h1>
-                    <h3>
-                        <a href="/">
-                            <ion-icon name="logo-github"></ion-icon>
-                            GitHub <span>https://www.github.demo</span>
-                        </a>
-                    </h3>
-                    <h2>
-                        ポートフォリオサイトを作りました。 ご覧いただけますと幸いです。
-                        ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-                    </h2>
-                    <h4>
-                        <p>使用言語</p>
-                        HTML / CSS/ JavaScript
-                    </h4>
-                </div>
-                <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
-            </div>
-        </div>
-        <div class="portfolio">
-            <div class="portfolio_background">
-                <div class="portfolio_img">
-                    <img src="img/1980x1440.png" alt="" />
-                    <div class="img_hover_style c_font_bold">
-                        <ion-icon name="camera-outline"></ion-icon>
-                        詳細を見る
-                    </div>
-                </div>
-                <div class="content">
-                    <p><a href="#">https://www.demo.demo</a></p>
-                    <h1 class="c_font_bold">
-                        松浦豪毅<span>情報システム専攻科システムエンジニア専攻アドバンスコース</span>
-                    </h1>
-                    <h3>
-                        <a href="/">
-                            <ion-icon name="logo-github"></ion-icon>
-                            GitHub <span>https://www.github.demo</span>
-                        </a>
-                    </h3>
-                    <h2>ポートフォリオサイトを作りました。 ご覧いただけますと幸いです。</h2>
-                    <h4>
-                        <p>使用言語</p>
-                        HTML / CSS/ JavaScript
-                    </h4>
-                </div>
-                <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
-            </div>
-        </div>
+        @endforeach
     </div>
 
     <script src="script/script.js"></script>

@@ -20,6 +20,6 @@ class TopController extends Controller
         			->join('users','users.id','=','posts.user_id')
         			->get();
         			
-        return view('test',compact('posts'));
+        return view('welcome',compact('posts'));
     }
 }
