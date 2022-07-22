@@ -16,9 +16,11 @@ class TopController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::all();
-
-        return view('top',compact('posts'));
+        $posts = Post::select('users.name','posts.*')
+        			->join('users','users.id','=','posts.user_id')
+        			->get();
+        			
+        return view('test',compact('posts'));
     }
 
     
