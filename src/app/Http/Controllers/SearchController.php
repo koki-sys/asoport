@@ -30,7 +30,18 @@ class SearchController extends BaseController
                 ->orWhere('users.name', 'LIKE', $pat)
                 ->get();
         }
-        dd($post);
-        // return view('search', compact('post'));
+        if(!empty($request->input('checkbox'))){
+            //使用言語処理
+            $check = new Form($request->input('checkbox'));
+            //文字列変換
+            $checkbox = '';
+            if(isset($request->checkbox)){
+                $checkbox = implode("\n",$request->checkbox);
+            }
+            $post2 = DB::table('posts')
+            ->where('use_language','LIKE',$checkbox)
+            ->get();
+        }
+        return view('PostIndex',compact('$post','$post2'));
     }
 }
