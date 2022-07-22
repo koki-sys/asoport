@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script/masonry.pkgd.min.js"></script>
 </head>
 
@@ -28,23 +27,22 @@
 
     <!-- ===== Search Field ===== -->
     <div class="search_field c_font_bold">
-        <!-- <form action="" method=""> -->
-        <div class="search_input_wrapper c_font_bold">
-            <label class="" for="keyword">キーワード検索</label>
-            <input class="c_font_regular" type="text" name="keyword" id="keyword">
+        <form action="/search" method="post">
+            <div class="search_input_wrapper c_font_bold">
+                <label class="" for="keyword">キーワード検索</label>
+                <input class="c_font_regular" type="text" name="keyword" id="keyword">
+                <label class="">使用言語</label>
+                <div class="checkbox_wrapper">
+                    <input type="checkbox" name="html" id="html"><label for="html">HTML</label>
+                    <input type="checkbox" name="css" id="css"><label for="css">CSS</label>
+                    <input type="checkbox" name="javascript" id="javascript"><label for="javascript">JavaScript</label>
+                    <input type="checkbox" name="php" id="php"><label for="php">PHP</label>
+                    <input type="checkbox" name="java" id="java"><label for="java">Java</label>
+                </div>
 
-            <label class="">使用言語</label>
-            <div class="checkbox_wrapper">
-                <input type="checkbox" name="html" id="html"><label for="html">HTML</label>
-                <input type="checkbox" name="css" id="css"><label for="css">CSS</label>
-                <input type="checkbox" name="javascript" id="javascript"><label for="javascript">JavaScript</label>
-                <input type="checkbox" name="php" id="php"><label for="php">PHP</label>
-                <input type="checkbox" name="java" id="java"><label for="java">Java</label>
+                <button class="c_font_bold">検索する</button>
             </div>
-
-            <button class="c_font_bold">検索する</button>
-        </div>
-        <!-- </form> -->
+        </form>
     </div>
     <!-- ===== 検索フィールド表示時の黒背景 ===== -->
     <div class="search_black_back"></div>
