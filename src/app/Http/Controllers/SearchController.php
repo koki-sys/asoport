@@ -3,33 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use App\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends BaseController
 {
-    public function PostIndex()
+    /**
+     * ユーザ名、コメント、クラス名で検索するメソッド
+     *
+     * @author koki-sys, take65
+     * @param Request $request
+     *
+     * @return Illuminate\Support\Collection $post
+     */
+    public function PostIndex(Request $request)
     {
-        /*
-        $articles = Post::orderBy('created_at','asc')->where(function($query){
-            $search = Request::input('search');
-            $language = Request::input('language');
-            if($search){
-                foreach($search as $value){
-                    $query->where('class','like','%'.$value.'%')->orwhere('comment','like','%'.$value.'%')
-                    ->where(function($a,$language){
-                        $a->where('use_language','like','%'.$language.'%');
-                    });
-                };
-                $users=$query;
-            }
-            // return view('',compact($users));
-        });
+        $post = null;
 
-        dd($articles);
-        */
-        $posts = Post::all();
-        foreach ($posts as $post) {
-            echo $post;
+        if (!empty($request->input('keyword'))) {
+            // キーワード検索処理
+            $pat = '%' . addcslashes($request->input('keyword'), '%_\\') . '%';
+            $post = DB::table('posts')
+                ->join('users', 'users.id', '=', 'posts.user_id')
+                ->orWhere('comment', 'LIKE', $pat)
+                ->orWhere('class', 'LIKE', $pat)
+                ->orWhere('users.name', 'LIKE', $pat)
+                ->get();
         }
+        dd($post);
+        // return view('search', compact('post'));
     }
 }

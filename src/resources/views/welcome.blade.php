@@ -79,6 +79,7 @@
                         {{ $post -> use_language }}
                     </h4>
                 </div>
+                <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
             </div>
         </div>
         @endforeach

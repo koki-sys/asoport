@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use App\post;
 use Illuminate\Http\Request;
@@ -14,9 +15,8 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('/post', function () {
-    return view('post_test');
-});
+Route::view('/post', 'post_test');
 Route::post('/post_submit', 'PostController@post');
 Route::get('/search', 'SearchController@PostIndex');
-Route::get('/','TopController@index');
+Route::get('/', 'TopController@index');
+Route::view('/create', 'posts.create');
