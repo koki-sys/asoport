@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('port_url');
             $table->string('class');
             $table->string('git_url');
-            $table->string('comment');
+            $table->string('comment', 140);
             $table->string('use_language');
             $table->string('img_url');
             $table->timestamps();
