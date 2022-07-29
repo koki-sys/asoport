@@ -8,25 +8,38 @@ use Auth;
 
 class PostController extends Controller{
   public function post(Request $request){
-    //↓test用
-    $user_id = Auth::id();
-    $posts = new Post;
-    $html=$request->html;
-    $css=$request->css;
-    $php=$request->php;
-    $js=$request->js;
-    $java=$request->java;
-    $lang=$html.$css.$php.$js.$java;
-    
+
+    // ↓ログイン実装後
+    // $user_id = Auth::id();
     // $posts->user_id = $request->user_id;
-    //↓test用
+
+    $language = "";
+    //↓null判定
+    if( $request -> html != null ) {
+      $language = $language.$request -> html;
+    }
+    if( $request -> css != null ) {
+      $language = $language.$request -> css;
+    }
+    if( $request -> php != null ) {
+      $language = $language.$request -> php;
+    }
+    if( $request -> java != null ) {
+      $language = $language.$request -> java;
+    }
+    if( $request -> js != null ) {
+      $language = $language.$request -> js;
+    }
+
+    //postsテーブル->登録処理
+    $posts = new Post;
     $posts->user_id = "1";
-    $posts->class = $request->class;
     $posts->port_url = $request->port;
+    $posts->class = $request->class;
     $posts->git_url = $request->git;
     $posts->comment = $request->comment;
-    $posts->use_language = $lang;
-    $posts->img_url = $request->img;
+    $posts->use_language = $language;
+    $posts->img_url = $request->photo;
     $posts->save();
 
     return redirect('/');

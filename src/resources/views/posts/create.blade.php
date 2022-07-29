@@ -23,18 +23,18 @@
                             <div id="previewArea"></div>
                         </div>
                     </div>
-                    <input type="text" name="name" placeholder="名前" class="input-field required"><br>
+                    <!-- <input type="text" name="name" placeholder="名前" class="input-field required"><br> -->
                     <input type="text" name="class" placeholder="学科" class="input-field required"><br>
-                    <input type="email" name="mail" placeholder="メールアドレス" class="input-field required"><br>
-                    <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required email"><br>
+                    <!-- <input type="email" name="mail" placeholder="メールアドレス" class="input-field required"><br> -->
+                    <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field required"><br>
                     <div class="lang-box">
                         <p>使用言語</p>
-                        <label class="lang-label"><input type="checkbox" name="language" value="html" class="required"><span>HTML</span></label>
-                        <label class="lang-label"><input type="checkbox" name="language" value="css"><span>CSS</span></label><br>
-                        <label class="lang-label"><input type="checkbox" name="language" value="php"><span>PHP</span></label>
-                        <label class="lang-label"><input type="checkbox" name="language" value="java"><span>JAVA</span></label>
-                        <label class="lang-label"><input type="checkbox" name="language" value="javascript"><span>JAVASCRIPT</span></label>
+                        <label class="lang-label"><input type="checkbox" name="html" value="html" class="required"><span>HTML</span></label>
+                        <label class="lang-label"><input type="checkbox" name="css" value="css"><span>CSS</span></label><br>
+                        <label class="lang-label"><input type="checkbox" name="php" value="php"><span>PHP</span></label>
+                        <label class="lang-label"><input type="checkbox" name="java" value="java"><span>JAVA</span></label>
+                        <label class="lang-label"><input type="checkbox" name="js" value="javascript"><span>JAVASCRIPT</span></label>
                     </div>
                     <input type="text" name="comment" placeholder="ひとこと" class="input-field required"><br>
                     <button type="submit" class="post-btn btn btn-lg">投稿する</button>
