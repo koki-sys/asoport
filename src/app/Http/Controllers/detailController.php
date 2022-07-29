@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class detailController extends Controller
 {
 
-    
+
 
     /**
      * Create a new controller instance.
@@ -44,13 +44,13 @@ class detailController extends Controller
         $id = $request->input('id');
         $userid = getParam($id, '/\A[[[:^cntrl:]][0-9]\z/','選択されたデータを読み取れませんでした。');
         $detail = post::find(htmlspecialchars($id, ENT_COMPAT, "UTF-8"));
-        
+
         if($detail){
-            return view('',compact($detail));
+            return view('welcome',compact($detail));
         } else {
             die('選択されたデータを読み取れませんでした。');
         }
-        
+
     }
-    
+
 }
