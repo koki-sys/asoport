@@ -20,3 +20,4 @@ Route::post('/search', 'SearchController@PostIndex');
 Route::get('/', 'TopController@index');
 Route::view('/create', 'posts.create');
 Route::post('/detail', 'detailController@index');
+Route::view('/profile', 'profile');
