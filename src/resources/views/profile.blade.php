@@ -12,7 +12,7 @@
     <script src="script/masonry.pkgd.min.js"></script>
 </head>
 
-<body  class="light">
+<body class="light">
     <!-- ====== Header ====== -->
     <div class="header_wrapper">
         <header>
@@ -20,7 +20,7 @@
 
             <div class="header_icon_wrapper">
                 <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
-                <a href="profile.html">
+                <a href="{{ url('/profile') }}">
                     <ion-icon name="person-outline"></ion-icon>
                 </a>
                 <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
