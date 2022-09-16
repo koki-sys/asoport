@@ -18,7 +18,7 @@
     <!-- Styles -->
     <style>
         body {
-            background-color: #9900ff;
+            background-color: #EEEEEE;
         }
     </style>
 </head>
