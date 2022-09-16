@@ -1,22 +1,34 @@
-$(function(){
+$(function () {
 
     // ===== 検索トグル =====
-    $(".search_wrapper").on("click", function(){
+    $(".search_wrapper").on("click", function () {
         $(this).toggleClass("active");
         $(".search_field").toggleClass("active");
-        if($(this).hasClass("active")) {
+        if ($(this).hasClass("active")) {
             $(".search_black_back").fadeIn()
-        }else {
+        } else {
             $(".search_black_back").fadeOut()
         }
     });
 
-    // ===== ダークテーマ、ライトテーマ切り替えボタン =====
-    $(".theme_toggle").on("click", function() {
-        if($("body").hasClass("light")) {
+    // ===== ページロード時のテーマ検出 =====
+    $(document).ready(function () {
+        const theme = localStorage.getItem('theme');
+        if (theme == "dark") {
             $("body").addClass("dark").removeClass("light");
-        }else {
+        } else if (theme == "light") {
             $("body").addClass("light").removeClass("dark");
+        }
+    });
+
+    // ===== ダークテーマ、ライトテーマ切り替えボタン =====
+    $(".theme_toggle").on("click", function () {
+        if ($("body").hasClass("light")) {
+            $("body").addClass("dark").removeClass("light");
+            localStorage.setItem('theme', 'dark');
+        } else {
+            $("body").addClass("light").removeClass("dark");
+            localStorage.setItem('theme', 'light');
         }
     });
 
