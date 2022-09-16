@@ -16,12 +16,15 @@
     <!-- ====== Header ====== -->
     <div class="header_wrapper">
         <header class="c_flex_center">
-            <h1 class="c_pacifico">ASOPort</h1>
+            <h1 class="c_pacifico"><a href="index.html">ASOPort</a></h1>
             <div class="search_wrapper">
                 <ion-icon class="search_icon" name="search-outline"></ion-icon>
                 <ion-icon class="close_icon" name="close-outline"></ion-icon>
             </div>
-            <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
+            <div class="header_icon_wrapper">
+                <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
+                <a href="profile.html"><ion-icon name="person-outline"></ion-icon></a>
+            </div>
         </header>
     </div>
 
