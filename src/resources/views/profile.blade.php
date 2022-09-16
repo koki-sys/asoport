@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script/masonry.pkgd.min.js"></script>
 </head>
 
@@ -17,11 +16,13 @@
     <!-- ====== Header ====== -->
     <div class="header_wrapper">
         <header>
-            <h1 class="c_pacifico"><a href="index.html">ASOPort</a></h1> 
+            <h1 class="c_pacifico"><a href="{{ url('/') }}">ASOPort</a></h1>
 
             <div class="header_icon_wrapper">
                 <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
-                <a href="profile.html"><ion-icon name="person-outline"></ion-icon></a>
+                <a href="profile.html">
+                    <ion-icon name="person-outline"></ion-icon>
+                </a>
             </div>
         </header>
     </div>
