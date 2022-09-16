@@ -12,7 +12,7 @@
     <script src="script/masonry.pkgd.min.js"></script>
 </head>
 
-<body>
+<body  class="light">
     <!-- ====== Header ====== -->
     <div class="header_wrapper">
         <header>
@@ -23,6 +23,7 @@
                 <a href="profile.html">
                     <ion-icon name="person-outline"></ion-icon>
                 </a>
+                <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
             </div>
         </header>
     </div>

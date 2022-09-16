@@ -11,6 +11,15 @@ $(function(){
         }
     });
 
+    // ===== ダークテーマ、ライトテーマ切り替えボタン =====
+    $(".theme_toggle").on("click", function() {
+        if($("body").hasClass("light")) {
+            $("body").addClass("dark").removeClass("light");
+        }else {
+            $("body").addClass("light").removeClass("dark");
+        }
+    });
+
     $(".portfolio_close").on("click", function () {
         $(".portfolio_list").children("div").removeClass("img_horizon img_vertical active c_flex_center");
         $(".portfolio_list").removeClass("active");

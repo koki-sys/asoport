@@ -1,5 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import "sanitize.css";
+.light {
+  --main-text: #000;
+  --header-text: #000;
+  --search-text: #fff;
+  --main-bg: #fff;
+  --header-bg: #fff;
+  --search-bg: #fff;
+  --main-purple: #9900FF;
+  --main-pink: rgba(255,182,187,1);
+  --base_color: #EEEEEE;
+  --icon-hover-color: #eee;
+  --black-bg: rgba(0, 0, 0, .3);
+  --portfolio-shadow: rgba(0, 0, 0, .1);
+  --bg-blue: #63BEF5;
+  --bg-green: #70D1BB;
+  --circle-gray: #505050;
+}
+
+.dark {
+  --main-text: #EEEEEE;
+  --header-text: #5E5E5E;
+  --search-text: #eee;
+  --main-bg: #5E5E5E;
+  --header-bg: #fff;
+  --search-bg: #ababab;
+  --main-purple: #9900FF;
+  --main-pink: rgba(255,182,187,1);
+  --base_color: #36393F;
+  --icon-hover-color: #eee;
+  --black-bg: rgba(54, 57 , 63, .3);
+  --portfolio-shadow: rgba(54, 57, 63, .1);
+  --bg-blue: #2677A0;
+  --bg-green: #24997D;
+  --circle-gray: #eee;
+}
+
+html {
+  transition: color 300ms, background-color 300ms;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +54,8 @@ body {
   width: 100%;
   min-height: 100vh;
   min-width: 100vw;
-  color: black;
-  background-color: #EEEEEE;
+  color: var(--main-text);
+  background-color: var(--base_color);
   font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 
@@ -51,7 +91,7 @@ header {
   max-width: 1200px;
   height: 60px;
   border-radius: 100px;
-  background-color: white;
+  background-color: var(--header-bg);
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -62,9 +102,10 @@ header ion-icon {
   padding: 5px;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
+  color: var(--header-text);
 }
 header ion-icon:hover {
-  background-color: #EEEEEE;
+  background-color: var(--icon-hover-color);
 }
 header h1 {
   position: absolute;
@@ -83,7 +124,7 @@ header h1 {
 }
 header h1 a {
   text-decoration: none;
-  color: black;
+  color: var(--header-text);
   transition: all 0.3s ease-in-out;
 }
 header h1::before {
@@ -94,12 +135,12 @@ header h1::before {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: #9900FF;
+  background-color: var(--main-purple);
   transform: scale(0);
   transition: transform 0.3s ease-out;
 }
 header h1:hover a {
-  color: #9900FF;
+  color: var(--main-purple);
 }
 header h1:hover::before {
   transform: scale(1);
@@ -149,7 +190,7 @@ header .header_icon_wrapper ion-icon {
 }
 header .header_icon_wrapper a {
   height: 35px;
-  color: black;
+  color: var(--header-text);
 }
 
 .search_field {
@@ -162,7 +203,7 @@ header .header_icon_wrapper a {
   max-width: 700px;
   width: 90%;
   border-radius: 30px;
-  background-color: white;
+  background-color: var(--main-bg);
   margin-top: 100px;
   transition: all 0.2s ease-in;
   z-index: -1;
@@ -205,7 +246,10 @@ header .header_icon_wrapper a {
   height: 30px;
   border-radius: 5px;
   padding: 3px 10px;
-  border: 3px solid black;
+  background: var(--search-bg);
+  color: var(--search-text);
+  border: 3px solid var(--main-text);
+  outline: var(--main-text);
   margin-bottom: 20px;
   font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
@@ -219,7 +263,8 @@ header .header_icon_wrapper a {
   font-size: 16px;
   padding: 3px 20px;
   border-radius: 5px;
-  border: 3px solid black;
+  background-color: var(--search-bg);
+  border: 3px solid var(--main-text);
 }
 @media (max-width: 900px) {
   .search_input_wrapper .checkbox_wrapper label {
@@ -230,9 +275,9 @@ header .header_icon_wrapper a {
   display: none;
 }
 .search_input_wrapper .checkbox_wrapper input[type=checkbox]:checked + label {
-  border-color: #9900FF;
-  background-color: #9900FF;
-  color: white;
+  border-color: var(--main-purple);
+  background-color: var(--main-purple);
+  color: var(--search-text);
   transition: all 0.1s ease-out;
 }
 .search_input_wrapper button {
@@ -242,7 +287,7 @@ header .header_icon_wrapper a {
   margin: 0 auto;
   border: none;
   cursor: pointer;
-  color: white;
+  color: var(--search-text);
   position: relative;
   z-index: 1;
 }
@@ -261,7 +306,7 @@ header .header_icon_wrapper a {
   top: 0;
   left: 0;
   transition: all 0.5s ease-in-out;
-  background: linear-gradient(90deg, rgb(255, 182, 187) 0%, rgb(153, 0, 255) 50%);
+  background: linear-gradient(90deg, var(--main-pink) 0%, var(--main-purple) 50%);
 }
 .search_input_wrapper button::after {
   content: "";
@@ -273,7 +318,7 @@ header .header_icon_wrapper a {
   top: 0;
   left: 0;
   transition: 0.5s;
-  background: linear-gradient(90deg, rgb(153, 0, 255) 50%, rgb(255, 182, 187) 100%);
+  background: linear-gradient(90deg, var(--main-purple) 50%, var(--main-pink) 100%);
 }
 .search_input_wrapper button:hover::before {
   opacity: 0;
@@ -287,7 +332,7 @@ header .header_icon_wrapper a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--black-bg);
 }
 
 .portfolio_list {
@@ -299,8 +344,8 @@ header .header_icon_wrapper a {
   width: 250px;
   border-radius: 10px;
   margin: 7.5px;
-  background-color: white;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--main-bg);
+  box-shadow: 0 5px 5px var(--portfolio-shadow);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -323,7 +368,7 @@ header .header_icon_wrapper a {
 }
 .portfolio:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px var(--portfolio-shadow);
 }
 .portfolio:hover .img_hover_style {
   opacity: 1;
@@ -345,7 +390,7 @@ header .header_icon_wrapper a {
   border-top-left-radius: 10px;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
-  background-color: #63BEF5;
+  background-color: var(--bg-blue);
   transform: scale(0);
   transform-origin: left top;
   transition: all 0.3s ease-in-out;
@@ -366,7 +411,7 @@ header .header_icon_wrapper a {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 0;
   border-top-right-radius: 0;
-  background-color: #70D1BB;
+  background-color: var(--bg-green);
   transform: scale(0);
   transform-origin: right bottom;
   transition: all 0.3s ease-in-out;
@@ -389,13 +434,13 @@ header .header_icon_wrapper a {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--black-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  color: white;
+  color: var(--search-text);
   transition: all 0.3s ease-in;
 }
 @media (max-width: 900px) {
@@ -411,7 +456,7 @@ header .header_icon_wrapper a {
   content: "portfolio";
   font-family: "Pacifico", cursive;
   font-size: 36px;
-  background: linear-gradient(90deg, rgb(255, 182, 187) 0%, rgb(153, 0, 255) 50%);
+  background: linear-gradient(90deg, var(--main-pink) 0%, var(--main-purple) 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: absolute;
@@ -455,11 +500,11 @@ header .header_icon_wrapper a {
   left: -50px;
   font-size: 30px;
   --ionicon-stroke-width: 60px;
-  color: black;
-  background-color: white;
+  color: var(--main-text);
+  background-color: var(--main-bg);
   padding: 5px;
   border-radius: 100%;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px var(--portfolio-shadow);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -477,7 +522,7 @@ header .header_icon_wrapper a {
   }
 }
 .portfolio_background .portfolio_close:hover {
-  background-color: #EEEEEE;
+  background-color: var(--base_color);
 }
 
 .portfolio.active .img_hover_style {
@@ -562,10 +607,10 @@ header .header_icon_wrapper a {
 .portfolio.active .portfolio_background {
   width: 95%;
   max-width: 800px;
-  background-color: white;
+  background-color: var(--main-bg);
   padding: 0;
   border-radius: 20px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px var(--portfolio-shadow);
 }
 .portfolio.active .content {
   font-weight: 700;
@@ -616,7 +661,7 @@ header .header_icon_wrapper a {
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  background-color: #505050;
+  background-color: var(--circle-gray);
 }
 @media (max-width: 480px) {
   .portfolio.active .content h1 span::after {
@@ -677,7 +722,7 @@ header .header_icon_wrapper a {
   width: 100%;
   height: 1.5px;
   border-radius: 1.5px;
-  background-color: black;
+  background-color: var(--main-text);
 }
 .portfolio.active .content h4 {
   font-size: 16px;
@@ -697,7 +742,7 @@ header .header_icon_wrapper a {
 }
 .portfolio.active .content a {
   text-decoration: none;
-  color: black;
+  color: var(--main-text);
 }
 
 .profile {
@@ -749,7 +794,7 @@ header .header_icon_wrapper a {
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  background-color: #505050;
+  background-color: var(--circle-gray);
 }
 @media (max-width: 480px) {
   .profile h1 span::after {
@@ -761,7 +806,7 @@ header .header_icon_wrapper a {
   display: none;
   position: absolute;
   border-radius: 100%;
-  background-color: #505050;
+  background-color: var(--circle-gray);
 }
 @media (max-width: 480px) {
   .profile h1::after {
@@ -794,7 +839,7 @@ header .header_icon_wrapper a {
 }
 .your_portfolio .your_portfolio_head h1 {
   font-size: 24px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--main-text);
   display: inline-block;
 }
 @media (max-width: 480px) {
