@@ -22,7 +22,9 @@
                 <ion-icon class="close_icon" name="close-outline"></ion-icon>
             </div>
             <div class="header_icon_wrapper">
-                <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
+                <a href="{{ url('/create') }}">
+                    <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
+                </a>
                 <a href="{{ url('/profile') }}">
                     <ion-icon name="person-outline"></ion-icon>
                 </a>
