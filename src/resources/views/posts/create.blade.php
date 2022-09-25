@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="back-box mb-3">
                 <a href="{{ url('/') }}">
-                    <h4><i class="fa-solid fa-arrow-left fa-sm mr-2"></i>一覧画面へ</h4>
+                    <h4 class="text-dark"><i class="fa-solid fa-arrow-left fa-sm mr-2"></i>一覧画面へ</h4>
                 </a>
             </div>
             <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm" novalidate>
@@ -15,7 +15,7 @@
                 <div class="text-center box-center">
                     <div id="dragDropArea">
                         <div class="drag-drop-inside">
-                            <i class="fa-light fa-plus fa-9x"></i><br>
+                            <i class="fa-light fa-plus fa-9x" style="font-style: normal"></i><br>
                             <p class="drag-drop-info">画像をD&D</p>
                             <p class="drag-drop-buttons">
                                 <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo" class="d-none required" onChange="photoPreview(event)">
