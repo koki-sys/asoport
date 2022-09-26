@@ -4,6 +4,8 @@
 {{-- serversで記述した「web」のサーバーを対象に、taskで囲った範囲のコマンドを[foo]として定義して実行する --}}
 @task('deploy', ['on' => 'web'])
     cd asoport {{-- ここは環境に合わせて変更する --}}
+    echo 'pulling......'
     git pull git@github.com:koki-sys/asoport.git
+    echo 'pulled.'
     make init
 @endtask
