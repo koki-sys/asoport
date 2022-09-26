@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="back-box mb-3">
                 <a href="{{ url('/') }}">
-                    <h4 class="text-dark"><i class="fa-solid fa-arrow-left fa-sm mr-2"></i>一覧画面へ</h4>
+                    <h4><i class="fa-solid fa-arrow-left fa-sm mr-2"></i>一覧画面へ</h4>
                 </a>
             </div>
             <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm" novalidate>
@@ -29,7 +29,7 @@
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field required"><br>
                     <div class="lang-box">
-                        <p>使用言語</p>
+                        <p style="color: #5e5e5e">使用言語</p>
                         <label class="lang-label"><input type="checkbox" name="html" value="html" class="required"><span>HTML</span></label>
                         <label class="lang-label"><input type="checkbox" name="css" value="css"><span>CSS</span></label><br>
                         <label class="lang-label"><input type="checkbox" name="php" value="php"><span>PHP</span></label>

@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             errorSpan.setAttribute('aria-live', 'polite');
             //引数に指定されたエラーメッセージを設定
             errorSpan.textContent = errorMessage;
-
-            errorSpan.style.color = "#000000";
             //elem の親要素の子要素として追加
             elem.parentNode.insertBefore(errorSpan, elem.nextSibling);
             console.log("error:" + errorMessage);
