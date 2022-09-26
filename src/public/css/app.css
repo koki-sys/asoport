@@ -9269,6 +9269,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.send-back {
+  color: #999;
+}
+
 #dragDropArea {
   background-color: #ffffff;
   margin: 10px auto;
