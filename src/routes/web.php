@@ -21,3 +21,4 @@ Route::get('/', 'TopController@index');
 Route::view('/create', 'posts.create');
 Route::post('/detail', 'detailController@index');
 Route::view('/profile', 'profile');
+Route::view('/profile_edit', 'profile_edit');
