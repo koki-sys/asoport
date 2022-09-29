@@ -63,5 +63,10 @@ $(function () {
 
             return false;
         });
+
+        // 詳細画面のリンクをクリックした時に遷移
+        $(".portfolio_link").on("click", function () {
+            window.open($(this).attr("href"), '_blank');
+        });
     });
 });

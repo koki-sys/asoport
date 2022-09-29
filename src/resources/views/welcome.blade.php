@@ -70,12 +70,12 @@
                     </div>
                 </div>
                 <div class="content">
-                    <p><a href="{{ $post -> port_url }}">{{ $post -> port_url }}</a></p>
+                    <p><a href="{{ $post -> port_url }}" class="portfolio_link">{{ $post -> port_url }}</a></p>
                     <h1 class="c_font_bold">
                         {{ $post -> name }}<span>{{ $post -> class }}</span>
                     </h1>
                     <h3>
-                        <a href="{{ $post -> git_url }}">
+                        <a href="{{ $post -> git_url }}" class="portfolio_link">
                             <ion-icon name="logo-github"></ion-icon>
                             GitHub <span>{{ $post -> git_url }}</span>
                         </a>
