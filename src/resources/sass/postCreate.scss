@@ -24,8 +24,13 @@
     font-size: 1.2em;
 }
 
-.preview-size {
-    width: 50%;
+.preview-size-landscape {
+    width: 70%;
+    height: auto;
+}
+
+.preview-size-portrait {
+    width: 30%;
     height: auto;
 }
 
