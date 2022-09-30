@@ -13,26 +13,47 @@
     <script src="script/masonry.pkgd.min.js"></script>
 </head>
 
-<body>
+<body class="light">
     <!-- ====== Header ====== -->
     @if(Auth::check())
-        <div class="header_wrapper">
-            <header class="c_flex_center">
-                <h1 class="c_pacifico">ASOPort</h1>
-                <div class="search_wrapper">
-                    <ion-icon class="search_icon" name="search-outline"></ion-icon>
-                    <ion-icon class="close_icon" name="close-outline"></ion-icon>
-                </div>
-                <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
-            </header>
-        </div>
-    @else
     <div class="header_wrapper">
         <header class="c_flex_center">
-            <h1 class="c_pacifico">ASOPort</h1>
+            <h1 class="c_pacifico"><a href="{{ url('/') }}">ASOPort</a></h1>
             <div class="search_wrapper">
                 <ion-icon class="search_icon" name="search-outline"></ion-icon>
                 <ion-icon class="close_icon" name="close-outline"></ion-icon>
+            </div>
+            <div class="header_icon_wrapper">
+                <a href="{{ url('/create') }}">
+                    <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
+                </a>
+                <ion-icon class="open_menu_icon" name="person-outline"></ion-icon>
+                <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
+            </div>
+            <div class="menu">
+                <a class="c_font_bold" href="{{ url('/profile') }}">プロフィールへ</a>
+                <a class="c_font_bold" href="#">プロフィールを編集</a>
+                <!-- ↓ログイン後はログアウトにしてください -->
+                <a class="c_font_bold" href="#">ログアウト</a>
+            </div>
+        </header>
+    </div>
+    @else
+    <div class="header_wrapper">
+        <header class="c_flex_center">
+            <h1 class="c_pacifico"><a href="{{ url('/') }}">ASOPort</a></h1>
+            <div class="search_wrapper">
+                <ion-icon class="search_icon" name="search-outline"></ion-icon>
+                <ion-icon class="close_icon" name="close-outline"></ion-icon>
+            </div>
+            <div class="header_icon_wrapper">
+                <ion-icon class="open_menu_icon" name="person-outline"></ion-icon>
+                <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
+            </div>
+            <div class="menu">
+                <a class="c_font_bold" href="{{ url('/register') }}">新規登録へ</a>
+                <!-- ↓ログイン後はログアウトにしてください -->
+                <a class="c_font_bold" href="{{url('/login') }}">ログイン</a>
             </div>
         </header>
     </div>
@@ -67,19 +88,19 @@
         <div class="portfolio">
             <div class="portfolio_background">
                 <div class="portfolio_img">
-                    <img src="{{ $post -> img_url}}" alt="" />
+                    <img src="{{ asset($post -> img_url) }}" alt="" />
                     <div class="img_hover_style c_font_bold">
                         <ion-icon name="camera-outline"></ion-icon>
                         詳細を見る
                     </div>
                 </div>
                 <div class="content">
-                    <p><a href="{{ $post -> port_url }}">{{ $post -> port_url }}</a></p>
+                    <p><a href="{{ $post -> port_url }}" class="portfolio_link">{{ $post -> port_url }}</a></p>
                     <h1 class="c_font_bold">
                         {{ $post -> name }}<span>{{ $post -> class }}</span>
                     </h1>
                     <h3>
-                        <a href="{{ $post -> git_url }}">
+                        <a href="{{ $post -> git_url }}" class="portfolio_link">
                             <ion-icon name="logo-github"></ion-icon>
                             GitHub <span>{{ $post -> git_url }}</span>
                         </a>
