@@ -6,19 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASOPort</title>
 
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/9ddb128e39.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script/masonry.pkgd.min.js"></script>
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body class="light">
