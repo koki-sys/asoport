@@ -33,12 +33,10 @@
                 <a class="c_font_bold" href="{{ url('/profile') }}">プロフィールへ</a>
                 <a class="c_font_bold" href="#">プロフィールを編集</a>
                 <!-- 要修正(css) -->
-                <a>
-                    <form action="{{ url('/logout') }}" method="POST">
-                        @csrf
-                        <input type="submit" value="ログアウト" class="c_font_bold border border-0">
-                    </form>
-                </a>
+                <form action="{{ url('/logout') }}" method="POST">
+                    @csrf
+                    <input type="submit" value="ログアウト" class="c_font_bold">
+                </form>
             </div>
         </header>
     </div>

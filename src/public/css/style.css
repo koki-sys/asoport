@@ -54,6 +54,9 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
+input {
+    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+}
 body {
   width: 100%;
   min-height: 100vh;
@@ -221,16 +224,17 @@ header .menu.active {
   visibility: visible;
   opacity: 1;
 }
-header .menu a {
+header .menu a, input {
   color: var(--main-text);
   background-color: var(--menu_bg_color);
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
   padding: 3px 10px;
+  border: none;
 }
 @media (max-width: 480px) {
-  header .menu a {
+  header .menu a, input {
     font-size: 14px;
   }
 }
