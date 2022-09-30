@@ -1,14 +1,25 @@
 $(function () {
 
     // ===== 検索トグル =====
-    $(".search_wrapper").on("click", function () {
+    $(".search_wrapper").on("click", function(){
+        if($(".menu").hasClass("active")) {
+            $(".menu").removeClass("active")
+            $(".search_black_back").toggleClass("active");
+        }
         $(this).toggleClass("active");
         $(".search_field").toggleClass("active");
-        if ($(this).hasClass("active")) {
-            $(".search_black_back").fadeIn()
-        } else {
-            $(".search_black_back").fadeOut()
+        $(".search_black_back").toggleClass("active");
+    });
+
+    // menu
+    $('.open_menu_icon').on("click", function() {
+        if($(".search_wrapper").hasClass("active")) {
+            $(".search_wrapper").toggleClass("active");
+            $(".search_field").toggleClass("active");
+            $(".search_black_back").toggleClass("active");
         }
+        $(".menu").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
     });
 
     // ===== ページロード時のテーマ検出 =====
@@ -69,4 +80,13 @@ $(function () {
             window.open($(this).attr("href"), '_blank');
         });
     });
+});
+
+$(document).click(function(event) {
+    if($(".search_black_back").hasClass("active")){
+        if($(event.target).closest('.search_black_back').length) {
+            $("*").removeClass("active");
+        } else {
+        }
+    }
 });
