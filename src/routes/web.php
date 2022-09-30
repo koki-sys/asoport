@@ -18,7 +18,7 @@ Route::post('/search', 'SearchController@PostIndex');
 Route::get('/', 'TopController@index');
 Route::view('/create', 'posts.create');
 Route::post('/detail', 'detailController@index');
-Route::view('/profile', 'profile');
+Route::get('/profile', 'ProfileIndex@index');
 Route::view('/profile_edit', 'profile_edit');
 Route::post('/prof_edit_submit', 'profileeditController@index');
 
