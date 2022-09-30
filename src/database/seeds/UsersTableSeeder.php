@@ -18,12 +18,14 @@ class UsersTableSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => '松浦豪毅',
+                'class' => '情報システム専攻科システムエンジニア専攻アドバンスコース',
                 'email' => Str::random(10) . '@example.com',
                 'password' => Hash::make('password')
             ],
             [
                 'id' => 2,
                 'name' => '髙橋 幸暉',
+                'class' => '情報システム専攻科',
                 'email' => Str::random(10).'@example.com',
                 'password' => Hash::make('password')
             ]
