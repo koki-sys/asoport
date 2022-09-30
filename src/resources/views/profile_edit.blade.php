@@ -32,7 +32,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             
-            <form method="post" enctype="multipart/form-data" action="#" class="validationForm" novalidate>
+            <form method="post" enctype="multipart/form-data" action="{{ url('prof_edit_submit') }}" class="validationForm" novalidate>
                 @csrf
                 <div class="text-center box-center">
                     <input type="text" name="name" placeholder="名前" class="input-field required"><br>

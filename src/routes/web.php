@@ -20,7 +20,9 @@ Route::view('/create', 'posts.create');
 Route::post('/detail', 'detailController@index');
 Route::view('/profile', 'profile');
 Route::view('/profile_edit', 'profile_edit');
+Route::post('/prof_edit_submit', 'profileeditController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
