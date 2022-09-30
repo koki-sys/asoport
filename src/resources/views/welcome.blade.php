@@ -25,10 +25,14 @@
                 <a href="{{ url('/create') }}">
                     <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
                 </a>
-                <a href="{{ url('/profile') }}">
-                    <ion-icon name="person-outline"></ion-icon>
-                </a>
+                <ion-icon class="open_menu_icon" name="person-outline"></ion-icon>
                 <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
+            </div>
+            <div class="menu">
+                <a class="c_font_bold" href="{{ url('/profile') }}">プロフィールへ</a>
+                <a class="c_font_bold" href="#">プロフィールを編集</a>
+                <!-- ↓ログイン後はログアウトにしてください -->
+                <a class="c_font_bold" href="#">ログイン</a>
             </div>
         </header>
     </div>
