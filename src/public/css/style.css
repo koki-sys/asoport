@@ -1,5 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import "sanitize.css";
+.light {
+  --main-text: #000;
+  --header-text: #000;
+  --search-text: #000;
+  --search-button-text: #fff;
+  --main-bg: #fff;
+  --header-bg: #fff;
+  --search-bg: #fff;
+  --main-purple: #9900FF;
+  --main-pink: rgba(255,182,187,1);
+  --base_color: #EEEEEE;
+  --menu_bg_color: #eee;
+  --icon-hover-color: #eee;
+  --black-bg: rgba(0, 0, 0, .3);
+  --portfolio-shadow: rgba(0, 0, 0, .1);
+  --bg-blue: #63BEF5;
+  --bg-green: #70D1BB;
+  --circle-gray: #505050;
+}
+
+.dark {
+  --main-text: #EEEEEE;
+  --header-text: #5E5E5E;
+  --search-text: #eee;
+  --search-button-text: #eee;
+  --main-bg: #5E5E5E;
+  --header-bg: #fff;
+  --search-bg: #ababab;
+  --main-purple: #9900FF;
+  --main-pink: rgba(255,182,187,1);
+  --base_color: #36393F;
+  --menu_bg_color: #acacac;
+  --icon-hover-color: #eee;
+  --black-bg: rgba(54, 57 , 63, .3);
+  --portfolio-shadow: rgba(54, 57, 63, .1);
+  --bg-blue: #2677A0;
+  --bg-green: #24997D;
+  --circle-gray: #eee;
+}
+
+html {
+  transition: color 300ms, background-color 300ms;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +58,8 @@ body {
   width: 100%;
   min-height: 100vh;
   min-width: 100vw;
-  color: black;
-  background-color: #EEEEEE;
+  color: var(--main-text);
+  background-color: var(--base_color);
   font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 
@@ -51,7 +95,7 @@ header {
   max-width: 1200px;
   height: 60px;
   border-radius: 100px;
-  background-color: white;
+  background-color: var(--header-bg);
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -62,9 +106,10 @@ header ion-icon {
   padding: 5px;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
+  color: var(--header-text);
 }
 header ion-icon:hover {
-  background-color: #EEEEEE;
+  background-color: var(--icon-hover-color);
 }
 header h1 {
   position: absolute;
@@ -81,6 +126,11 @@ header h1 {
     left: 15px;
   }
 }
+header h1 a {
+  text-decoration: none;
+  color: var(--header-text);
+  transition: all 0.3s ease-in-out;
+}
 header h1::before {
   content: "";
   position: absolute;
@@ -89,12 +139,12 @@ header h1::before {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: #9900FF;
+  background-color: var(--main-purple);
   transform: scale(0);
   transition: transform 0.3s ease-out;
 }
-header h1:hover {
-  color: #9900FF;
+header h1:hover a {
+  color: var(--main-purple);
 }
 header h1:hover::before {
   transform: scale(1);
@@ -123,17 +173,77 @@ header .search_wrapper.active .search_icon {
 header .search_wrapper.active .close_icon {
   transform: translate(-50%, -50%) scale(1);
 }
-header .plus_icon {
+header .header_icon_wrapper {
+  height: 40px;
+  display: flex;
+  align-items: center;
   position: absolute;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   top: 50%;
   right: 30px;
   transform: translateY(-50%);
-  cursor: pointer;
 }
 @media (max-width: 480px) {
-  header .plus_icon {
+  header .header_icon_wrapper {
     right: 15px;
   }
+}
+header .header_icon_wrapper ion-icon {
+  cursor: pointer;
+}
+header .header_icon_wrapper a {
+  height: 35px;
+  color: var(--header-text);
+}
+header .menu {
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 5px;
+  padding: 10px;
+  background-color: var(--main-bg);
+  border-radius: 10px;
+  opacity: 0;
+  z-index: -1;
+}
+@media (max-width: 480px) {
+  header .menu {
+    right: 35px;
+  }
+}
+header .menu.active {
+  transition: opacity 0.2s ease-in;
+  opacity: 1;
+}
+header .menu a {
+  color: var(--main-text);
+  background-color: var(--menu_bg_color);
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 3px 10px;
+}
+@media (max-width: 480px) {
+  header .menu a {
+    font-size: 14px;
+  }
+}
+header .menu::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 30px;
+  width: 25px;
+  height: 25px;
+  background-color: var(--main-bg);
+  border-radius: 5px;
+  transform: rotate(45deg);
+  z-index: -1;
 }
 
 .search_field {
@@ -146,9 +256,8 @@ header .plus_icon {
   max-width: 700px;
   width: 90%;
   border-radius: 30px;
-  background-color: white;
+  background-color: var(--main-bg);
   margin-top: 100px;
-  transition: all 0.2s ease-in;
   z-index: -1;
 }
 @media (max-width: 480px) {
@@ -158,6 +267,7 @@ header .plus_icon {
   }
 }
 .search_field.active {
+  transition: all 0.2s ease-in;
   opacity: 1;
   z-index: 10;
 }
@@ -189,7 +299,10 @@ header .plus_icon {
   height: 30px;
   border-radius: 5px;
   padding: 3px 10px;
-  border: 3px solid black;
+  background: var(--search-bg);
+  color: var(--search-text);
+  border: 3px solid var(--main-text);
+  outline: var(--main-text);
   margin-bottom: 20px;
   font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
@@ -203,7 +316,8 @@ header .plus_icon {
   font-size: 16px;
   padding: 3px 20px;
   border-radius: 5px;
-  border: 3px solid black;
+  background-color: var(--search-bg);
+  border: 3px solid var(--main-text);
 }
 @media (max-width: 900px) {
   .search_input_wrapper .checkbox_wrapper label {
@@ -214,9 +328,9 @@ header .plus_icon {
   display: none;
 }
 .search_input_wrapper .checkbox_wrapper input[type=checkbox]:checked + label {
-  border-color: #9900FF;
-  background-color: #9900FF;
-  color: white;
+  border-color: var(--main-purple);
+  background-color: var(--main-purple);
+  color: var(--search-button-text);
   transition: all 0.1s ease-out;
 }
 .search_input_wrapper button {
@@ -226,7 +340,7 @@ header .plus_icon {
   margin: 0 auto;
   border: none;
   cursor: pointer;
-  color: white;
+  color: var(--search-button-text);
   position: relative;
   z-index: 1;
 }
@@ -245,7 +359,7 @@ header .plus_icon {
   top: 0;
   left: 0;
   transition: all 0.5s ease-in-out;
-  background: linear-gradient(90deg, rgb(255, 182, 187) 0%, rgb(153, 0, 255) 50%);
+  background: linear-gradient(90deg, var(--main-pink) 0%, var(--main-purple) 50%);
 }
 .search_input_wrapper button::after {
   content: "";
@@ -257,21 +371,27 @@ header .plus_icon {
   top: 0;
   left: 0;
   transition: 0.5s;
-  background: linear-gradient(90deg, rgb(153, 0, 255) 50%, rgb(255, 182, 187) 100%);
+  background: linear-gradient(90deg, var(--main-purple) 50%, var(--main-pink) 100%);
 }
 .search_input_wrapper button:hover::before {
   opacity: 0;
 }
 
 .search_black_back {
-  display: none;
+  display: block;
   position: fixed;
-  z-index: 4;
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--black-bg);
+  opacity: 0;
+}
+.search_black_back.active {
+  transition: all 0.2s ease-in;
+  opacity: 1;
+  z-index: 4;
 }
 
 .portfolio_list {
@@ -283,8 +403,8 @@ header .plus_icon {
   width: 250px;
   border-radius: 10px;
   margin: 7.5px;
-  background-color: white;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--main-bg);
+  box-shadow: 0 5px 5px var(--portfolio-shadow);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -307,7 +427,7 @@ header .plus_icon {
 }
 .portfolio:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px var(--portfolio-shadow);
 }
 .portfolio:hover .img_hover_style {
   opacity: 1;
@@ -329,7 +449,7 @@ header .plus_icon {
   border-top-left-radius: 10px;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
-  background-color: #63BEF5;
+  background-color: var(--bg-blue);
   transform: scale(0);
   transform-origin: left top;
   transition: all 0.3s ease-in-out;
@@ -350,7 +470,7 @@ header .plus_icon {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 0;
   border-top-right-radius: 0;
-  background-color: #70D1BB;
+  background-color: var(--bg-green);
   transform: scale(0);
   transform-origin: right bottom;
   transition: all 0.3s ease-in-out;
@@ -373,13 +493,13 @@ header .plus_icon {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--black-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  color: white;
+  color: var(--search-button-text);
   transition: all 0.3s ease-in;
 }
 @media (max-width: 900px) {
@@ -395,7 +515,7 @@ header .plus_icon {
   content: "portfolio";
   font-family: "Pacifico", cursive;
   font-size: 36px;
-  background: linear-gradient(90deg, rgb(255, 182, 187) 0%, rgb(153, 0, 255) 50%);
+  background: linear-gradient(90deg, var(--main-pink) 0%, var(--main-purple) 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: absolute;
@@ -439,11 +559,11 @@ header .plus_icon {
   left: -50px;
   font-size: 30px;
   --ionicon-stroke-width: 60px;
-  color: black;
-  background-color: white;
+  color: var(--main-text);
+  background-color: var(--main-bg);
   padding: 5px;
   border-radius: 100%;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px var(--portfolio-shadow);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -461,7 +581,7 @@ header .plus_icon {
   }
 }
 .portfolio_background .portfolio_close:hover {
-  background-color: #EEEEEE;
+  background-color: var(--base_color);
 }
 
 .portfolio.active .img_hover_style {
@@ -546,10 +666,10 @@ header .plus_icon {
 .portfolio.active .portfolio_background {
   width: 95%;
   max-width: 800px;
-  background-color: white;
+  background-color: var(--main-bg);
   padding: 0;
   border-radius: 20px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px var(--portfolio-shadow);
 }
 .portfolio.active .content {
   font-weight: 700;
@@ -600,7 +720,7 @@ header .plus_icon {
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  background-color: #505050;
+  background-color: var(--circle-gray);
 }
 @media (max-width: 480px) {
   .portfolio.active .content h1 span::after {
@@ -661,7 +781,7 @@ header .plus_icon {
   width: 100%;
   height: 1.5px;
   border-radius: 1.5px;
-  background-color: black;
+  background-color: var(--main-text);
 }
 .portfolio.active .content h4 {
   font-size: 16px;
@@ -681,5 +801,108 @@ header .plus_icon {
 }
 .portfolio.active .content a {
   text-decoration: none;
-  color: black;
+  color: var(--main-text);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 30px;
+  margin-top: 160px;
+}
+.profile h1 {
+  position: relative;
+  margin: 0;
+  font-size: 30px;
+}
+@media (max-width: 900px) {
+  .profile h1 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .profile h1 {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+.profile h1 span {
+  font-size: 16px;
+  margin-left: 10px;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .profile h1 span {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .profile h1 span {
+    display: block;
+    font-size: 11px;
+    margin-left: 5px;
+  }
+}
+.profile h1 span::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: var(--circle-gray);
+}
+@media (max-width: 480px) {
+  .profile h1 span::after {
+    display: none;
+  }
+}
+.profile h1::after {
+  content: "";
+  display: none;
+  position: absolute;
+  border-radius: 100%;
+  background-color: var(--circle-gray);
+}
+@media (max-width: 480px) {
+  .profile h1::after {
+    display: block;
+    top: 6px;
+    right: calc(30% + 15px);
+    width: 4px;
+    height: 4px;
+  }
+}
+.profile h2 {
+  font-size: 16px;
+}
+@media (max-width: 480px) {
+  .profile h2 {
+    font-size: 14px;
+  }
+}
+
+.your_portfolio {
+  margin: 45px auto 0;
+}
+.your_portfolio .portfolio_list {
+  margin-top: 0;
+}
+.your_portfolio .your_portfolio_head {
+  text-align: center;
+  padding-bottom: 3px;
+  margin-bottom: 20px;
+}
+.your_portfolio .your_portfolio_head h1 {
+  font-size: 24px;
+  border-bottom: 1px solid var(--main-text);
+  display: inline-block;
+}
+@media (max-width: 480px) {
+  .your_portfolio .your_portfolio_head h1 {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */
