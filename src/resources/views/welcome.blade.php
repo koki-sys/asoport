@@ -14,16 +14,27 @@
 
 <body>
     <!-- ====== Header ====== -->
-    <div class="header_wrapper">
-        <header class="c_flex_center">
-            <h1 class="c_pacifico">ASOPort</h1>
-            <div class="search_wrapper">
-                <ion-icon class="search_icon" name="search-outline"></ion-icon>
-                <ion-icon class="close_icon" name="close-outline"></ion-icon>
-            </div>
-            <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
-        </header>
-    </div>
+    @if(Auth::check())
+        <div class="header_wrapper">
+            <header class="c_flex_center">
+                <h1 class="c_pacifico">ASOPort</h1>
+                <div class="search_wrapper">
+                    <ion-icon class="search_icon" name="search-outline"></ion-icon>
+                    <ion-icon class="close_icon" name="close-outline"></ion-icon>
+                </div>
+                <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
+            </header>
+        </div>
+    @else
+        <div class="header_wrapper">
+            <header class="c_flex_center">
+                <h1 class="c_pacifico">ASOPort</h1>
+                <div class="search_wrapper">
+                    <ion-icon class="search_icon" name="search-outline"></ion-icon>
+                    <ion-icon class="close_icon" name="close-outline"></ion-icon>
+                </div>
+            </header>
+        </div>
 
     <!-- ===== Search Field ===== -->
     <div class="search_field c_font_bold">
@@ -55,7 +66,7 @@
         <div class="portfolio">
             <div class="portfolio_background">
                 <div class="portfolio_img">
-                    <img src="{{ $post -> img_url}}" alt="" />
+                    <img src="{{ asset($post -> img_url) }}" alt="" />
                     <div class="img_hover_style c_font_bold">
                         <ion-icon name="camera-outline"></ion-icon>
                         詳細を見る
