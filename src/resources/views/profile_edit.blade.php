@@ -31,13 +31,13 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            
+
             <form method="post" enctype="multipart/form-data" action="{{ url('prof_edit_submit') }}" class="validationForm" novalidate>
                 @csrf
                 <div class="text-center box-center">
                     <input type="text" name="name" placeholder="名前" class="input-field required"><br>
                     <input type="text" name="class" placeholder="学科" class="input-field required"><br>
-                    
+
                     <button type="submit" class="post-btn btn btn-lg mt-5">確定する</button>
                 </div>
             </form>

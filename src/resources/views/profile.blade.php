@@ -1,41 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASOPort - Profile</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="script/masonry.pkgd.min.js"></script>
-</head>
-
-<body class="light">
-    <!-- ====== Header ====== -->
-    <div class="header_wrapper">
-        <header>
-            <h1 class="c_pacifico"><a href="{{ url('/') }}">ASOPort</a></h1>
-            <div class="header_icon_wrapper">
-                <a href="{{ url('/create') }}">
-                    <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
-                </a>
-                <ion-icon class="open_menu_icon" name="person-outline"></ion-icon>
-                <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
-            </div>
-            <div class="menu">
-                <a class="c_font_bold" href="{{ url('/profile') }}">プロフィールへ</a>
-                <a class="c_font_bold" href="#">プロフィールを編集</a>
-                <!-- ↓ログイン後はログアウトにしてください -->
-                <a class="c_font_bold" href="#">ログイン</a>
-            </div>
-        </header>
-    </div>
-
-    <!-- Personアイコンクリック時の黒背景 -->
-    <div class="search_black_back"></div>
-
+@section('content')
     <!-- ===== Profile ===== -->
     <section class="profile">
         <h1 class="c_font_bold">
@@ -146,10 +111,4 @@
             </div>
         </div>
     </section>
-
-    <script src="script/script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-
-</html>
+@endsection
