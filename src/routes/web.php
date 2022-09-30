@@ -15,8 +15,10 @@ use Illuminate\Http\Request;
 */
 
 
-Route::view('/post', 'post_test');
 Route::post('/post_submit', 'PostController@post');
 Route::post('/search', 'SearchController@PostIndex');
 Route::get('/', 'TopController@index');
 Route::view('/create', 'posts.create');
+Route::post('/detail', 'detailController@index');
+Route::view('/profile', 'profile');
+Route::view('/profile_edit', 'profile_edit');

@@ -1,13 +1,45 @@
-$(function(){
+$(function () {
 
     // ===== 検索トグル =====
     $(".search_wrapper").on("click", function(){
+        if($(".menu").hasClass("active")) {
+            $(".menu").removeClass("active")
+            $(".search_black_back").toggleClass("active");
+        }
         $(this).toggleClass("active");
         $(".search_field").toggleClass("active");
-        if($(this).hasClass("active")) {
-            $(".search_black_back").fadeIn()
-        }else {
-            $(".search_black_back").fadeOut()
+        $(".search_black_back").toggleClass("active");
+    });
+
+    // menu
+    $('.open_menu_icon').on("click", function() {
+        if($(".search_wrapper").hasClass("active")) {
+            $(".search_wrapper").toggleClass("active");
+            $(".search_field").toggleClass("active");
+            $(".search_black_back").toggleClass("active");
+        }
+        $(".menu").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
+    });
+
+    // ===== ページロード時のテーマ検出 =====
+    $(document).ready(function () {
+        const theme = localStorage.getItem('theme');
+        if (theme == "dark") {
+            $("body").addClass("dark").removeClass("light");
+        } else if (theme == "light") {
+            $("body").addClass("light").removeClass("dark");
+        }
+    });
+
+    // ===== ダークテーマ、ライトテーマ切り替えボタン =====
+    $(".theme_toggle").on("click", function () {
+        if ($("body").hasClass("light")) {
+            $("body").addClass("dark").removeClass("light");
+            localStorage.setItem('theme', 'dark');
+        } else {
+            $("body").addClass("light").removeClass("dark");
+            localStorage.setItem('theme', 'light');
         }
     });
 
@@ -42,5 +74,19 @@ $(function(){
 
             return false;
         });
+
+        // 詳細画面のリンクをクリックした時に遷移
+        $(".portfolio_link").on("click", function () {
+            window.open($(this).attr("href"), '_blank');
+        });
     });
+});
+
+$(document).click(function(event) {
+    if($(".search_black_back").hasClass("active")){
+        if($(event.target).closest('.search_black_back').length) {
+            $("*").removeClass("active");
+        } else {
+        }
+    }
 });

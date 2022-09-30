@@ -13,18 +13,17 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/9ddb128e39.js" crossorigin="anonymous"></script>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="script/masonry.pkgd.min.js"></script>
 
-    <!-- Styles -->
-    <style>
-        body {
-            background-color: #9900ff;
-        }
-    </style>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="light">
     @yield('content')
+    <script src="script/script.js"></script>
 </body>
 
 </html>

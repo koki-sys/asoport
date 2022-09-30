@@ -24,8 +24,13 @@
     font-size: 1.2em;
 }
 
-.preview-size {
-    width: 50%;
+.preview-size-landscape {
+    width: 70%;
+    height: auto;
+}
+
+.preview-size-portrait {
+    width: 30%;
     height: auto;
 }
 
@@ -86,9 +91,6 @@
 
 .back-box {
     text-align: left;
-    a {
-        color: #eeeeee;
-    }
 }
 
 .box {
@@ -111,4 +113,7 @@
     border-radius: 30px;
     margin: 1rem 0;
     margin-bottom: 2rem;
+    &:hover {
+        color: #999999;
+    }
 }

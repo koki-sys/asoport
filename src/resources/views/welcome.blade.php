@@ -52,7 +52,6 @@
             </div>
             <div class="menu">
                 <a class="c_font_bold" href="{{ url('/register') }}">新規登録へ</a>
-                <!-- ↓ログイン後はログアウトにしてください -->
                 <a class="c_font_bold" href="{{url('/login') }}">ログイン</a>
             </div>
         </header>
