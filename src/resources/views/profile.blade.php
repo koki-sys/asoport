@@ -33,6 +33,9 @@
         </header>
     </div>
 
+    <!-- Personアイコンクリック時の黒背景 -->
+    <div class="search_black_back"></div>
+
     <!-- ===== Profile ===== -->
     <section class="profile">
         <h1 class="c_font_bold">
