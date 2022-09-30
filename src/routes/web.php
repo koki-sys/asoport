@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::post('/post_submit', 'PostController@post');
 Route::post('/search', 'SearchController@PostIndex');
 Route::get('/', 'TopController@index');
@@ -22,3 +20,7 @@ Route::view('/create', 'posts.create');
 Route::post('/detail', 'detailController@index');
 Route::view('/profile', 'profile');
 Route::view('/profile_edit', 'profile_edit');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

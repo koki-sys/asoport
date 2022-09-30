@@ -11,14 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.webpackConfig({
-    stats: {
-        children: true,
-    },
-});
-
-mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/dragDrop.js', 'public/js')
-    .js('resources/js/createValidation.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
-
+mix.js('resources/js/app.js', 'public/js').vue()
+   .sass('resources/sass/app.scss', 'public/css');
