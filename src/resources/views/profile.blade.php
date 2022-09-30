@@ -17,18 +17,24 @@
     <div class="header_wrapper">
         <header>
             <h1 class="c_pacifico"><a href="{{ url('/') }}">ASOPort</a></h1>
-
             <div class="header_icon_wrapper">
                 <a href="{{ url('/create') }}">
                     <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
                 </a>
-                <a href="{{ url('/profile') }}">
-                    <ion-icon name="person-outline"></ion-icon>
-                </a>
+                <ion-icon class="open_menu_icon" name="person-outline"></ion-icon>
                 <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
+            </div>
+            <div class="menu">
+                <a class="c_font_bold" href="{{ url('/profile') }}">プロフィールへ</a>
+                <a class="c_font_bold" href="#">プロフィールを編集</a>
+                <!-- ↓ログイン後はログアウトにしてください -->
+                <a class="c_font_bold" href="#">ログイン</a>
             </div>
         </header>
     </div>
+
+    <!-- Personアイコンクリック時の黒背景 -->
+    <div class="search_black_back"></div>
 
     <!-- ===== Profile ===== -->
     <section class="profile">

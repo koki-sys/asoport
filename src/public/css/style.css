@@ -1,884 +1,908 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import "sanitize.css";
 .light {
-    --main-text: #000;
-    --header-text: #000;
-    /* search-btn-text（ボタンのテキスト色）の追加 */
-    --search-text: #000;
-    --search-btn-text: #fff;
-    --main-bg: #fff;
-    --header-bg: #fff;
-    --search-bg: #fff;
-    --main-purple: #9900ff;
-    --main-pink: rgba(255, 182, 187, 1);
-    --base_color: #eeeeee;
-    --icon-hover-color: #eee;
-    --black-bg: rgba(0, 0, 0, 0.3);
-    --portfolio-shadow: rgba(0, 0, 0, 0.1);
-    --bg-blue: #63bef5;
-    --bg-green: #70d1bb;
-    --circle-gray: #505050;
+  --main-text: #000;
+  --header-text: #000;
+  --search-text: #000;
+  --search-button-text: #fff;
+  --main-bg: #fff;
+  --header-bg: #fff;
+  --search-bg: #fff;
+  --main-purple: #9900FF;
+  --main-pink: rgba(255,182,187,1);
+  --base_color: #EEEEEE;
+  --menu_bg_color: #eee;
+  --icon-hover-color: #eee;
+  --black-bg: rgba(0, 0, 0, .3);
+  --portfolio-shadow: rgba(0, 0, 0, .1);
+  --bg-blue: #63BEF5;
+  --bg-green: #70D1BB;
+  --circle-gray: #505050;
 }
 
 .dark {
-    --main-text: #eeeeee;
-    --header-text: #5e5e5e;
-    /* search-btn-text（ボタンのテキスト色）の追加 */
-    --search-text: #eee;
-    --search-btn-text: #eee;
-    --main-bg: #5e5e5e;
-    --header-bg: #fff;
-    --search-bg: #ababab;
-    --main-purple: #9900ff;
-    --main-pink: rgba(255, 182, 187, 1);
-    --base_color: #36393f;
-    --icon-hover-color: #eee;
-    --black-bg: rgba(54, 57, 63, 0.3);
-    --portfolio-shadow: rgba(54, 57, 63, 0.1);
-    --bg-blue: #2677a0;
-    --bg-green: #24997d;
-    --circle-gray: #eee;
+  --main-text: #EEEEEE;
+  --header-text: #5E5E5E;
+  --search-text: #eee;
+  --search-button-text: #eee;
+  --main-bg: #5E5E5E;
+  --header-bg: #fff;
+  --search-bg: #ababab;
+  --main-purple: #9900FF;
+  --main-pink: rgba(255,182,187,1);
+  --base_color: #36393F;
+  --menu_bg_color: #acacac;
+  --icon-hover-color: #eee;
+  --black-bg: rgba(54, 57 , 63, .3);
+  --portfolio-shadow: rgba(54, 57, 63, .1);
+  --bg-blue: #2677A0;
+  --bg-green: #24997D;
+  --circle-gray: #eee;
 }
 
 html {
-    transition: color 300ms, background-color 300ms;
+  transition: color 300ms, background-color 300ms;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    min-width: 100vw;
-    color: var(--main-text);
-    background-color: var(--base_color);
-    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
-        "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+  color: var(--main-text);
+  background-color: var(--base_color);
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 .c_pacifico {
-    font-family: "Pacifico", cursive;
+  font-family: "Pacifico", cursive;
 }
 
 .c_font_regular {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .c_font_bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .c_flex_center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header_wrapper {
-    width: 100%;
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px 0;
-    z-index: 6;
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  z-index: 6;
 }
 
 header {
-    max-width: 1200px;
-    height: 60px;
-    border-radius: 100px;
-    background-color: var(--header-bg);
-    margin: 0 auto;
-    position: relative;
-    z-index: 10;
+  max-width: 1200px;
+  height: 60px;
+  border-radius: 100px;
+  background-color: var(--header-bg);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 header ion-icon {
-    font-size: 25px;
-    --ionicon-stroke-width: 60px;
-    padding: 5px;
-    border-radius: 50%;
-    transition: all 0.3s ease-in-out;
-    color: var(--header-text);
+  font-size: 25px;
+  --ionicon-stroke-width: 60px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  color: var(--header-text);
 }
 header ion-icon:hover {
-    background-color: var(--icon-hover-color);
+  background-color: var(--icon-hover-color);
 }
 header h1 {
-    position: absolute;
-    top: 50%;
-    left: 30px;
-    transform: translateY(-50%);
-    font-size: 24px;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 20px;
-        left: 15px;
-    }
+  header h1 {
+    font-size: 20px;
+    left: 15px;
+  }
 }
 header h1 a {
-    text-decoration: none;
-    color: var(--header-text);
-    transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: var(--header-text);
+  transition: all 0.3s ease-in-out;
 }
 header h1::before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: calc(100% + 5px);
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: var(--main-purple);
-    transform: scale(0);
-    transition: transform 0.3s ease-out;
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: calc(100% + 5px);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--main-purple);
+  transform: scale(0);
+  transition: transform 0.3s ease-out;
 }
 header h1:hover a {
-    color: var(--main-purple);
+  color: var(--main-purple);
 }
 header h1:hover::before {
-    transform: scale(1);
+  transform: scale(1);
 }
 header .search_wrapper {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 header .search_wrapper ion-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 header .search_wrapper .search_icon {
-    transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 header .search_wrapper .close_icon {
-    transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
 }
 header .search_wrapper.active .search_icon {
-    transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
 }
 header .search_wrapper.active .close_icon {
-    transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 header .header_icon_wrapper {
-    height: 40px;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    -moz-column-gap: 10px;
-    column-gap: 10px;
-    top: 50%;
-    right: 30px;
-    transform: translateY(-50%);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
 }
 @media (max-width: 480px) {
-    header .header_icon_wrapper {
-        right: 15px;
-    }
+  header .header_icon_wrapper {
+    right: 15px;
+  }
 }
 header .header_icon_wrapper ion-icon {
-    cursor: pointer;
+  cursor: pointer;
 }
 header .header_icon_wrapper a {
-    height: 35px;
-    color: var(--header-text);
+  height: 35px;
+  color: var(--header-text);
+}
+header .menu {
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 5px;
+  padding: 10px;
+  background-color: var(--main-bg);
+  border-radius: 10px;
+  opacity: 0;
+  z-index: -1;
+}
+@media (max-width: 480px) {
+  header .menu {
+    right: 35px;
+  }
+}
+header .menu.active {
+  transition: opacity 0.2s ease-in;
+  opacity: 1;
+}
+header .menu a {
+  color: var(--main-text);
+  background-color: var(--menu_bg_color);
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 3px 10px;
+}
+@media (max-width: 480px) {
+  header .menu a {
+    font-size: 14px;
+  }
+}
+header .menu::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 30px;
+  width: 25px;
+  height: 25px;
+  background-color: var(--main-bg);
+  border-radius: 5px;
+  transform: rotate(45deg);
+  z-index: -1;
 }
 
 .search_field {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    z-index: 5;
-    transform: translateX(-50%);
-    opacity: 0;
-    max-width: 700px;
-    width: 90%;
-    border-radius: 30px;
-    background-color: var(--main-bg);
-    margin-top: 100px;
-    transition: all 0.2s ease-in;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 5;
+  transform: translateX(-50%);
+  opacity: 0;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 30px;
+  background-color: var(--main-bg);
+  margin-top: 100px;
+  z-index: -1;
 }
 @media (max-width: 480px) {
-    .search_field {
-        width: 95%;
-        border-radius: 15px;
-    }
+  .search_field {
+    width: 95%;
+    border-radius: 15px;
+  }
 }
 .search_field.active {
-    opacity: 1;
-    z-index: 10;
+  transition: all 0.2s ease-in;
+  opacity: 1;
+  z-index: 10;
 }
 
 .search_input_wrapper {
-    width: 80%;
-    padding: 20px 0;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+  width: 80%;
+  padding: 20px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 @media (max-width: 480px) {
-    .search_input_wrapper {
-        width: 90%;
-    }
+  .search_input_wrapper {
+    width: 90%;
+  }
 }
 .search_input_wrapper label {
-    font-size: 18px;
+  font-size: 18px;
 }
 @media (max-width: 900px) {
-    .search_input_wrapper label {
-        font-size: 16px;
-    }
+  .search_input_wrapper label {
+    font-size: 16px;
+  }
 }
-.search_input_wrapper input[type="text"] {
-    width: 100%;
-    height: 30px;
-    border-radius: 5px;
-    padding: 3px 10px;
-    background: var(--search-bg);
-    color: var(--search-text);
-    border: 3px solid var(--main-text);
-    outline: var(--main-text);
-    margin-bottom: 20px;
-    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
-        "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+.search_input_wrapper input[type=text] {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  padding: 3px 10px;
+  background: var(--search-bg);
+  color: var(--search-text);
+  border: 3px solid var(--main-text);
+  outline: var(--main-text);
+  margin-bottom: 20px;
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 .search_input_wrapper .checkbox_wrapper {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
 }
 .search_input_wrapper .checkbox_wrapper label {
-    font-size: 16px;
-    padding: 3px 20px;
-    border-radius: 5px;
-    background-color: var(--search-bg);
-    border: 3px solid var(--main-text);
+  font-size: 16px;
+  padding: 3px 20px;
+  border-radius: 5px;
+  background-color: var(--search-bg);
+  border: 3px solid var(--main-text);
 }
 @media (max-width: 900px) {
-    .search_input_wrapper .checkbox_wrapper label {
-        font-size: 14px;
-    }
+  .search_input_wrapper .checkbox_wrapper label {
+    font-size: 14px;
+  }
 }
-.search_input_wrapper .checkbox_wrapper input[type="checkbox"] {
-    display: none;
+.search_input_wrapper .checkbox_wrapper input[type=checkbox] {
+  display: none;
 }
-.search_input_wrapper .checkbox_wrapper input[type="checkbox"]:checked + label {
-    border-color: var(--main-purple);
-    background-color: var(--main-purple);
-    color: var(--search-text);
-    transition: all 0.1s ease-out;
+.search_input_wrapper .checkbox_wrapper input[type=checkbox]:checked + label {
+  border-color: var(--main-purple);
+  background-color: var(--main-purple);
+  color: var(--search-button-text);
+  transition: all 0.1s ease-out;
 }
 .search_input_wrapper button {
-    padding: 8px 40px;
-    border-radius: 50%;
-    font-size: 18px;
-    margin: 0 auto;
-    border: none;
-    cursor: pointer;
-    color: var(--search-btn-text);
-    position: relative;
-    z-index: 1;
+  padding: 8px 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  margin: 0 auto;
+  border: none;
+  cursor: pointer;
+  color: var(--search-button-text);
+  position: relative;
+  z-index: 1;
 }
 @media (max-width: 900px) {
-    .search_input_wrapper button {
-        font-size: 16px;
-    }
+  .search_input_wrapper button {
+    font-size: 16px;
+  }
 }
 .search_input_wrapper button::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    transition: all 0.5s ease-in-out;
-    background: linear-gradient(
-        90deg,
-        var(--main-pink) 0%,
-        var(--main-purple) 50%
-    );
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(90deg, var(--main-pink) 0%, var(--main-purple) 50%);
 }
 .search_input_wrapper button::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    left: 0;
-    transition: 0.5s;
-    background: linear-gradient(
-        90deg,
-        var(--main-purple) 50%,
-        var(--main-pink) 100%
-    );
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  background: linear-gradient(90deg, var(--main-purple) 50%, var(--main-pink) 100%);
 }
 .search_input_wrapper button:hover::before {
-    opacity: 0;
+  opacity: 0;
 }
 
 .search_black_back {
-    display: none;
-    position: fixed;
-    z-index: 4;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--black-bg);
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-bg);
+  opacity: 0;
+}
+.search_black_back.active {
+  transition: all 0.2s ease-in;
+  opacity: 1;
+  z-index: 4;
 }
 
 .portfolio_list {
-    width: 100%;
-    margin: 100px auto 0;
+  width: 100%;
+  margin: 100px auto 0;
 }
 
 .portfolio {
-    width: 250px;
-    border-radius: 10px;
-    margin: 7.5px;
-    background-color: var(--main-bg);
-    box-shadow: 0 5px 5px var(--portfolio-shadow);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+  width: 250px;
+  border-radius: 10px;
+  margin: 7.5px;
+  background-color: var(--main-bg);
+  box-shadow: 0 5px 5px var(--portfolio-shadow);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 480px) {
-    .portfolio {
-        width: 300px;
-    }
+  .portfolio {
+    width: 300px;
+  }
 }
 .portfolio.active {
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    border-radius: 0;
-    margin: 0;
-    box-shadow: none;
-    cursor: default;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  cursor: default;
 }
 .portfolio:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 10px var(--portfolio-shadow);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 10px var(--portfolio-shadow);
 }
 .portfolio:hover .img_hover_style {
-    opacity: 1;
+  opacity: 1;
 }
 .portfolio:hover::before {
-    transform: scale(1);
+  transform: scale(1);
 }
 .portfolio:hover::after {
-    transform: scale(1);
+  transform: scale(1);
 }
 .portfolio::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-    background-color: var(--bg-blue);
-    transform: scale(0);
-    transform-origin: left top;
-    transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: var(--bg-blue);
+  transform: scale(0);
+  transform-origin: left top;
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 900px) {
-    .portfolio::before {
-        display: none;
-    }
+  .portfolio::before {
+    display: none;
+  }
 }
 .portfolio::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 90px;
-    height: 90px;
-    border-radius: 100%;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0;
-    background-color: var(--bg-green);
-    transform: scale(0);
-    transform-origin: right bottom;
-    transition: all 0.3s ease-in-out;
-    z-index: -1;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: var(--bg-green);
+  transform: scale(0);
+  transform-origin: right bottom;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
 }
 @media (max-width: 900px) {
-    .portfolio::after {
-        display: none;
-    }
+  .portfolio::after {
+    display: none;
+  }
 }
 
 .portfolio_img {
-    position: relative;
+  position: relative;
 }
 .portfolio_img .img_hover_style {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    background-color: var(--black-bg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    color: var(--search-text);
-    transition: all 0.3s ease-in;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: var(--black-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: var(--search-button-text);
+  transition: all 0.3s ease-in;
 }
 @media (max-width: 900px) {
-    .portfolio_img .img_hover_style {
-        display: none;
-    }
+  .portfolio_img .img_hover_style {
+    display: none;
+  }
 }
 .portfolio_img .img_hover_style ion-icon {
-    font-size: 40px;
-    --ionicon-stroke-width: 40px;
+  font-size: 40px;
+  --ionicon-stroke-width: 40px;
 }
 .portfolio_img .img_hover_style::after {
-    content: "portfolio";
-    font-family: "Pacifico", cursive;
-    font-size: 36px;
-    background: linear-gradient(
-        90deg,
-        var(--main-pink) 0%,
-        var(--main-purple) 50%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: absolute;
-    top: -8%;
-    left: -15%;
-    transform: rotate(-15deg);
-    transition: all 0.3s ease-in;
+  content: "portfolio";
+  font-family: "Pacifico", cursive;
+  font-size: 36px;
+  background: linear-gradient(90deg, var(--main-pink) 0%, var(--main-purple) 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  top: -8%;
+  left: -15%;
+  transform: rotate(-15deg);
+  transition: all 0.3s ease-in;
 }
 
 .portfolio_background {
-    width: 100%;
-    padding: 15px;
-    position: relative;
+  width: 100%;
+  padding: 15px;
+  position: relative;
 }
 .portfolio_background img {
-    width: 100%;
-    border-radius: 5px;
-    height: auto;
-    -o-object-fit: cover;
-    object-fit: cover;
+  width: 100%;
+  border-radius: 5px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .portfolio_background .content {
-    width: 100%;
+  width: 100%;
 }
 .portfolio_background .content h1 {
-    font-size: 16px;
-    text-align: center;
-    margin-top: 15px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 15px;
 }
 .portfolio_background .content h1 span {
-    margin-left: 5px;
-    font-size: 14px;
+  margin-left: 5px;
+  font-size: 14px;
 }
-.portfolio_background .content p,
-.portfolio_background .content h3,
-.portfolio_background .content h2,
-.portfolio_background .content h4 {
-    display: none;
+.portfolio_background .content p, .portfolio_background .content h3, .portfolio_background .content h2, .portfolio_background .content h4 {
+  display: none;
 }
 .portfolio_background .portfolio_close {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: -50px;
-    font-size: 30px;
-    --ionicon-stroke-width: 60px;
-    color: var(--main-text);
-    background-color: var(--main-bg);
-    padding: 5px;
-    border-radius: 100%;
-    box-shadow: 0 3px 3px var(--portfolio-shadow);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  font-size: 30px;
+  --ionicon-stroke-width: 60px;
+  color: var(--main-text);
+  background-color: var(--main-bg);
+  padding: 5px;
+  border-radius: 100%;
+  box-shadow: 0 3px 3px var(--portfolio-shadow);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 @media (max-width: 900px) {
-    .portfolio_background .portfolio_close {
-        top: 25px;
-        left: 25px;
-    }
+  .portfolio_background .portfolio_close {
+    top: 25px;
+    left: 25px;
+  }
 }
 @media (max-width: 480px) {
-    .portfolio_background .portfolio_close {
-        top: 15px;
-        left: 15px;
-        font-size: 24px;
-    }
+  .portfolio_background .portfolio_close {
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+  }
 }
 .portfolio_background .portfolio_close:hover {
-    background-color: var(--base_color);
+  background-color: var(--base_color);
 }
 
 .portfolio.active .img_hover_style {
-    display: none;
+  display: none;
 }
 .portfolio.active .portfolio_close {
-    display: block;
+  display: block;
 }
 .portfolio.active::before {
-    display: none;
+  display: none;
 }
 .portfolio.active::after {
-    display: none;
+  display: none;
 }
 .portfolio.active.img_vertical .portfolio_background {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 @media (max-width: 900px) {
-    .portfolio.active.img_vertical .portfolio_background {
-        flex-direction: column;
-    }
+  .portfolio.active.img_vertical .portfolio_background {
+    flex-direction: column;
+  }
 }
 @media (max-width: 900px) {
-    .portfolio.active.img_vertical .portfolio_img {
-        width: 100%;
-    }
+  .portfolio.active.img_vertical .portfolio_img {
+    width: 100%;
+  }
 }
 .portfolio.active.img_vertical .portfolio_img img {
-    height: 100%;
-    max-width: 400px;
-    width: auto;
-    -o-object-fit: cover;
-    object-fit: cover;
-    border-radius: 20px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  height: 100%;
+  max-width: 400px;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 @media (max-width: 900px) {
-    .portfolio.active.img_vertical .portfolio_img img {
-        width: 100%;
-        max-width: 100%;
-        max-height: 350px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-}
-@media (max-width: 900px) and (max-width: 900px) {
-    .portfolio.active.img_vertical .portfolio_img img {
-        max-height: 325px;
-    }
-}
-@media (max-width: 900px) and (max-width: 480px) {
-    .portfolio.active.img_vertical .portfolio_img img {
-        max-height: 300px;
-    }
-}
-.portfolio.active.img_horizon .portfolio_background {
-    height: auto;
-}
-.portfolio.active.img_horizon .portfolio_img img {
-    max-height: 350px;
+  .portfolio.active.img_vertical .portfolio_img img {
     width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    border-radius: 20px;
+    max-width: 100%;
+    max-height: 350px;
+    border-top-right-radius: 20px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+}
+@media (max-width: 900px) and (max-width: 900px) {
+  .portfolio.active.img_vertical .portfolio_img img {
+    max-height: 325px;
+  }
+}
+@media (max-width: 900px) and (max-width: 480px) {
+  .portfolio.active.img_vertical .portfolio_img img {
+    max-height: 300px;
+  }
+}
+.portfolio.active.img_horizon .portfolio_background {
+  height: auto;
+}
+.portfolio.active.img_horizon .portfolio_img img {
+  max-height: 350px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 @media (max-width: 900px) {
-    .portfolio.active.img_horizon .portfolio_img img {
-        max-height: 325px;
-    }
+  .portfolio.active.img_horizon .portfolio_img img {
+    max-height: 325px;
+  }
 }
 @media (max-width: 480px) {
-    .portfolio.active.img_horizon .portfolio_img img {
-        max-height: 300px;
-    }
+  .portfolio.active.img_horizon .portfolio_img img {
+    max-height: 300px;
+  }
 }
 .portfolio.active .portfolio_background {
-    width: 95%;
-    max-width: 800px;
-    background-color: var(--main-bg);
-    padding: 0;
-    border-radius: 20px;
-    box-shadow: 0 5px 5px var(--portfolio-shadow);
+  width: 95%;
+  max-width: 800px;
+  background-color: var(--main-bg);
+  padding: 0;
+  border-radius: 20px;
+  box-shadow: 0 5px 5px var(--portfolio-shadow);
 }
 .portfolio.active .content {
-    font-weight: 700;
-    padding: 30px;
+  font-weight: 700;
+  padding: 30px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content {
-        padding: 15px;
-    }
+  .portfolio.active .content {
+    padding: 15px;
+  }
 }
-.portfolio.active .content p,
-.portfolio.active .content h3,
-.portfolio.active .content h2,
-.portfolio.active .content h4 {
-    display: block;
+.portfolio.active .content p, .portfolio.active .content h3, .portfolio.active .content h2, .portfolio.active .content h4 {
+  display: block;
 }
 .portfolio.active .content p {
-    font-size: 12px;
+  font-size: 12px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content p {
-        font-size: 10px;
-    }
+  .portfolio.active .content p {
+    font-size: 10px;
+  }
 }
 .portfolio.active .content h1 {
-    margin: 0;
-    font-size: 30px;
-    display: inline;
+  margin: 0;
+  font-size: 30px;
+  display: inline;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h1 {
-        font-size: 24px;
-    }
+  .portfolio.active .content h1 {
+    font-size: 24px;
+  }
 }
 .portfolio.active .content h1 span {
-    font-size: 20px;
-    margin-left: 10px;
-    position: relative;
+  font-size: 20px;
+  margin-left: 10px;
+  position: relative;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h1 span {
-        font-size: 16px;
-        margin-left: 5px;
-    }
+  .portfolio.active .content h1 span {
+    font-size: 16px;
+    margin-left: 5px;
+  }
 }
 .portfolio.active .content h1 span::after {
-    content: "";
-    position: absolute;
-    top: -7px;
-    left: -9px;
-    width: 6px;
-    height: 6px;
-    border-radius: 100%;
-    background-color: var(--circle-gray);
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: -9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: var(--circle-gray);
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h1 span::after {
-        left: -5px;
-        width: 4px;
-        height: 4px;
-    }
+  .portfolio.active .content h1 span::after {
+    left: -5px;
+    width: 4px;
+    height: 4px;
+  }
 }
 .portfolio.active .content h2 {
-    font-size: 16px;
-    margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h2 {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
+  .portfolio.active .content h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
 }
 .portfolio.active .content h3 {
-    font-size: 14px;
-    margin-bottom: 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h3 {
-        font-size: 12px;
-        margin-bottom: 10px;
-    }
+  .portfolio.active .content h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
 }
 .portfolio.active .content h3 a {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .portfolio.active .content h3 a ion-icon {
-    font-size: 24px;
-    margin-right: 7.5px;
+  font-size: 24px;
+  margin-right: 7.5px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h3 a ion-icon {
-        font-size: 20px;
-        margin-right: 5px;
-    }
+  .portfolio.active .content h3 a ion-icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
 }
 .portfolio.active .content h3 span {
-    position: relative;
-    margin-left: 7.5px;
+  position: relative;
+  margin-left: 7.5px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h3 span {
-        margin-left: 5px;
-    }
+  .portfolio.active .content h3 span {
+    margin-left: 5px;
+  }
 }
 .portfolio.active .content h3 span::after {
-    content: "";
-    position: absolute;
-    top: calc(100% - 3px);
-    left: 0;
-    width: 100%;
-    height: 1.5px;
-    border-radius: 1.5px;
-    background-color: var(--main-text);
+  content: "";
+  position: absolute;
+  top: calc(100% - 3px);
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  border-radius: 1.5px;
+  background-color: var(--main-text);
 }
 .portfolio.active .content h4 {
-    font-size: 16px;
+  font-size: 16px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h4 {
-        font-size: 14px;
-    }
+  .portfolio.active .content h4 {
+    font-size: 14px;
+  }
 }
 .portfolio.active .content h4 p {
-    font-size: 16px;
+  font-size: 16px;
 }
 @media (max-width: 480px) {
-    .portfolio.active .content h4 p {
-        font-size: 14px;
-    }
+  .portfolio.active .content h4 p {
+    font-size: 14px;
+  }
 }
 .portfolio.active .content a {
-    text-decoration: none;
-    color: var(--main-text);
+  text-decoration: none;
+  color: var(--main-text);
 }
 
 .profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    row-gap: 30px;
-    margin-top: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 30px;
+  margin-top: 160px;
 }
 .profile h1 {
-    position: relative;
-    margin: 0;
-    font-size: 30px;
+  position: relative;
+  margin: 0;
+  font-size: 30px;
 }
 @media (max-width: 900px) {
-    .profile h1 {
-        font-size: 24px;
-    }
+  .profile h1 {
+    font-size: 24px;
+  }
 }
 @media (max-width: 480px) {
-    .profile h1 {
-        text-align: center;
-        font-size: 20px;
-    }
+  .profile h1 {
+    text-align: center;
+    font-size: 20px;
+  }
 }
 .profile h1 span {
-    font-size: 16px;
-    margin-left: 10px;
-    position: relative;
+  font-size: 16px;
+  margin-left: 10px;
+  position: relative;
 }
 @media (max-width: 900px) {
-    .profile h1 span {
-        font-size: 14px;
-    }
+  .profile h1 span {
+    font-size: 14px;
+  }
 }
 @media (max-width: 480px) {
-    .profile h1 span {
-        display: block;
-        font-size: 11px;
-        margin-left: 5px;
-    }
+  .profile h1 span {
+    display: block;
+    font-size: 11px;
+    margin-left: 5px;
+  }
 }
 .profile h1 span::after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -7px;
-    width: 6px;
-    height: 6px;
-    border-radius: 100%;
-    background-color: var(--circle-gray);
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: var(--circle-gray);
 }
 @media (max-width: 480px) {
-    .profile h1 span::after {
-        display: none;
-    }
+  .profile h1 span::after {
+    display: none;
+  }
 }
 .profile h1::after {
-    content: "";
-    display: none;
-    position: absolute;
-    border-radius: 100%;
-    background-color: var(--circle-gray);
+  content: "";
+  display: none;
+  position: absolute;
+  border-radius: 100%;
+  background-color: var(--circle-gray);
 }
 @media (max-width: 480px) {
-    .profile h1::after {
-        display: block;
-        top: 6px;
-        right: calc(30% + 15px);
-        width: 4px;
-        height: 4px;
-    }
+  .profile h1::after {
+    display: block;
+    top: 6px;
+    right: calc(30% + 15px);
+    width: 4px;
+    height: 4px;
+  }
 }
 .profile h2 {
-    font-size: 16px;
+  font-size: 16px;
 }
 @media (max-width: 480px) {
-    .profile h2 {
-        font-size: 14px;
-    }
+  .profile h2 {
+    font-size: 14px;
+  }
 }
 
 .your_portfolio {
-    margin: 45px auto 0;
+  margin: 45px auto 0;
 }
 .your_portfolio .portfolio_list {
-    margin-top: 0;
+  margin-top: 0;
 }
 .your_portfolio .your_portfolio_head {
-    text-align: center;
-    padding-bottom: 3px;
-    margin-bottom: 20px;
+  text-align: center;
+  padding-bottom: 3px;
+  margin-bottom: 20px;
 }
 .your_portfolio .your_portfolio_head h1 {
-    font-size: 24px;
-    border-bottom: 1px solid var(--main-text);
-    display: inline-block;
+  font-size: 24px;
+  border-bottom: 1px solid var(--main-text);
+  display: inline-block;
 }
 @media (max-width: 480px) {
-    .your_portfolio .your_portfolio_head h1 {
-        font-size: 20px;
-    }
-} /*# sourceMappingURL=style.css.map */
-
-.back-box a {
-    text-decoration: none;
-    color: var(--main-text);
-}
+  .your_portfolio .your_portfolio_head h1 {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=style.css.map */
