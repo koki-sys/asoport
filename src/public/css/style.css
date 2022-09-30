@@ -209,7 +209,7 @@ header .menu {
   background-color: var(--main-bg);
   border-radius: 10px;
   opacity: 0;
-  z-index: -1;
+  visibility: hidden;
 }
 @media (max-width: 480px) {
   header .menu {
@@ -218,6 +218,7 @@ header .menu {
 }
 header .menu.active {
   transition: opacity 0.2s ease-in;
+  visibility: visible;
   opacity: 1;
 }
 header .menu a {
@@ -250,7 +251,6 @@ header .menu::after {
   position: fixed;
   top: 0;
   left: 50%;
-  z-index: 5;
   transform: translateX(-50%);
   opacity: 0;
   max-width: 700px;
