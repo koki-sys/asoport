@@ -10962,4 +10962,137 @@ a.text-dark:focus {
   }
 }
 
+#dragDropArea {
+  background-color: #ffffff;
+  margin: 10px auto;
+  padding: 10px;
+  height: 30rem;
+  width: 100%;
+  text-align: center;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dragDropArea p {
+  color: #999;
+  font-weight: bold;
+  font-size: 14px;
+  font-size: 1.4em;
+}
+
+#dragDropArea .drag-drop-buttons {
+  margin-top: 20px;
+  font-size: 12px;
+  font-size: 1.2em;
+}
+
+.preview-size-landscape {
+  width: 70%;
+  height: auto;
+}
+
+.preview-size-portrait {
+  width: 30%;
+  height: auto;
+}
+
+.drag-drop-buttons input {
+  margin: auto;
+}
+
+.input-field {
+  background-color: #ffffff;
+  outline: none;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 100vh;
+  border: none;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.input-field:focus {
+  outline: 4px solid rgb(99, 190, 245);
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+  display: inline-block;
+  font-size: 90%;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.lang-box {
+  margin: 1rem 0 0.5rem 0;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 50px;
+}
+
+.lang-box p {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.lang-label {
+  margin: 1rem;
+  /* ボタン同士の間隔 */
+}
+
+.lang-label input {
+  display: none;
+  /* デフォルトのinputは非表示にする */
+}
+
+.lang-label span {
+  color: #333;
+  /* 文字色を黒に */
+  font-size: 1.2rem;
+  /* 文字サイズを14pxに */
+  border: 3px solid #333;
+  /* 淵の線を指定 */
+  border-radius: 5px;
+  /* 角丸を入れて、左右が丸いボタンにする */
+  padding: 5px 50px;
+  /* 上下左右に余白をトル */
+}
+
+.lang-label input:checked + span {
+  color: #fff;
+  /* 文字色を白に */
+  background: #9900ff;
+  /* 背景色を薄い赤に */
+  border: 3px solid #9900ff;
+  /* 淵の線を薄い赤に */
+}
+
+.back-box {
+  text-align: left;
+}
+
+.box {
+  height: 100%;
+}
+
+.container {
+  margin-top: 5rem;
+}
+
+.post-btn {
+  color: #ffffff;
+  background: rgb(99, 190, 245);
+  background: linear-gradient(90deg, rgb(99, 190, 245) 0%, rgb(112, 209, 187) 100%);
+  width: 30%;
+  border-radius: 30px;
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.post-btn:hover {
+  color: #999999;
+}
+
 

@@ -18,6 +18,8 @@
   --bg-blue: #63BEF5;
   --bg-green: #70D1BB;
   --circle-gray: #505050;
+  --createpage-frame: #FFFFFF;
+  --createpage-text: #000000;
 }
 
 .dark {
@@ -38,6 +40,8 @@
   --bg-blue: #2677A0;
   --bg-green: #24997D;
   --circle-gray: #eee;
+  --createpage-frame: #F2F2F2;
+  --createpage-text: #ababad;
 }
 
 html {
@@ -910,3 +914,31 @@ header .menu::after {
     font-size: 20px;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.input-field {
+    background-color: var(--createpage-frame);
+    color: var(--createpage-text);
+    outline: none;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 100vh;
+    border: none;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.input-field:focus {
+    outline: 4px solid rgb(99, 190, 245);
+}
+
+.lang-box {
+    margin: 1rem 0 0.5rem 0;
+    padding: 1rem;
+    background-color: var(--createpage-frame);
+    color: var(--createpage-text);
+    border-radius: 50px;
+}
+
+.lang-box p {
+    text-align: left;
+    margin-left: 1rem;
+}

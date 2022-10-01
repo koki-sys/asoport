@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASOPort</title>
 
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="script/masonry.pkgd.min.js"></script>
+    <!-- スタイルの切り替え -->
+    @yield('style')
 </head>
 
 <body class="light">

@@ -38,18 +38,6 @@
     margin: auto;
 }
 
-.input-field {
-    outline: none;
-    padding: 1rem;
-    width: 100%;
-    border-radius: 100vh;
-    border: none;
-    margin: 1rem 0 0.5rem 0;
-    &:focus {
-        outline: 4px solid rgb(99, 190, 245);
-    }
-}
-
 .error {
     width: 100%;
     padding: 0;
@@ -59,16 +47,7 @@
     box-sizing: border-box;
 }
 
-.lang-box {
-    margin: 1rem 0 0.5rem 0;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 50px;
-    p {
-        text-align: left;
-        margin-left: 1rem;
-    }
-}
+
 
 .lang-label {
     margin: 1rem; /* ボタン同士の間隔 */
