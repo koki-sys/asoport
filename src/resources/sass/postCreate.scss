@@ -47,27 +47,6 @@
     box-sizing: border-box;
 }
 
-
-
-.lang-label {
-    margin: 1rem; /* ボタン同士の間隔 */
-    input {
-        display: none; /* デフォルトのinputは非表示にする */
-    }
-    span {
-        color: #333; /* 文字色を黒に */
-        font-size: 1.2rem; /* 文字サイズを14pxに */
-        border: 3px solid #333; /* 淵の線を指定 */
-        border-radius: 5px; /* 角丸を入れて、左右が丸いボタンにする */
-        padding: 5px 50px; /* 上下左右に余白をトル */
-    }
-    input:checked + span {
-        color: #fff; /* 文字色を白に */
-        background: #9900ff; /* 背景色を薄い赤に */
-        border: 3px solid #9900ff; /* 淵の線を薄い赤に */
-    }
-}
-
 .back-box {
     text-align: left;
 }

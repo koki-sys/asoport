@@ -20,6 +20,7 @@
   --circle-gray: #505050;
   --createpage-frame: #FFFFFF;
   --createpage-text: #000000;
+  --createpage-checked: #9900FF;
 }
 
 .dark {
@@ -42,6 +43,7 @@
   --circle-gray: #eee;
   --createpage-frame: #F2F2F2;
   --createpage-text: #ababad;
+  --createpage-checked: #CB03F3;
 }
 
 html {
@@ -941,4 +943,26 @@ header .menu::after {
 .lang-box p {
     text-align: left;
     margin-left: 1rem;
+}
+
+.lang-label {
+    margin: 1rem; /* ボタン同士の間隔 */
+}
+
+.lang-label input {
+    display: none; /* デフォルトのinputは非表示にする */
+}
+
+.lang-label span {
+    color: var(--createpage-text); /* 文字色を黒に */
+    font-size: 1.2rem; /* 文字サイズを14pxに */
+    border: 3px solid var(--createpage-text); /* 淵の線を指定 */
+    border-radius: 5px; /* 角丸を入れて、左右が丸いボタンにする */
+    padding: 5px 50px; /* 上下左右に余白をトル */
+}
+
+.lang-label input:checked + span {
+    color: var(--createpage-frame); /* 文字色を白に fff,f2f2f2*/
+    background: var(--createpage-checked); /* 背景色を薄い赤に */
+    border: 3px solid var(--createpage-checked); /* 淵の線を薄い赤に */
 }
