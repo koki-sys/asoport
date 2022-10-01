@@ -29,7 +29,7 @@
             </div>
             <div class="menu">
                 <a class="c_font_bold" href="{{ url('/profile') }}">プロフィールへ</a>
-                <a class="c_font_bold" href="#">プロフィールを編集</a>
+                <a class="c_font_bold" href="{{ url('/profile_edit') }}">プロフィールを編集</a>
                 <!-- 要修正(css) -->
                 <form action="{{ url('/logout') }}" method="POST">
                     @csrf

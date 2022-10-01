@@ -1,33 +1,16 @@
 @extends('layouts.app')
 
+@section('style')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-<div class="header_wrapper">
-        <header class="c_flex_center">
-            <h1 class="c_pacifico"><a href="{{ url('/') }}">ASOPort</a></h1>
-            <div class="search_wrapper">
-                <ion-icon class="search_icon" name="search-outline"></ion-icon>
-                <ion-icon class="close_icon" name="close-outline"></ion-icon>
-            </div>
-            <div class="header_icon_wrapper">
-                <a href="{{ url('/create') }}">
-                    <ion-icon class="plus_icon" id="add_portfolio" name="add-outline"></ion-icon>
-                </a>
-                <a href="{{ url('/profile') }}">
-                    <ion-icon name="person-outline"></ion-icon>
-                </a>
-                <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
-            </div>
-        </header>
-</div>
-
-<section class="profile">
-    <h1 class="c_font_bold">
-        プロフィール編集
-    </h1>
-</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="script/masonry.pkgd.min.js"></script>
+@endsection
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -45,6 +28,6 @@
         <div class="col-md-2"></div>
     </div>
 </div>
-<script src="{{ mix('js/dragDrop.js') }}"></script>
-<script src="{{ mix('js/createValidation.js') }}"></script>
+<script src="{{ asset('js/dragDrop.js') }}"></script>
+<script src="{{ asset('js/createValidation.js') }}"></script>
 @endsection('content')
