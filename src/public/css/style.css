@@ -18,6 +18,9 @@
   --bg-blue: #63BEF5;
   --bg-green: #70D1BB;
   --circle-gray: #505050;
+  --createpage-frame: #FFFFFF;
+  --createpage-text: #000000;
+  --createpage-checked: #9900FF;
 }
 
 .dark {
@@ -38,6 +41,9 @@
   --bg-blue: #2677A0;
   --bg-green: #24997D;
   --circle-gray: #eee;
+  --createpage-frame: #F2F2F2;
+  --createpage-text: #ababad;
+  --createpage-checked: #CB03F3;
 }
 
 html {
@@ -54,6 +60,9 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
+input {
+    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+}
 body {
   width: 100%;
   min-height: 100vh;
@@ -221,16 +230,17 @@ header .menu.active {
   visibility: visible;
   opacity: 1;
 }
-header .menu a {
+header .menu a, input {
   color: var(--main-text);
   background-color: var(--menu_bg_color);
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
   padding: 3px 10px;
+  border: none;
 }
 @media (max-width: 480px) {
-  header .menu a {
+  header .menu a, input {
     font-size: 14px;
   }
 }
@@ -906,3 +916,84 @@ header .menu::after {
     font-size: 20px;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.input-field {
+    background-color: var(--createpage-frame);
+    color: var(--createpage-text);
+    outline: none;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 100vh;
+    border: none;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.input-field:focus {
+    outline: 4px solid rgb(99, 190, 245);
+}
+
+.lang-box {
+    margin: 1rem 0 0.5rem 0;
+    padding: 1rem;
+    background-color: var(--createpage-frame);
+    color: var(--createpage-text);
+    border-radius: 50px;
+}
+
+.lang-box p {
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.lang-label {
+    margin: 1rem; /* ボタン同士の間隔 */
+}
+
+.lang-label input {
+    display: none; /* デフォルトのinputは非表示にする */
+}
+
+.lang-label span {
+    color: var(--createpage-text); /* 文字色を黒に */
+    font-size: 1.2rem; /* 文字サイズを14pxに */
+    border: 3px solid var(--createpage-text); /* 淵の線を指定 */
+    border-radius: 5px; /* 角丸を入れて、左右が丸いボタンにする */
+    padding: 5px 50px; /* 上下左右に余白をトル */
+}
+
+.lang-label input:checked + span {
+    color: var(--createpage-frame); /* 文字色を白に fff,f2f2f2*/
+    background: var(--createpage-checked); /* 背景色を薄い赤に */
+    border: 3px solid var(--createpage-checked); /* 淵の線を薄い赤に */
+}
+
+.back-box {
+    text-align: left;
+    color: var(--main-text);
+    text-decoration: none;
+}
+
+.back-box:hover {
+    color: var(--main-text);
+    text-decoration: none;
+}
+
+#dragDropArea {
+    background-color: var(--createpage-frame);
+    margin: 10px auto;
+    padding: 10px;
+    height: 30rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dragDropArea p {
+    color: var(--createpage-text);
+    font-weight: bold;
+    font-size: 14px;
+    font-size: 1.4em;
+}
