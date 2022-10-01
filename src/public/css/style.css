@@ -966,3 +966,14 @@ header .menu::after {
     background: var(--createpage-checked); /* 背景色を薄い赤に */
     border: 3px solid var(--createpage-checked); /* 淵の線を薄い赤に */
 }
+
+.back-box {
+    text-align: left;
+    color: var(--main-text);
+    text-decoration: none;
+}
+
+.back-box:hover {
+    color: var(--main-text);
+    text-decoration: none;
+}

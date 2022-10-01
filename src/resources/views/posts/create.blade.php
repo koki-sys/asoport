@@ -14,8 +14,8 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="back-box mb-3">
-                <a href="{{ url('/') }}">
+            <div class="mb-3">
+                <a href="{{ url('/') }}" class="back-box">
                     <h4><i class="fa-solid fa-arrow-left fa-sm mr-2"></i>一覧画面へ</h4>
                 </a>
             </div>
