@@ -9,8 +9,14 @@
 <script src="script/masonry.pkgd.min.js"></script>
 @endsection
 
+<section class="profile">
+    <h1 class="c_font_bold">
+        プロフィール編集
+    </h1>
+</section>
+
 @section('content')
-<div class="container mt-5">
+<div class="container">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -28,6 +34,5 @@
         <div class="col-md-2"></div>
     </div>
 </div>
-<script src="{{ asset('js/dragDrop.js') }}"></script>
 <script src="{{ asset('js/createValidation.js') }}"></script>
 @endsection('content')
