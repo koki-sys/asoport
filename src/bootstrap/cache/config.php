@@ -6,10 +6,10 @@
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
-    'locale' => 'en',
+    'timezone' => 'Asia/Tokyo',
+    'locale' => 'ja',
     'fallback_locale' => 'en',
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'ja_JP',
     'key' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     'cipher' => 'AES-256-CBC',
     'providers' => 
@@ -207,9 +207,9 @@
       'dynamodb' => 
       array (
         'driver' => 'dynamodb',
-        'key' => 'AKIA5FWUM6LL47PP2ZF5',
-        'secret' => '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',
-        'region' => 'ap-northeast-3',
+        'key' => '',
+        'secret' => '',
+        'region' => 'us-east-1',
         'table' => 'cache',
         'endpoint' => NULL,
       ),
@@ -326,10 +326,10 @@
       's3' => 
       array (
         'driver' => 's3',
-        'key' => 'AKIA5FWUM6LL47PP2ZF5',
-        'secret' => '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',
-        'region' => 'ap-northeast-3',
-        'bucket' => 'asoport-s3',
+        'key' => '',
+        'secret' => '',
+        'region' => 'us-east-1',
+        'bucket' => '',
         'url' => NULL,
         'endpoint' => NULL,
       ),
@@ -477,11 +477,11 @@
       'sqs' => 
       array (
         'driver' => 'sqs',
-        'key' => 'AKIA5FWUM6LL47PP2ZF5',
-        'secret' => '1TFvy7xV7yW9oAjBu6pUAC3jcNvWFIiIItqZZD9s',
+        'key' => '',
+        'secret' => '',
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
         'queue' => 'your-queue-name',
-        'region' => 'ap-northeast-3',
+        'region' => 'us-east-1',
       ),
       'redis' => 
       array (
@@ -513,9 +513,9 @@
     ),
     'ses' => 
     array (
-      'key' => 'AKIA5FWUM6LL47PP2ZF5',
-      'secret' => '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',
-      'region' => 'ap-northeast-3',
+      'key' => '',
+      'secret' => '',
+      'region' => 'us-east-1',
     ),
   ),
   'session' => 
