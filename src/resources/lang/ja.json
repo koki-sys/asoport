@@ -1,6 +1,7 @@
 {
     "Register": "ユーザー登録",
     "Name": "氏名",
+    "Class": "学科",
     "E-Mail Address": "メールアドレス",
     "Password": "パスワード",
     "Confirm Password": "パスワード (確認用)",
