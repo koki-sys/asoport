@@ -25,7 +25,7 @@
                     <div id="dragDropArea">
                         <div class="drag-drop-inside">
                             <i class="fa-light fa-plus fa-9x" style="font-style: normal" id="drag-drop-icon"></i><br>
-                            <p class="drag-drop-info" id="drag-drop-info">画像をD&D</p>
+                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ</p>
                             <p class="drag-drop-buttons">
                                 <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo" class="d-none required" onChange="photoPreview(event)">
                             </p>
