@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -44,7 +44,7 @@ class PostController extends Controller
         //postsテーブル->登録処理
         //
         $posts = new Post;
-        $posts->user_id = "1";
+        $posts->user_id = Auth::id();
         $posts->port_url = $request->port;
         $posts->class = $request->class;
         $posts->git_url = $request->git;
