@@ -29,7 +29,7 @@ class SearchController extends BaseController
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->when($keyword, function ($query) use ($keyword) {
                 // キーワード検索
-                return $query->orWhere('comment', 'LIKE', $keyword)
+            return $query->orWhere('comment', 'LIKE', '%'.$keyword.'%')
                     ->orWhere('class', 'LIKE', $keyword)
                     ->orWhere('users.name', 'LIKE', $keyword);
             })->when($langArray, function ($query) use ($langArray) {
