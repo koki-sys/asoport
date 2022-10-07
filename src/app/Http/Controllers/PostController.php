@@ -35,7 +35,7 @@ class PostController extends Controller
             $language = $language . $request->js . $separate;
         }
 
-        mb_substr($language, 0, -3, "UTF-8");
+        $language = mb_substr($language, 0, -3, "UTF-8");
         /**
          * s3アップロード処理
          */

@@ -37,11 +37,11 @@
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field required"><br>
                     <div class="lang-box">
-                        <label class="lang-label"><input type="checkbox" name="html" value="html" class="required"><span>HTML</span></label>
-                        <label class="lang-label"><input type="checkbox" name="css" value="css"><span>CSS</span></label><br>
-                        <label class="lang-label"><input type="checkbox" name="php" value="php"><span>PHP</span></label>
-                        <label class="lang-label"><input type="checkbox" name="java" value="java"><span>Java</span></label>
-                        <label class="lang-label"><input type="checkbox" name="js" value="javascript"><span>JavaScript</span></label>
+                        <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
+                        <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label><br>
+                        <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label>
+                        <label class="lang-label"><input type="checkbox" name="java" value="Java"><span>Java</span></label>
+                        <label class="lang-label"><input type="checkbox" name="js" value="JavaScript"><span>JavaScript</span></label>
                     </div>
                     <input type="text" name="comment" placeholder="ひとこと" class="input-field required"><br>
                     <button type="submit" class="post-btn btn btn-lg">投稿する</button>
