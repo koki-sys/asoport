@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('port_url');
-            $table->string('class');
             $table->string('git_url');
             $table->string('comment', 140);
             $table->string('use_language');
