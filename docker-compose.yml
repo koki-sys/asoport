@@ -30,6 +30,9 @@ services:
       - DB_DATABASE=${DB_DATABASE:-laravel}
       - DB_USERNAME=${DB_USERNAME:-phper}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-AKIA5FWUM6LL47PP2ZF5}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-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}
+      - AWS_BUCKET=${AWS_BUCKET:-asoport-s3}
 
   web:
     build:
