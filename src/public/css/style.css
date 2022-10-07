@@ -10,6 +10,7 @@
   --search-bg: #fff;
   --main-purple: #9900FF;
   --main-pink: rgba(255,182,187,1);
+  --portfolio_active_color: #fff;
   --base_color: #EEEEEE;
   --menu_bg_color: #eee;
   --icon-hover-color: #eee;
@@ -33,6 +34,7 @@
   --search-bg: #ababab;
   --main-purple: #9900FF;
   --main-pink: rgba(255,182,187,1);
+  --portfolio_active_color: #36393F;
   --base_color: #36393F;
   --menu_bg_color: #acacac;
   --icon-hover-color: #eee;
@@ -442,6 +444,9 @@ header .menu::after {
 .portfolio:hover .img_hover_style {
   opacity: 1;
 }
+.portfolio:hover .portfolio_operate {
+  opacity: 1;
+}
 .portfolio:hover::before {
   transform: scale(1);
 }
@@ -534,6 +539,33 @@ header .menu::after {
   transform: rotate(-15deg);
   transition: all 0.3s ease-in;
 }
+.portfolio_img .portfolio_operate {
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  padding: 0px 5px;
+  transition: all 0.3s ease-in;
+  opacity: 0;
+}
+.portfolio_img .portfolio_operate ion-icon {
+  display: inline-block;
+  position: relative;
+  font-size: 25px;
+  --ionicon-stroke-width: 35px;
+  color: var(--main-text);
+  background-color: var(--main-bg);
+  padding: 8px;
+  border-radius: 100%;
+  transition: all 0.2s ease-in;
+}
+.portfolio_img .portfolio_operate ion-icon:hover {
+  background-color: var(--menu_bg_color);
+}
+.portfolio_img .portfolio_operate ion-icon:nth-child(1) {
+  margin-right: 5px;
+}
 
 .portfolio_background {
   width: 100%;
@@ -594,7 +626,13 @@ header .menu::after {
   background-color: var(--base_color);
 }
 
+.portfolio.active {
+  background-color: var(--portfolio_active_color);
+}
 .portfolio.active .img_hover_style {
+  display: none;
+}
+.portfolio.active .portfolio_operate {
   display: none;
 }
 .portfolio.active .portfolio_close {

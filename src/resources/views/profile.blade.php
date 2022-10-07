@@ -32,6 +32,10 @@
                         <ion-icon name="camera-outline"></ion-icon>
                         詳細を見る
                     </div>
+                    <div class="portfolio_operate">
+                        <a href="#"><ion-icon class="portfolio_edit" name="pencil-outline"></ion-icon></a>
+                        <a href="#"><ion-icon class="portfolio_delete" name="trash-outline"></ion-icon></a>
+                    </div>
                 </div>
                 <div class="content">
                     <p><a href="#">{{ $post->port_url }}</a></p>
