@@ -33,7 +33,6 @@
                         </div>
                     </div>
                     <!-- <input type="text" name="name" placeholder="名前" class="input-field required"><br> -->
-                    <input type="text" name="class" placeholder="学科" class="input-field required"><br>
                     <!-- <input type="email" name="mail" placeholder="メールアドレス" class="input-field required"><br> -->
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field required"><br>

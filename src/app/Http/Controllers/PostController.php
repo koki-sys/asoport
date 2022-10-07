@@ -46,7 +46,6 @@ class PostController extends Controller
         $posts = new Post;
         $posts->user_id = Auth::id();
         $posts->port_url = $request->port;
-        $posts->class = $request->class;
         $posts->git_url = $request->git;
         $posts->comment = $request->comment;
         $posts->use_language = $language;
