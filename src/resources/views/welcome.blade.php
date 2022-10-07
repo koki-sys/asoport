@@ -26,10 +26,12 @@
                     {{ $post -> name }}<span>{{ $post -> class }}</span>
                 </h1>
                 <h3>
+                    @if(isset($post->git_url))
                     <a href="{{ $post -> git_url }}" class="portfolio_link">
                         <ion-icon name="logo-github"></ion-icon>
                         GitHub <span>{{ $post -> git_url }}</span>
                     </a>
+                    @endif
                 </h3>
                 <h2>{{ $post -> comment }}</h2>
                 <h4>

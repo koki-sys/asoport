@@ -35,7 +35,7 @@
                     <!-- <input type="text" name="name" placeholder="名前" class="input-field required"><br> -->
                     <!-- <input type="email" name="mail" placeholder="メールアドレス" class="input-field required"><br> -->
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
-                    <input type="text" name="git" placeholder="GitHubのURL" class="input-field required"><br>
+                    <input type="text" name="git" placeholder="GitHubのURL" class="input-field"><br>
                     <div class="lang-box">
                         <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
                         <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label><br>
