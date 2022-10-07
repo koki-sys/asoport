@@ -16,7 +16,7 @@ class TopController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::select('users.name', 'posts.*')
+        $posts = Post::select('users.name', 'users.class', 'posts.*')
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->get();
 
