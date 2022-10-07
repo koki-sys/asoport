@@ -17,23 +17,25 @@ class PostController extends Controller
         // $posts->user_id = $request->user_id;
 
         $language = "";
+        $separate = " / ";
         //↓null判定
         if ($request->html != null) {
-            $language = $language . $request->html;
+            $language = $language . $request->html . $separate;
         }
         if ($request->css != null) {
-            $language = $language . $request->css;
+            $language = $language . $request->css . $separate;
         }
         if ($request->php != null) {
-            $language = $language . $request->php;
+            $language = $language . $request->php . $separate;
         }
         if ($request->java != null) {
-            $language = $language . $request->java;
+            $language = $language . $request->java . $separate;
         }
         if ($request->js != null) {
-            $language = $language . $request->js;
+            $language = $language . $request->js . $separate;
         }
 
+        mb_substr($language, 0, -3, "UTF-8");
         /**
          * s3アップロード処理
          */
