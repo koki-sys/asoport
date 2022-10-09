@@ -42,7 +42,7 @@
                             @if($lang->id == 6)
                                 <div class="more-lang">
                             @endif
-                            <label class="lang-label"><input type="checkbox" name="lang[]" value="{{ $lang->name }}" class="required"><span>{{ $lang->name }}</span></label>
+                            <label class="lang-label"><input type="checkbox" name="lang[]" value="{{ $lang->name }}" class="required-lang"><span>{{ $lang->name }}</span></label>
                             @if($lang->id % 3 == 0 && $lang->id < 6)
                                 <br />
                             @elseif(($lang->id - 5) % 3 == 0 && $lang->id > 6)

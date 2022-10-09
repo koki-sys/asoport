@@ -29,6 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("error:" + errorMessage);
         }
 
+        // 線形探索でチェックボックスを探索してバリデーションチェック
+        const langExists = () => {
+            // required-langクラスを指定された要素の集まり
+            const langElems = Array.from(document.querySelectorAll('.required-lang'));
+
+            return langElems.find((elem) => {
+                const checked = elem.parentElement.querySelector('input[type="checkbox"]:checked');
+
+                return checked != null;
+            })
+        }
+
         //form 要素の submit イベントを使った送信時の処理
         validationForm.addEventListener('submit', (e) => {
             //エラーを表示する要素を全て取得して削除（初期化）
@@ -37,28 +49,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 elem.remove();
             });
 
+            // チェックボックスにチェックが入ってないときの処理
+            if (!langExists()) {
+                //エラーを表示
+                createError(document.querySelector('.lang-box'), '少なくとも1つを選択してください');
+                //フォームの送信を中止
+                e.preventDefault();
+            }
+
             //.required を指定した要素を検証
             requiredElems.forEach((elem) => {
-                if (elem.tagName === 'INPUT' && elem.getAttribute('type') === 'checkbox') {
-                    //親要素を基点に選択状態の最初のチェックボックス要素を取得
-                    const checked = elem.parentElement.querySelector('input[type="checkbox"]:checked');
-                    //選択状態のチェックボックス要素を取得できない場合
-                    if (checked === null) {
-                        //エラーを表示
-                        createError(document.querySelector('.lang-box'), '少なくとも1つを選択してください');
-                        //フォームの送信を中止
-                        e.preventDefault();
-                    }
-                } else {
-                    //値（value プロパティ）の前後の空白文字を削除
-                    const elemValue = elem.value.trim();
-                    //値が空の場合はエラーを表示してフォームの送信を中止
-                    if (elem.getAttribute('type') === 'file' && elemValue.length === 0) {
-                        createError(document.querySelector('#dragDropArea'), '入力は必須です')
-                    } else if (elemValue.length === 0) {
-                        createError(elem, '入力は必須です');
-                        e.preventDefault();
-                    }
+                const elemValue = elem.value.trim();
+                //値が空の場合はエラーを表示してフォームの送信を中止
+                if (elem.getAttribute('type') === 'file' && elemValue.length === 0) {
+                    createError(document.querySelector('#dragDropArea'), '入力は必須です')
+                } else if (elemValue.length === 0) {
+                    createError(elem, '入力は必須です');
+                    e.preventDefault();
                 }
             });
 
