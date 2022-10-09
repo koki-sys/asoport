@@ -18,7 +18,7 @@ class LanguagesTableSeeder extends Seeder
             ["name" => "PHP"],
             ['name' => "Java"],
             ['name' => "Ruby"],
-            ['name' => "Golang"],
+            ['name' => "Go"],
             ['name' => "TypeScript"],
             ['name' => "Kotlin"],
             ['name' => "Python"],
