@@ -17,7 +17,6 @@ class LanguagesTableSeeder extends Seeder
             ["name" => "JavaScript"],
             ["name" => "PHP"],
             ['name' => "Java"],
-            ['name' => "CSS"],
             ['name' => "Ruby"],
             ['name' => "Golang"],
             ['name' => "TypeScript"],

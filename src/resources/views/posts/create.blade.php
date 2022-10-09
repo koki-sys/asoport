@@ -38,18 +38,21 @@
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field"><br>
                     <div class="lang-box">
                         <!-- 配列を作成し、langテーブルを新たに作成しフロントで5個判定で止める。 -->
-                        <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
-                        <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label>
-                        <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label><br>
-                        <label class="lang-label"><input type="checkbox" name="java" value="Java"><span>Java</span></label>
-                        <label class="lang-label"><input type="checkbox" name="js" value="JavaScript"><span>JavaScript</span></label>
-                        <div class="more-lang">
-                            <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
-                            <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label>
-                            <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label><br>
-                            <label class="lang-label"><input type="checkbox" name="java" value="Java"><span>Java</span></label>
-                            <label class="lang-label"><input type="checkbox" name="js" value="JavaScript"><span>JavaScript</span></label>
-                        </div>
+                        @foreach($langs as $lang)
+                            @if($lang->id == 6)
+                                <div class="more-lang">
+                            @endif
+                            <label class="lang-label"><input type="checkbox" name="lang[]" value="{{ $lang->name }}" class="required"><span>{{ $lang->name }}</span></label>
+                            @if($lang->id % 3 == 0 && $lang->id < 6)
+                                <br />
+                            @elseif(($lang->id - 5) % 3 == 0 && $lang->id > 6)
+                                <br />
+                            @endif
+
+                            @if($lang->id == count($langs))
+                                </div>
+                            @endif
+                        @endforeach
                         <p class="more"></p>
                     </div>
                     <!-- 隠しボックスの作成 -->

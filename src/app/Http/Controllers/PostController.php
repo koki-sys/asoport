@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\Language;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,5 +56,11 @@ class PostController extends Controller
         $posts->save();
 
         return redirect('/');
+    }
+
+    public function create() {
+        $langs = Language::all();
+
+        return view('posts.create', compact('langs'));
     }
 }
