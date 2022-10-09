@@ -13,12 +13,9 @@ class PostController extends Controller
 {
     public function post(Request $request)
     {
-        // ↓ログイン実装後
-        // $user_id = Auth::id();
-        // $posts->user_id = $request->user_id;
-
         $language = "";
         //↓null判定
+        /*
         if ($request->html != null) {
             $language = $language . $request->html;
         }
@@ -34,10 +31,13 @@ class PostController extends Controller
         if ($request->js != null) {
             $language = $language . $request->js;
         }
+        */
 
-        if(!empty($request->lang)){
+        // null判定（使用言語追加のため、処理の変更を行いました。）
+        if (!empty($request->lang)) {
             $language = implode(" / ", $request->lang);
         }
+
         /**
          * s3アップロード処理
          */
@@ -59,7 +59,8 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function create() {
+    public function create()
+    {
         $langs = Language::all();
 
         return view('posts.create', compact('langs'));
