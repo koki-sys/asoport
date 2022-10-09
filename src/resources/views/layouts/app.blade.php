@@ -68,11 +68,11 @@
 
                 <label class="">使用言語</label>
                 <div class="checkbox_wrapper">
-                    <input type="checkbox" name="html" id="html"><label for="html">HTML</label>
-                    <input type="checkbox" name="css" id="css"><label for="css">CSS</label>
-                    <input type="checkbox" name="javascript" id="javascript"><label for="javascript">JavaScript</label>
-                    <input type="checkbox" name="php" id="php"><label for="php">PHP</label>
-                    <input type="checkbox" name="java" id="java"><label for="java">Java</label>
+                    <input type="checkbox" name="language[]" value="HTML" id="html"><label for="html">HTML</label>
+                    <input type="checkbox" name="language[]" value="CSS" id="css"><label for="css">CSS</label>
+                    <input type="checkbox" name="language[]" value="JavaScript" id="javascript"><label for="javascript">JavaScript</label>
+                    <input type="checkbox" name="language[]" value="PHP" id="php"><label for="php">PHP</label>
+                    <input type="checkbox" name="language[]" value="Java" id="java"><label for="java">Java</label>
                 </div>
 
                 <button type="submit" class="c_font_bold">検索する</button>

@@ -37,6 +37,7 @@
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field"><br>
                     <div class="lang-box">
+                        <!-- 検索画面で作る人へ ここから参考にしてください。 -->
                         <!-- 配列を作成し、langテーブルを新たに作成しフロントで5個判定で止める。 -->
                         @foreach($langs as $lang)
                             @if($lang->id == 6)
@@ -54,9 +55,8 @@
                             @endif
                         @endforeach
                         <p class="more"></p>
+                        <!-- 検索画面で作る人へ ここまで -->
                     </div>
-                    <!-- 隠しボックスの作成 -->
-
                     <input type="text" name="comment" placeholder="ひとこと" class="input-field required"><br>
                     <button type="submit" class="post-btn btn btn-lg">投稿する</button>
                 </div>
