@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::post('/post_submit', 'PostController@post');
 Route::post('/search', 'SearchController@PostIndex');
 Route::get('/', 'TopController@index');
-Route::view('/create', 'posts.create');
+Route::get('/create', 'PostController@create');
 Route::post('/detail', 'detailController@index');
 Route::get('/profile', 'ProfileIndex@index');
 Route::view('/profile_edit', 'profile_edit');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\Language;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,30 +13,31 @@ class PostController extends Controller
 {
     public function post(Request $request)
     {
-        // ↓ログイン実装後
-        // $user_id = Auth::id();
-        // $posts->user_id = $request->user_id;
-
         $language = "";
-        $separate = " / ";
         //↓null判定
+        /*
         if ($request->html != null) {
-            $language = $language . $request->html . $separate;
+            $language = $language . $request->html;
         }
         if ($request->css != null) {
-            $language = $language . $request->css . $separate;
+            $language = $language . $request->css;
         }
         if ($request->php != null) {
-            $language = $language . $request->php . $separate;
+            $language = $language . $request->php;
         }
         if ($request->java != null) {
-            $language = $language . $request->java . $separate;
+            $language = $language . $request->java;
         }
         if ($request->js != null) {
-            $language = $language . $request->js . $separate;
+            $language = $language . $request->js;
+        }
+        */
+
+        // null判定（使用言語追加のため、処理の変更を行いました。）
+        if (!empty($request->lang)) {
+            $language = implode(" / ", $request->lang);
         }
 
-        $language = mb_substr($language, 0, -3, "UTF-8");
         /**
          * s3アップロード処理
          */
@@ -55,5 +57,12 @@ class PostController extends Controller
         $posts->save();
 
         return redirect('/');
+    }
+
+    public function create()
+    {
+        $langs = Language::all();
+
+        return view('posts.create', compact('langs'));
     }
 }

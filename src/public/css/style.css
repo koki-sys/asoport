@@ -1043,10 +1043,10 @@ header .menu::after {
 p.more {
     font-size: 1.1rem;
     text-align: center;
-    margin: 20px auto;
+    margin: 5px auto;
     display: block;
     color: var(--createpage-checked);
-    padding:10px 15px;
+    padding: 10px 15px;
     border: none;
     outline: 0;
     transition: .5s;
