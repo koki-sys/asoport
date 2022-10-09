@@ -25,7 +25,7 @@
                     <div id="dragDropArea">
                         <div class="drag-drop-inside">
                             <i class="fa-light fa-plus fa-9x" style="font-style: normal" id="drag-drop-icon"></i><br>
-                            <p class="drag-drop-info" id="drag-drop-info">画像をD&D</p>
+                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ</p>
                             <p class="drag-drop-buttons">
                                 <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo" class="d-none required" onChange="photoPreview(event)">
                             </p>
@@ -35,14 +35,25 @@
                     <!-- <input type="text" name="name" placeholder="名前" class="input-field required"><br> -->
                     <!-- <input type="email" name="mail" placeholder="メールアドレス" class="input-field required"><br> -->
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
-                    <input type="text" name="git" placeholder="GitHubのURL" class="input-field required"><br>
+                    <input type="text" name="git" placeholder="GitHubのURL" class="input-field"><br>
                     <div class="lang-box">
-                        <label class="lang-label"><input type="checkbox" name="html" value="html" class="required"><span>HTML</span></label>
-                        <label class="lang-label"><input type="checkbox" name="css" value="css"><span>CSS</span></label><br>
-                        <label class="lang-label"><input type="checkbox" name="php" value="php"><span>PHP</span></label>
-                        <label class="lang-label"><input type="checkbox" name="java" value="java"><span>JAVA</span></label>
-                        <label class="lang-label"><input type="checkbox" name="js" value="javascript"><span>JAVASCRIPT</span></label>
+                        <!-- 配列を作成し、langテーブルを新たに作成しフロントで5個判定で止める。 -->
+                        <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
+                        <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label>
+                        <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label><br>
+                        <label class="lang-label"><input type="checkbox" name="java" value="Java"><span>Java</span></label>
+                        <label class="lang-label"><input type="checkbox" name="js" value="JavaScript"><span>JavaScript</span></label>
+                        <div class="more-lang">
+                            <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
+                            <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label>
+                            <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label><br>
+                            <label class="lang-label"><input type="checkbox" name="java" value="Java"><span>Java</span></label>
+                            <label class="lang-label"><input type="checkbox" name="js" value="JavaScript"><span>JavaScript</span></label>
+                        </div>
+                        <p class="more"></p>
                     </div>
+                    <!-- 隠しボックスの作成 -->
+
                     <input type="text" name="comment" placeholder="ひとこと" class="input-field required"><br>
                     <button type="submit" class="post-btn btn btn-lg">投稿する</button>
                 </div>

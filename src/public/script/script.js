@@ -1,8 +1,8 @@
 $(function () {
 
     // ===== 検索トグル =====
-    $(".search_wrapper").on("click", function(){
-        if($(".menu").hasClass("active")) {
+    $(".search_wrapper").on("click", function () {
+        if ($(".menu").hasClass("active")) {
             $(".menu").removeClass("active")
             $(".search_black_back").toggleClass("active");
         }
@@ -12,8 +12,8 @@ $(function () {
     });
 
     // menu
-    $('.open_menu_icon').on("click", function() {
-        if($(".search_wrapper").hasClass("active")) {
+    $('.open_menu_icon').on("click", function () {
+        if ($(".search_wrapper").hasClass("active")) {
             $(".search_wrapper").toggleClass("active");
             $(".search_field").toggleClass("active");
             $(".search_black_back").toggleClass("active");
@@ -80,7 +80,7 @@ $(function () {
             window.open($(this).attr("href"), '_blank');
         });
 
-        $(".portfolio_operate a").on("click", function() {
+        $(".portfolio_operate a").on("click", function () {
             // alert("削除が押されました。")
             $(".portfolio_list").children("div").removeClass("img_horizon img_vertical active c_flex_center");
             $(".portfolio_list").removeClass("active");
@@ -89,11 +89,19 @@ $(function () {
     });
 });
 
-$(document).click(function(event) {
-    if($(".search_black_back").hasClass("active")){
-        if($(event.target).closest('.search_black_back').length) {
+$(document).click(function (event) {
+    if ($(".search_black_back").hasClass("active")) {
+        if ($(event.target).closest('.search_black_back').length) {
             $("*").removeClass("active");
         } else {
         }
     }
+});
+
+// もっと見るを押したときの処理
+$(function () {
+    $(".more").on("click", function () {
+        $(this).toggleClass("on-click");
+        $(".more-lang").slideToggle(300);
+    });
 });
