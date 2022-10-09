@@ -37,12 +37,23 @@
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field"><br>
                     <div class="lang-box">
+                        <!-- 配列を作成し、langテーブルを新たに作成しフロントで5個判定で止める。 -->
                         <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
-                        <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label><br>
-                        <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label>
+                        <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label>
+                        <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label><br>
                         <label class="lang-label"><input type="checkbox" name="java" value="Java"><span>Java</span></label>
                         <label class="lang-label"><input type="checkbox" name="js" value="JavaScript"><span>JavaScript</span></label>
+                        <div class="more-lang">
+                            <label class="lang-label"><input type="checkbox" name="html" value="HTML" class="required"><span>HTML</span></label>
+                            <label class="lang-label"><input type="checkbox" name="css" value="CSS"><span>CSS</span></label>
+                            <label class="lang-label"><input type="checkbox" name="php" value="PHP"><span>PHP</span></label><br>
+                            <label class="lang-label"><input type="checkbox" name="java" value="Java"><span>Java</span></label>
+                            <label class="lang-label"><input type="checkbox" name="js" value="JavaScript"><span>JavaScript</span></label>
+                        </div>
+                        <p class="more"></p>
                     </div>
+                    <!-- 隠しボックスの作成 -->
+
                     <input type="text" name="comment" placeholder="ひとこと" class="input-field required"><br>
                     <button type="submit" class="post-btn btn btn-lg">投稿する</button>
                 </div>
