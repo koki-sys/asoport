@@ -34,5 +34,5 @@
         <div class="col-md-2"></div>
     </div>
 </div>
-<script src="{{ asset('js/createValidation.js') }}"></script>
+<script src="{{ asset('js/editValidation.js') }}"></script>
 @endsection('content')
