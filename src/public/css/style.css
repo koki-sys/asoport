@@ -1062,3 +1062,16 @@ p.more::after {
 p.more.on-click::after{
     content: "閉じる";
 }
+
+.error {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    font-size: 90%;
+    color: var(--createpage-text);
+    box-sizing: border-box;
+}
+
+#drag-drop-icon {
+    color: var(--createpage-text);
+}
