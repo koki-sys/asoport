@@ -957,7 +957,7 @@ header .menu::after {
 
 .input-field {
     background-color: var(--createpage-frame);
-    color: var(--createpage-text);
+    color: rgb(51, 51, 51);
     outline: none;
     padding: 1rem;
     width: 100%;
@@ -1061,4 +1061,17 @@ p.more::after {
 
 p.more.on-click::after{
     content: "閉じる";
+}
+
+.error {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    font-size: 90%;
+    color: var(--main-text);
+    box-sizing: border-box;
+}
+
+#drag-drop-icon {
+    color: var(--createpage-text);
 }

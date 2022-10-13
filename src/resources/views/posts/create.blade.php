@@ -4,8 +4,8 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="script/masonry.pkgd.min.js"></script>
 @endsection
 
@@ -14,20 +14,23 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="mb-3">
-                <a href="{{ url('/') }}" class="back-box">
-                    <h4><i class="fa-solid fa-arrow-left fa-sm mr-2"></i>一覧画面へ</h4>
+            <div class="mb-3 align-middle d-inline-blo">
+                <a href="{{ url('/') }}" class="back-box d-flex align-items-center">
+                    <ion-icon name="arrow-back-outline" style="font-size: 1.6rem" class="mr-2"></ion-icon>
+                    <span style="font-size: 1.2rem">一覧画面へ</span>
                 </a>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm" novalidate>
+            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm"
+                novalidate>
                 @csrf
                 <div class="text-center box-center">
                     <div id="dragDropArea">
                         <div class="drag-drop-inside">
-                            <i class="fa-light fa-plus fa-9x" style="font-style: normal" id="drag-drop-icon"></i><br>
-                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ</p>
+                            <ion-icon name="add-outline" style="font-size: 10rem;" id="drag-drop-icon"></ion-icon><br>
+                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ<br>※複数の指定はできません。</p>
                             <p class="drag-drop-buttons">
-                                <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo" class="d-none required" onChange="photoPreview(event)">
+                                <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo"
+                                    class="d-none required" onChange="photoPreview(event)">
                             </p>
                             <div id="previewArea"></div>
                         </div>
@@ -40,19 +43,20 @@
                         <!-- 検索画面で作る人へ ここから参考にしてください。 -->
                         <!-- 配列を作成し、langテーブルを新たに作成しフロントで5個判定で止める。 -->
                         @foreach($langs as $lang)
-                            @if($lang->id == 6)
-                                <div class="more-lang">
+                        @if($lang->id == 6)
+                        <div class="more-lang">
                             @endif
-                            <label class="lang-label"><input type="checkbox" name="lang[]" value="{{ $lang->name }}" class="required-lang"><span>{{ $lang->name }}</span></label>
-                            @if($lang->id % 3 == 0 && $lang->id < 6)
-                                <br />
+                            <label class="lang-label"><input type="checkbox" name="lang[]" value="{{ $lang->name }}"
+                                    class="required-lang"><span>{{ $lang->name }}</span></label>
+                            @if($lang->id % 3 == 0 && $lang->id
+                            < 6) <br />
                             @elseif(($lang->id - 5) % 3 == 0 && $lang->id > 6)
-                                <br />
+                            <br />
                             @endif
 
                             @if($lang->id == count($langs))
-                                </div>
-                            @endif
+                        </div>
+                        @endif
                         @endforeach
                         <p class="more"></p>
                         <!-- 検索画面で作る人へ ここまで -->
@@ -65,6 +69,8 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="{{ asset('js/dragDrop.js') }}"></script>
 <script src="{{ asset('js/createValidation.js') }}"></script>
 @endsection('content')
