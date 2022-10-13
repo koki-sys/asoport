@@ -957,7 +957,7 @@ header .menu::after {
 
 .input-field {
     background-color: var(--createpage-frame);
-    color: var(--createpage-text);
+    color: rgb(51, 51, 51);
     outline: none;
     padding: 1rem;
     width: 100%;

@@ -4,9 +4,6 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="script/masonry.pkgd.min.js"></script>
@@ -17,11 +14,10 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="mb-3">
-                <a href="{{ url('/') }}" class="back-box back-allow">
-                    <div style="font-size: 2rem;">
-                        <h4>一覧画面へ</h4>
-                    </div>
+            <div class="mb-3 align-middle d-inline-blo">
+                <a href="{{ url('/') }}" class="back-box d-flex align-items-center">
+                    <ion-icon name="arrow-back-outline" style="font-size: 1.6rem" class="mr-2"></ion-icon>
+                    <span style="font-size: 1.2rem">一覧画面へ</span>
                 </a>
             </div>
             <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm"
@@ -31,7 +27,7 @@
                     <div id="dragDropArea">
                         <div class="drag-drop-inside">
                             <ion-icon name="add-outline" style="font-size: 10rem;" id="drag-drop-icon"></ion-icon><br>
-                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ</p>
+                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ<br>※複数の指定はできません。</p>
                             <p class="drag-drop-buttons">
                                 <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo"
                                     class="d-none required" onChange="photoPreview(event)">
