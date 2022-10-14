@@ -26,7 +26,7 @@
                 <div class="text-center box-center">
                     <div id="dragDropArea">
                         <div class="drag-drop-inside">
-                            <ion-icon name="add-outline" style="font-size: 10rem;" id="drag-drop-icon"></ion-icon><br>
+                            <ion-icon name="add-outline" style="font-size: 5rem;" id="drag-drop-icon"></ion-icon><br>
                             <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ<br>※複数の指定はできません。</p>
                             <p class="drag-drop-buttons">
                                 <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo"
