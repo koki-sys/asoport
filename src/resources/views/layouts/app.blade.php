@@ -67,6 +67,27 @@
                 <input class="c_font_regular" type="text" name="keyword" id="keyword">
 
                 <label class="">使用言語</label>
+
+                <div class="checkbox_wrapper">
+                        @foreach($langs as $lang)
+                            @if($lang->id == 6)
+                                <div class="more-lang">
+                            @endif
+                            <input type="checkbox" name="language[]" value="{{ $lang->name }}"><label for="{{ $lang->name }}">{{ $lang->name }}</label>
+                            @if($lang->id % 3 == 0 && $lang->id < 6)
+                                <br />
+                            @elseif(($lang->id - 5) % 3 == 0 && $lang->id > 6)
+                                <br />
+                            @endif
+
+                            @if($lang->id == count($langs))
+                                </div>
+                            @endif
+                        @endforeach
+                        <p class="more"></p>
+                </div>
+
+                <!--
                 <div class="checkbox_wrapper">
                     <input type="checkbox" name="language[]" value="HTML" id="html"><label for="html">HTML</label>
                     <input type="checkbox" name="language[]" value="CSS" id="css"><label for="css">CSS</label>
@@ -74,6 +95,7 @@
                     <input type="checkbox" name="language[]" value="PHP" id="php"><label for="php">PHP</label>
                     <input type="checkbox" name="language[]" value="Java" id="java"><label for="java">Java</label>
                 </div>
+                -->
 
                 <button type="submit" class="c_font_bold">検索する</button>
             </div>

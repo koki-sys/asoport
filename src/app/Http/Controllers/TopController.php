@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\Language;
 
 class TopController extends Controller
 {
@@ -20,6 +21,9 @@ class TopController extends Controller
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->get();
 
-        return view('welcome', compact('posts'));
+        $langs = Language::all();
+
+        return view('welcome', compact('posts', 'langs'));
     }
+
 }
