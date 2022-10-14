@@ -19,7 +19,7 @@ Route::get('/', 'TopController@index');
 Route::get('/create', 'PostController@create');
 Route::post('/detail', 'detailController@index');
 Route::get('/profile', 'ProfileIndex@index');
-Route::view('/profile_edit', 'profile_edit');
+Route::get('/profile_edit', 'profileeditController@getLang');
 Route::post('/prof_edit_submit', 'profileeditController@index');
 
 Auth::routes();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Language;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,9 +25,12 @@ class ProfileIndex extends Controller
 
             $posts = Post::where('user_id', $user->id)->get();
 
-            return view('profile', compact('user', 'posts'));
+            $langs = Language::all();
+
+            return view('profile', compact('user', 'posts', 'langs'));
         }
 
         return redirect('/login');
     }
+
 }

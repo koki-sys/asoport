@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -21,5 +22,11 @@ class profileeditController extends Controller
         $users->save();
 
         return redirect('/profile');
+    }
+
+    public function getLang(Request $request){
+        $langs = Language::all();
+
+        return view('profile_edit', compact('langs'));
     }
 }
