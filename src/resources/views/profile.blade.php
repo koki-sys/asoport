@@ -27,7 +27,7 @@
         <div class="portfolio">
             <div class="portfolio_background">
                 <div class="portfolio_img">
-                    <img src="img/500x750.png" alt="" />
+                    <img src="{{ asset($post -> img_url) }}" alt="" />
                     <div class="img_hover_style c_font_bold">
                         <ion-icon name="camera-outline"></ion-icon>
                         詳細を見る
