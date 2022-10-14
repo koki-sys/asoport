@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Language;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,6 +42,8 @@ class SearchController extends BaseController
                 return $query;
             })->get();
 
-        return view('welcome', compact('posts'));
+            $langs = Language::all();
+
+        return view('welcome', compact('posts', 'langs'));
     }
 }

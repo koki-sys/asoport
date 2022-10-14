@@ -68,26 +68,27 @@
 
                 <label class="">使用言語</label>
 
-                <div class="checkbox_wrapper">
-                        @foreach($langs as $lang)
-                            @if($lang->id == 6)
-                                <div class="more-lang">
-                            @endif
-                            <input type="checkbox" name="language[]" value="{{ $lang->name }}"><label for="{{ $lang->name }}">{{ $lang->name }}</label>
-                            @if($lang->id % 3 == 0 && $lang->id < 6)
-                                <br />
-                            @elseif(($lang->id - 5) % 3 == 0 && $lang->id > 6)
-                                <br />
-                            @endif
+                <div class="search-lang-box">
+                    @foreach($langs as $lang)
+                    @if($lang->id == 6)
+                    <div class="more-lang">
+                        @endif
+                        <label class="search-lang-label" style="margin"><input type="checkbox" name="language[]"
+                                value="{{ $lang->name }}" class="required-lang"><span>{{ $lang->name }}</span></label>
+                        @if($lang->id % 5 == 0 && $lang->id< 6)
+                        <div style="margin-bottom: 7px;"></div>
+                    @elseif(($lang->id - 5) % 5 == 0 && $lang->id > 6)
+                    <div style="margin-bottom: 7px;"></div>
+                    @endif
 
-                            @if($lang->id == count($langs))
-                                </div>
-                            @endif
-                        @endforeach
-                        <p class="more"></p>
+                    @if($lang->id == count($langs))
                 </div>
+                @endif
+                @endforeach
+                <p class="more"></p>
+            </div>
 
-                <!--
+            <!--
                 <div class="checkbox_wrapper">
                     <input type="checkbox" name="language[]" value="HTML" id="html"><label for="html">HTML</label>
                     <input type="checkbox" name="language[]" value="CSS" id="css"><label for="css">CSS</label>
@@ -97,9 +98,9 @@
                 </div>
                 -->
 
-                <button type="submit" class="c_font_bold">検索する</button>
-            </div>
-        </form>
+            <button type="submit" class="c_font_bold">検索する</button>
+    </div>
+    </form>
     </div>
     <!-- ===== 検索フィールド表示時の黒背景 ===== -->
     <div class="search_black_back"></div>

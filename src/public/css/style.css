@@ -1075,3 +1075,35 @@ p.more.on-click::after{
 #drag-drop-icon {
     color: var(--createpage-text);
 }
+
+.search-lang-box {
+    padding: 0.5rem;
+    color: var(--createpage-text);
+    overflow: auto;
+}
+
+.search-lang-box p {
+    margin-left: 1rem;
+}
+
+.search-lang-label {
+    margin: 0.5rem; /* ボタン同士の間隔 */
+}
+
+.search-lang-label input {
+    display: none; /* デフォルトのinputは非表示にする */
+}
+
+.search-lang-label span {
+    color: var(--createpage-text); /* 文字色を黒に */
+    font-size: 0.8rem; /* 文字サイズを14pxに */
+    border: 3px solid var(--createpage-text); /* 淵の線を指定 */
+    border-radius: 5px; /* 角丸を入れて、左右が丸いボタンにする */
+    padding: 5px 20px; /* 上下左右に余白をトル */
+}
+
+.search-lang-label input:checked + span {
+    color: var(--createpage-frame); /* 文字色を白に fff,f2f2f2*/
+    background: var(--createpage-checked); /* 背景色を薄い赤に */
+    border: 3px solid var(--createpage-checked); /* 淵の線を薄い赤に */
+}
