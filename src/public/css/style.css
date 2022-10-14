@@ -1068,7 +1068,7 @@ p.more.on-click::after{
     padding: 0;
     display: inline-block;
     font-size: 90%;
-    color: var(--main-text);
+    color: #f00;
     box-sizing: border-box;
 }
 
