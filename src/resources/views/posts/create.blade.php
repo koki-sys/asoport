@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="mb-3 align-middle d-inline-blo">
+            <div class="mb-3 align-middle d-inline-block">
                 <a href="{{ url('/') }}" class="back-box d-flex align-items-center">
                     <ion-icon name="arrow-back-outline" style="font-size: 1.6rem" class="mr-2"></ion-icon>
                     <span style="font-size: 1.2rem">一覧画面へ</span>
