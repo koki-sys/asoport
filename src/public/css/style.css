@@ -1095,9 +1095,9 @@ p.more.on-click::after{
 }
 
 .search-lang-label span {
-    color: var(--createpage-text); /* 文字色を黒に */
+    color: var(--search-text); /* 文字色を黒に */
     font-size: 0.8rem; /* 文字サイズを14pxに */
-    border: 3px solid var(--createpage-text); /* 淵の線を指定 */
+    border: 3px solid var(--main-text); /* 淵の線を指定 */
     border-radius: 5px; /* 角丸を入れて、左右が丸いボタンにする */
     padding: 5px 20px; /* 上下左右に余白をトル */
 }
