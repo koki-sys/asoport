@@ -549,6 +549,11 @@ header .menu::after {
   transition: all 0.3s ease-in;
   opacity: 0;
 }
+@media (max-width: 900px) {
+  .portfolio_img .portfolio_operate {
+    opacity: 1;
+  }
+}
 .portfolio_img .portfolio_operate ion-icon {
   display: inline-block;
   position: relative;
