@@ -1,0 +1,103 @@
+on:
+  pull_request:
+    types: [labeled]
+
+name: Manual Deploy
+
+jobs:
+  # デプロイを起動するかどうかチェック
+  # 後で追加する起動条件のためにチェックとデプロイを分けておく
+  check:
+    name: Whether to run
+    runs-on: ubuntu-latest
+    timeout-minutes: 1 # ほぼラベルのチェックだけなのでタイムアウトを短く設定
+    outputs:
+      run: ${{ env.RUN_FLAG }} # 後続のjobでチェックの結果を使用
+    steps:
+      # 特定のラベル (例: Deploy) の場合にフラグを立てる
+      - run: echo "RUN_FLAG=1" >> $GITHUB_ENV
+        if: github.event.label.name == 'Deploy'
+
+        # actions/github-script は Octokit も利用できる JavaScript を実行できちゃうすごいやつ
+        # ここでは Deploy ラベルを剥がして Deploying ラベルを付ける
+      - uses: actions/github-script@v4
+        name: Remove label
+        if: github.event.label.name == 'Deploy Staging'
+        with:
+          script: |
+            github.issues.removeLabel({
+              ...context.repo,
+              issue_number: context.issue.number,
+              name: 'Deploy'
+            })
+            github.issues.addLabels({
+              ...context.repo,
+              issue_number: context.issue.number,
+              labels: ['Deploying']
+            })
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10 # タイムアウトは必ず設定しましょう
+    needs: check
+    if: needs.check.outputs.run # check ジョブの結果を使用
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Docker Version
+        run: docker version
+
+      - name: Build Docker Images
+        run: docker compose build
+
+      - name: Start Docker Containers
+        run: docker compose up -d
+
+      # composer インストール
+      - name: composer install
+        run: docker compose exec app composer install
+
+      # Envoy インストール
+      - name: Envoy install
+        run: composer require laravel/envoy:1.6.1
+
+      # laravel envoyを利用してEC2に接続、デプロイ
+      - name: EC2 connection
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          HOST_NAME: ${{ secrets.HOST_NAME }}
+        run: |
+          # 秘密鍵をgithubactionsにコピー
+          mkdir -p /home/runner/.ssh
+          touch /home/runner/.ssh/id_rsa
+          echo "$PRIVATE_KEY" > /home/runner/.ssh/id_rsa
+          # パーミッション変更
+          chmod 600 /home/runner/.ssh/id_rsa
+          ssh-keyscan ${{ secrets.HOST_NAME }} >> ~/.ssh/known_hosts
+
+      # Envoy 実行
+      - name: Envoy
+        run: ./vendor/bin/envoy run deploy
+
+  # 付与した Deploying ラベルを剥がす
+  remove-label:
+    name: Remove Label
+    runs-on: ubuntu-latest
+    timeout-minutes: 1 # ラベルを剥がすだけなのでタイムアウトを短く設定
+    needs: deploy
+    # デプロイジョブが失敗していてもラベルを剥がす
+    # failure の場合は Slack に通知などの処理を入れてもいいかも
+    if: always() && needs.check.outputs.run
+    steps:
+      - uses: actions/github-script@v4
+        name: Remove label
+        with:
+          script: |
+            github.issues.removeLabel({
+              ...context.repo,
+              issue_number: context.issue.number,
+              name: 'Deploying'
+            })
