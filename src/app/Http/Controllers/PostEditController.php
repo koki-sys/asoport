@@ -12,6 +12,7 @@ class PostEditController extends Controller
 {
     public function post(Request $request)
     {
+        $language = "";
         // null判定
         if (!empty($request->lang)) {
             $language = implode(" / ", $request->lang);
@@ -46,7 +47,7 @@ class PostEditController extends Controller
         $post = Post::find($id);
 
         // 使用言語の処理
-        $checklangs = explode(",", $post->use_language);
+        $checklangs = explode(" / ", $post->use_language);
 
         return view('posts.post_edit', compact('langs', 'post', 'checklangs'));
     }
