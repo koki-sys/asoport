@@ -22,6 +22,7 @@ Route::get('/profile', 'ProfileIndex@index');
 Route::get('/profile_edit', 'profileeditController@getLang');
 Route::post('/prof_edit_submit', 'profileeditController@index');
 Route::post('/post_edit', 'PostEditController@post');
+Route::get('/post_edit/{id}', 'PostEditController@edit');
 
 Auth::routes();
 
