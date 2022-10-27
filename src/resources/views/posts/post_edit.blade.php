@@ -6,7 +6,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="script/masonry.pkgd.min.js"></script>
+<script src="{{ asset('script/masonry.pkgd.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
                     <span style="font-size: 1.2rem">プロフィール画面へ</span>
                 </a>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm"
+            <form method="post" enctype="multipart/form-data" action="{{ url('post_edit') }}" class="validationForm"
                 novalidate>
                 @csrf
                 <div class="text-center box-center">
@@ -37,6 +37,7 @@
                     </div>
                     <!-- <input type="text" name="name" placeholder="名前" class="input-field required"><br> -->
                     <!-- <input type="email" name="mail" placeholder="メールアドレス" class="input-field required"><br> -->
+                    <input type="hidden" name="id" value="{{ $id }}">
                     <input type="text" name="port" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
                     <input type="text" name="git" placeholder="GitHubのURL" class="input-field"><br>
                     <div class="lang-box">
