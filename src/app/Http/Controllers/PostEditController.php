@@ -43,7 +43,8 @@ class PostEditController extends Controller
     public function edit($id)
     {
         $langs = Language::all();
+        $post = Post::find($id);
 
-        return view('posts.post_edit', compact('langs', 'id'));
+        return view('posts.post_edit', compact('langs', 'post'));
     }
 }
