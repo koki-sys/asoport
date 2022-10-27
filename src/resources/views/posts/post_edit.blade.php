@@ -38,8 +38,10 @@
                     <!-- <input type="text" name="name" placeholder="名前" class="input-field required"><br> -->
                     <!-- <input type="email" name="mail" placeholder="メールアドレス" class="input-field required"><br> -->
                     <input type="hidden" name="id" value="{{ $post->id }}">
-                    <input type="text" name="port" value="{{ $post->port_url }}" placeholder="ポートフォリオサイトのURL" class="input-field required"><br>
-                    <input type="text" name="git" value="{{ $post->git_url }}" placeholder="GitHubのURL" class="input-field"><br>
+                    <input type="text" name="port" value="{{ $post->port_url }}" placeholder="ポートフォリオサイトのURL"
+                        class="input-field required"><br>
+                    <input type="text" name="git" value="{{ $post->git_url }}" placeholder="GitHubのURL"
+                        class="input-field"><br>
                     <div class="lang-box">
                         <!-- 検索画面で作る人へ ここから参考にしてください。 -->
                         <!-- 配列を作成し、langテーブルを新たに作成しフロントで5個判定で止める。 -->
@@ -47,8 +49,13 @@
                         @if($lang->id == 6)
                         <div class="more-lang">
                             @endif
+                            @if(in_array($lang->name, $checklangs))
+                            <label class="lang-label"><input type="checkbox" name="lang[]" value="{{ $lang->name }}"
+                                    class="required-lang" checked><span>{{ $lang->name }}</span></label>
+                            @else
                             <label class="lang-label"><input type="checkbox" name="lang[]" value="{{ $lang->name }}"
                                     class="required-lang"><span>{{ $lang->name }}</span></label>
+                            @endif
                             @if($lang->id % 3 == 0 && $lang->id
                             < 6) <br />
                             @elseif(($lang->id - 5) % 3 == 0 && $lang->id > 6)
@@ -62,7 +69,8 @@
                         <p class="more"></p>
                         <!-- 検索画面で作る人へ ここまで -->
                     </div>
-                    <input type="text" name="comment" placeholder="ひとこと" value="{{ $post->comment }}" class="input-field required"><br>
+                    <input type="text" name="comment" placeholder="ひとこと" value="{{ $post->comment }}"
+                        class="input-field required"><br>
                     <button type="submit" class="post-btn btn btn-lg">編集する</button>
                 </div>
             </form>

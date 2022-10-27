@@ -45,6 +45,9 @@ class PostEditController extends Controller
         $langs = Language::all();
         $post = Post::find($id);
 
-        return view('posts.post_edit', compact('langs', 'post'));
+        // 使用言語の処理
+        $checklangs = explode(",", $post->use_language);
+
+        return view('posts.post_edit', compact('langs', 'post', 'checklangs'));
     }
 }
