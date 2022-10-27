@@ -7,5 +7,5 @@
     echo 'pulling......'
     git pull git@github.com:koki-sys/asoport.git
     echo 'pulled.'
-    make init
+    make prod
 @endtask
