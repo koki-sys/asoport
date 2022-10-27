@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
             [
                 'id' => 2,
                 'name' => '髙橋 幸暉',
-                'class' => '情報システム専攻科',
+                'class' => '情報工学科',
                 'email' => 'user2@example.com',
                 'password' => Hash::make('password')
             ]
