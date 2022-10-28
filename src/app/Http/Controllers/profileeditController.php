@@ -24,9 +24,10 @@ class profileeditController extends Controller
         return redirect('/profile');
     }
 
-    public function getLang(Request $request){
+    public function edit(Request $request){
         $langs = Language::all();
+        $user = User::find(Auth::id());
 
-        return view('profile_edit', compact('langs'));
+        return view('profile_edit', compact('langs', 'user'));
     }
 }
