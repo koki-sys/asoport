@@ -19,7 +19,7 @@ Route::get('/', 'TopController@index');
 Route::get('/create', 'PostController@create');
 Route::post('/detail', 'detailController@index');
 Route::get('/profile', 'ProfileIndex@index');
-Route::get('/profile_edit', 'profileeditController@getLang');
+Route::get('/profile_edit', 'profileeditController@edit');
 Route::post('/prof_edit_submit', 'profileeditController@index');
 Route::post('/post_edit', 'PostEditController@post');
 Route::get('/post_edit/{id}', 'PostEditController@edit');
