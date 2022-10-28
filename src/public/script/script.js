@@ -105,3 +105,7 @@ $(function () {
         $(".more-lang").slideToggle(300);
     });
 });
+
+$(".port_edit_link").on("click", function () {
+    location.href = $(this).attr("href");
+});

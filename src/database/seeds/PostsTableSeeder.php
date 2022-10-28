@@ -27,7 +27,7 @@ class PostsTableSeeder extends Seeder
                 'port_url' => Str::random(10) . '/example.com',
                 'git_url' => Str::random(10) . '/github.com',
                 'comment' => 'ご覧いただけますと幸いです。',
-                'use_language' => 'JavaScript,HTML,CSS',
+                'use_language' => 'JavaScript / HTML / CSS',
                 'img_url' => 'img/500x750.png'
             ],
             [
@@ -35,7 +35,7 @@ class PostsTableSeeder extends Seeder
                 'port_url' => Str::random(10) . '/example.com',
                 'git_url' => Str::random(10) . '/github.com',
                 'comment' => 'ポートフォリオサイトを作りました。',
-                'use_language' => 'JavaScript,PHP,HTML',
+                'use_language' => 'JavaScript / PHP / HTML',
                 'img_url' => 'img/1500x1000.png'
             ],
             [
@@ -43,7 +43,7 @@ class PostsTableSeeder extends Seeder
                 'port_url' => Str::random(10) . '/example.com',
                 'git_url' => Str::random(10) . '/github.com',
                 'comment' => 'こんにちは',
-                'use_language' => 'PHP,HTML',
+                'use_language' => 'PHP / HTML',
                 'img_url' => 'img/1980x1440.png'
             ],
         ];

@@ -33,7 +33,7 @@
                         詳細を見る
                     </div>
                     <div class="portfolio_operate">
-                        <a href="#"><ion-icon class="portfolio_edit" name="pencil-outline"></ion-icon></a>
+                        <a href="{{ url('/post_edit/'.$post->id) }}" class="port_edit_link"><ion-icon class="portfolio_edit" name="pencil-outline"></ion-icon></a>
                         <!-- <a href="#"><ion-icon class="portfolio_delete" name="trash-outline"></ion-icon></a> -->
                     </div>
                 </div>
