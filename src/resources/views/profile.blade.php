@@ -34,7 +34,11 @@
                     </div>
                     <div class="portfolio_operate">
                         <a href="{{ url('/post_edit/'.$post->id) }}" class="port_edit_link"><ion-icon class="portfolio_edit" name="pencil-outline"></ion-icon></a>
-                        <!-- <a href="#"><ion-icon class="portfolio_delete" name="trash-outline"></ion-icon></a> -->
+                        <ion-icon class="portfolio_delete" name="trash-outline"></ion-icon>
+                        <!-- 公開に設定している場合は↓のアイコンを表示 -->
+                        <ion-icon class="portfolio_show" name="eye-outline"></ion-icon>
+                        <!-- 非公開に設定している場合は↓のアイコンを表示 -->
+                        <ion-icon class="portfolio_hide" name="eye-off-outline"></ion-icon>
                     </div>
                 </div>
                 <div class="content">
@@ -62,4 +66,21 @@
         @endforeach
     </div>
 </section>
+
+<div class="portfolio_popup hide_popup">
+    <h1 class="c_font_bold">この投稿を非公開にしますか</h1>
+    <a class="c_font_bold" href="#">非公開にする</a>
+    <ion-icon class="popup_close" name="close-outline"></ion-icon>
+</div>
+<div class="portfolio_popup show_popup">
+    <h1 class="c_font_bold">この投稿を公開しますか</h1>
+    <a class="c_font_bold" href="#">公開する</a>
+    <ion-icon class="popup_close" name="close-outline"></ion-icon>
+</div>
+<div class="portfolio_popup delete_popup">
+    <h1 class="c_font_bold">この投稿を削除しますか</h1>
+    <a class="c_font_bold" href="#">削除する</a>
+    <ion-icon class="popup_close" name="close-outline"></ion-icon>
+</div>
+
 @endsection
