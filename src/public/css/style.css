@@ -1129,9 +1129,15 @@ p.more.on-click::after{
   transform: translate(-50%, -50%);
   z-index: 5;
   background-color: var(--popup_bg_color);
+  max-width: 80%;
   padding: 60px 50px;
   opacity: 0;
   visibility: hidden;
+}
+@media (max-width: 900px) {
+  .portfolio_popup {
+    padding: 50px 40px;
+  }
 }
 .portfolio_popup.active {
   transition: opacity 0.2s ease-in;
@@ -1141,12 +1147,23 @@ p.more.on-click::after{
 .portfolio_popup h1 {
   font-size: 24px;
 }
+@media (max-width: 480px) {
+  .portfolio_popup h1 {
+    font-size: 20px;
+  }
+}
 .portfolio_popup a {
+  font-size: 16px;
   text-decoration: none;
   color: #fff;
   background-color: #E60023;
   padding: 8px 20px;
   border-radius: 25px;
+}
+@media (max-width: 480px) {
+  .portfolio_popup a {
+    font-size: 14px;
+  }
 }
 .portfolio_popup ion-icon {
   position: absolute;
