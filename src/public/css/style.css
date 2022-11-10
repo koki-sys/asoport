@@ -13,6 +13,7 @@
   --portfolio_active_color: #fff;
   --base_color: #EEEEEE;
   --menu_bg_color: #eee;
+  --popup_bg_color: #fff;
   --icon-hover-color: #eee;
   --black-bg: rgba(0, 0, 0, .3);
   --portfolio-shadow: rgba(0, 0, 0, .1);
@@ -37,6 +38,7 @@
   --portfolio_active_color: #36393F;
   --base_color: #36393F;
   --menu_bg_color: #acacac;
+  --popup_bg_color: #acacac;
   --icon-hover-color: #eee;
   --black-bg: rgba(54, 57 , 63, .3);
   --portfolio-shadow: rgba(54, 57, 63, .1);
@@ -1111,4 +1113,63 @@ p.more.on-click::after{
     color: var(--createpage-frame); /* 文字色を白に fff,f2f2f2*/
     background: var(--createpage-checked); /* 背景色を薄い赤に */
     border: 3px solid var(--createpage-checked); /* 淵の線を薄い赤に */
+}
+
+/* ポートフォリオ表示/非表示、削除のポップアップ */
+.portfolio_popup {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  background-color: var(--popup_bg_color);
+  max-width: 80%;
+  padding: 60px 50px;
+  opacity: 0;
+  visibility: hidden;
+}
+@media (max-width: 900px) {
+  .portfolio_popup {
+    padding: 50px 40px;
+  }
+}
+.portfolio_popup.active {
+  transition: opacity 0.2s ease-in;
+  visibility: visible;
+  opacity: 1;
+}
+.portfolio_popup h1 {
+  font-size: 24px;
+}
+@media (max-width: 480px) {
+  .portfolio_popup h1 {
+    font-size: 20px;
+  }
+}
+.portfolio_popup a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #E60023;
+  padding: 8px 20px;
+  border-radius: 25px;
+}
+@media (max-width: 480px) {
+  .portfolio_popup a {
+    font-size: 14px;
+  }
+}
+.portfolio_popup ion-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 25px;
+  --ionicon-stroke-width: 60px;
+  cursor: pointer;
 }
