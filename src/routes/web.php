@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use App\post;
-use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +12,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::post('/post_submit', 'PostController@post');
 Route::post('/search', 'SearchController@PostIndex');
 Route::get('/', 'TopController@index');
@@ -23,8 +23,8 @@ Route::get('/profile_edit', 'profileeditController@edit');
 Route::post('/prof_edit_submit', 'profileeditController@index');
 Route::post('/post_edit', 'PostEditController@post');
 Route::get('/post_edit/{id}', 'PostEditController@edit');
+Route::post('/post/delete', 'PostDelete@postdelete');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-

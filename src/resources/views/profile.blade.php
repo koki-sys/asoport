@@ -2,7 +2,8 @@
 
 @section('style')
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="script/masonry.pkgd.min.js"></script>
 @endsection
 
@@ -33,8 +34,11 @@
                         詳細を見る
                     </div>
                     <div class="portfolio_operate">
-                        <a href="{{ url('/post_edit/'.$post->id) }}" class="port_edit_link"><ion-icon class="portfolio_edit" name="pencil-outline"></ion-icon></a>
-                        <ion-icon class="portfolio_delete" name="trash-outline"></ion-icon>
+                        <a href="{{ url('/post_edit/'.$post->id) }}" class="port_edit_link">
+                            <ion-icon class="portfolio_edit" name="pencil-outline"></ion-icon>
+                        </a>
+                        <!-- button押下時にポップアップに情報を作成 -->
+                        <ion-icon class="portfolio_delete" name="trash-outline" data-id="{{ $post->id }}"></ion-icon>
                         <!-- 公開に設定している場合は↓のアイコンを表示 -->
                         <ion-icon class="portfolio_show" name="eye-outline"></ion-icon>
                         <!-- 非公開に設定している場合は↓のアイコンを表示 -->
@@ -42,7 +46,7 @@
                     </div>
                 </div>
                 <div class="content">
-                    <p><a href="#">{{ $post->port_url }}</a></p>
+                    <p><a href="{{ $post->port_url }}">{{ $post->port_url }}</a></p>
                     <h1 class="c_font_bold">
                         {{ $user->name }}<span>{{ $user->class }}</span>
                     </h1>
@@ -79,7 +83,11 @@
 </div>
 <div class="portfolio_popup delete_popup">
     <h1 class="c_font_bold">この投稿を削除しますか</h1>
-    <a class="c_font_bold" href="#">削除する</a>
+    <!-- 削除Formに変更 -->
+    <form action="{{ url('/post/delete') }}" method="POST" class="delete_form">
+        @csrf
+        <!-- 情報を削除アイコンクリック時に追加 -->
+    </form>
     <ion-icon class="popup_close" name="close-outline"></ion-icon>
 </div>
 
