@@ -1152,7 +1152,7 @@ p.more.on-click::after{
     font-size: 20px;
   }
 }
-.portfolio_popup a {
+.portfolio_popup .delete_btn {
   font-size: 16px;
   text-decoration: none;
   color: #fff;
@@ -1160,6 +1160,17 @@ p.more.on-click::after{
   padding: 8px 20px;
   border-radius: 25px;
 }
+/*
+結合のため、スタイルを変更しています - takahashi koki
+.portfolio_popup a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #E60023;
+    padding: 8px 20px;
+    border-radius: 25px;
+}
+*/
 @media (max-width: 480px) {
   .portfolio_popup a {
     font-size: 14px;
