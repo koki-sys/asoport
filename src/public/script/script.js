@@ -2,7 +2,8 @@ $(function () {
 
     // ===== 検索トグル =====
     $(".search_wrapper").on("click", function () {
-        $("*").removeClass("active");
+        // 検索ボタンの不具合があったため、下のコードをコメントアウトしてます。
+        // $("*").removeClass("active");
         if ($(".menu").hasClass("active")) {
             $(".menu").removeClass("active")
             $(".search_black_back").toggleClass("active");
@@ -14,7 +15,8 @@ $(function () {
 
     // menu
     $('.open_menu_icon').on("click", function () {
-        $("*").removeClass("active");
+        // ボタンの不具合があったため、下のコードをコメントアウトしてます。
+        // $("*").removeClass("active");
         if ($(".search_wrapper").hasClass("active")) {
             $(".search_wrapper").toggleClass("active");
             $(".search_field").toggleClass("active");
