@@ -26,6 +26,16 @@
                 <div class="text-center box-center">
                     <input type="text" name="name" placeholder="名前" class="input-field required" value="{{ $user->name }}"><br>
                     <input type="text" name="class" placeholder="学科" class="input-field required" value="{{ $user->class }}"><br>
+                    <input type="hidden" id="flag" name="mail_flag" value="1"><br>
+                    <div class="row">
+                        <div class="col-10"><input type="text" name="email" placeholder="メール" class="input-field required" value="{{ $user->email }}"></div>
+                        <div class="col-2 eye-wrapper">
+                            <!-- 公開に設定している場合は↓のアイコンを表示 -->
+                            <ion-icon name="eye-outline" class="mail_show" value="1"></ion-icon>
+                            <!-- 非公開に設定している場合は↓のアイコンを表示 -->
+                            <ion-icon name="eye-off-outline" class="mail_hide" value="0"></ion-icon>
+                        </div>
+                    </div>
                     <button type="submit" class="post-btn btn btn-lg mt-5">確定する</button>
                 </div>
             </form>
