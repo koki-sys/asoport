@@ -151,3 +151,22 @@ $(function () {
 $(".port_edit_link").on("click", function () {
     location.href = $(this).attr("href");
 });
+
+//メール表示非表示切り替え
+$(".mail_show").click(function() {
+    $(".mail_show").css("display", "none");
+    $(".mail_hide").css("display", "table-cell");
+});
+$(".mail_hide").click(function() {
+    $(".mail_hide").css("display", "none");
+    $(".mail_show").css("display", "table-cell");
+});
+
+//メール表示非表示フラグ更新
+$(".post-btn").click(function() {
+    var flag = 1;
+    if ($('.mail_show').css('display') == 'none') {
+        flag = 0;
+    }
+    $('#flag').val(flag);
+});

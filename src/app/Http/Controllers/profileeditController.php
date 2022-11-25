@@ -13,12 +13,17 @@ class profileeditController extends Controller
     {
         $name = $request->input('name');
         $class = $request->input('class');
+        $email = $request->input('email');
+        $flag = $request->input('mail_flag');
+        // dd($flag);
 
         //ひとまず固定idのuser情報を変更
         $id = Auth::id();
         $users = User::find($id);
         $users->name = $request->name;
         $users->class = $request->class;
+        $users->email = $request->email;
+        $users->email_public_flg = $flag;
         $users->save();
 
         return redirect('/profile');
