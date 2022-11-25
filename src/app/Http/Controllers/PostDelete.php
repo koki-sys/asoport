@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostDelete extends Controller
 {
-
-    public function postdelete (Request $request)
+    public function postdelete(Request $request)
     {
-        $id  =  $request->input('keyword');
+        $id = $request->input('id');
 
         $post = Post::find($id);
         $post->delete();
-        return view('####');
+
+        return redirect('/profile');
     }
 }

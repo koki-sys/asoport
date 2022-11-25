@@ -2,6 +2,8 @@ $(function () {
 
     // ===== 検索トグル =====
     $(".search_wrapper").on("click", function () {
+        // 検索ボタンの不具合があったため、下のコードをコメントアウトしてます。
+        // $("*").removeClass("active");
         if ($(".menu").hasClass("active")) {
             $(".menu").removeClass("active")
             $(".search_black_back").toggleClass("active");
@@ -13,12 +15,52 @@ $(function () {
 
     // menu
     $('.open_menu_icon').on("click", function () {
+        // ボタンの不具合があったため、下のコードをコメントアウトしてます。
+        // $("*").removeClass("active");
         if ($(".search_wrapper").hasClass("active")) {
             $(".search_wrapper").toggleClass("active");
             $(".search_field").toggleClass("active");
             $(".search_black_back").toggleClass("active");
         }
         $(".menu").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
+    });
+
+    // ===== 表示/非表示、削除ボタンのポップアップ =====
+    $('.portfolio_show').on("click", function () {
+        $(".hide_popup").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
+    });
+    $('.portfolio_hide').on("click", function () {
+        $(".show_popup").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
+    });
+    $('.portfolio_delete').on("click", function () {
+        // ポートフォリオ削除するときの処理を追加
+        $(".id_info").remove();
+        $(".delete_btn").remove();
+
+        // アイコンからport_idを取得
+        const portId = $(this).data('id');
+
+        //ぼたんとか情報をまとめて追加
+        $("<input>").attr({
+            type: 'hidden',
+            name: 'id',
+            class: 'id_info',
+            value: portId
+        }).appendTo(".delete_form");
+        $("<input>").attr({
+            type: 'submit',
+            value: '削除する',
+            class: 'c_font_bold delete_btn'
+        }).appendTo(".delete_form");
+
+        $(".delete_popup").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
+    });
+    $('.popup_close').on("click", function () {
+        $(".portfolio_popup").removeClass("active");
         $(".search_black_back").toggleClass("active");
     });
 
@@ -80,7 +122,7 @@ $(function () {
             window.open($(this).attr("href"), '_blank');
         });
 
-        $(".portfolio_operate a").on("click", function () {
+        $(".portfolio_operate ion-icon").on("click", function () {
             // alert("削除が押されました。")
             $(".portfolio_list").children("div").removeClass("img_horizon img_vertical active c_flex_center");
             $(".portfolio_list").removeClass("active");
@@ -104,4 +146,8 @@ $(function () {
         $(this).toggleClass("on-click");
         $(".more-lang").slideToggle(300);
     });
+});
+
+$(".port_edit_link").on("click", function () {
+    location.href = $(this).attr("href");
 });

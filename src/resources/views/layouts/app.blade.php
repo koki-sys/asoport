@@ -4,6 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-08DPQ0TDCW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-08DPQ0TDCW');
+    </script>
     <title>ASOPort</title>
 
     <!-- スタイルの切り替え -->
@@ -28,7 +37,7 @@
                 <ion-icon class="theme_toggle" name="contrast-outline"></ion-icon>
             </div>
             <div class="menu">
-                <a class="c_font_bold" href="{{ url('/profile') }}">プロフィールへ</a>
+                <a class="c_font_bold" href="{{ url('/profile') }}">マイページへ</a>
                 <a class="c_font_bold" href="{{ url('/profile_edit') }}">プロフィールを編集</a>
                 <!-- 要修正(css) -->
                 <form action="{{ url('/logout') }}" method="POST">

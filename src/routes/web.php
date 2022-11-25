@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use App\post;
-use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,4 +29,3 @@ Route::post('/post_submit_confirm', 'PostConfirmController@post');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
