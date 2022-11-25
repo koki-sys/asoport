@@ -24,6 +24,7 @@ Route::post('/prof_edit_submit', 'profileeditController@index');
 Route::post('/post_edit', 'PostEditController@post');
 Route::get('/post_edit/{id}', 'PostEditController@edit');
 Route::post('/post/delete', 'PostDelete@postdelete');
+Route::post('/post_submit_confirm', 'PostConfirmController@post');
 
 Auth::routes();
 
