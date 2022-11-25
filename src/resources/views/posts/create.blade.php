@@ -20,7 +20,7 @@
                     <span style="font-size: 1.2rem">一覧画面へ</span>
                 </a>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm"
+            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit_confirm') }}" class="validationForm"
                 novalidate>
                 @csrf
                 <div class="text-center box-center">
@@ -62,7 +62,7 @@
                         <!-- 検索画面で作る人へ ここまで -->
                     </div>
                     <input type="text" name="comment" placeholder="ひとこと" class="input-field required"><br>
-                    <button type="submit" class="post-btn btn btn-lg">投稿する</button>
+                    <button type="submit" class="post-btn btn btn-lg">確認画面へ</button>
                 </div>
             </form>
         </div>

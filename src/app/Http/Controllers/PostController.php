@@ -13,7 +13,7 @@ class PostController extends Controller
 {
     public function post(Request $request)
     {
-        $language = "";
+        //$language = "";
         //↓null判定
         /*
         if ($request->html != null) {
@@ -34,15 +34,15 @@ class PostController extends Controller
         */
 
         // null判定（使用言語追加のため、処理の変更を行いました。）
-        if (!empty($request->lang)) {
-            $language = implode(" / ", $request->lang);
-        }
+        //if (!empty($request->lang)) {
+        //    $language = implode(" / ", $request->lang);
+        //}
 
         /**
          * s3アップロード処理
          */
-        $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
-        $img_url = Storage::disk('s3')->url($path);
+        //$path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
+        //$img_url = Storage::disk('s3')->url($path);
 
 
         //postsテーブル->登録処理
@@ -52,8 +52,8 @@ class PostController extends Controller
         $posts->port_url = $request->port;
         $posts->git_url = $request->git;
         $posts->comment = $request->comment;
-        $posts->use_language = $language;
-        $posts->img_url = $img_url;
+        $posts->use_language = $request->lang;
+        $posts->img_url = $request->img_url;
         $posts->save();
 
         return redirect('/');
@@ -66,3 +66,5 @@ class PostController extends Controller
         return view('posts.create', compact('langs'));
     }
 }
+
+
