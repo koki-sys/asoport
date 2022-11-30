@@ -19,8 +19,9 @@
                     <span style="font-size: 1.2rem">戻る</span>
                 </a>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit') }}" class="validationForm" novalidate>
+            <form method="post" enctype="multipart/form-data" action="{{ $action }}" class="validationForm" novalidate>
                 @csrf
+                <input type="hidden" name="id" value="{{ $input_data['id'] }}">
                 <div class="text-center box-center">
                     <div class="m-3">
                         <label class="confirm-item">画像:</label>
@@ -47,7 +48,7 @@
                         <span>{{ $input_data['comment']}}</span>
                         <input name="comment" value="{{$input_data['comment']}}" type="hidden">
                     </div>
-                    <button type="submit" class="post-btn btn btn-lg">投稿する</button>
+                    <button type="submit" class="post-btn btn btn-lg">{{ $btn_title }}</button>
                 </div>
             </form>
         </div>
