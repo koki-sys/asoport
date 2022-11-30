@@ -2,8 +2,7 @@
 
 @section('style')
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="script/masonry.pkgd.min.js"></script>
 @endsection
 
@@ -34,9 +33,7 @@
                         詳細を見る
                     </div>
                     <div class="portfolio_operate">
-                        <a href="{{ url('/post_edit/'.$post->id) }}" class="port_edit_link">
-                            <ion-icon class="portfolio_edit" name="pencil-outline"></ion-icon>
-                        </a>
+                        <ion-icon class="portfolio_edit" name="pencil-outline" data-id="{{ $post->id }}"></ion-icon>
                         <!-- button押下時にポップアップに情報を作成 -->
                         <ion-icon class="portfolio_delete" name="trash-outline" data-id="{{ $post->id }}"></ion-icon>
                         <!-- 公開に設定している場合は↓のアイコンを表示 -->
