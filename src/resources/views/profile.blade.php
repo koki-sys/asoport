@@ -37,9 +37,9 @@
                         <!-- button押下時にポップアップに情報を作成 -->
                         <ion-icon class="portfolio_delete" name="trash-outline" data-id="{{ $post->id }}"></ion-icon>
                         <!-- 公開に設定している場合は↓のアイコンを表示 -->
-                        <ion-icon class="portfolio_show" name="eye-outline"></ion-icon>
+                        <!-- <ion-icon class="portfolio_show" name="eye-outline"></ion-icon> -->
                         <!-- 非公開に設定している場合は↓のアイコンを表示 -->
-                        <ion-icon class="portfolio_hide" name="eye-off-outline"></ion-icon>
+                        <!-- <ion-icon class="portfolio_hide" name="eye-off-outline"></ion-icon> -->
                     </div>
                 </div>
                 <div class="content">
