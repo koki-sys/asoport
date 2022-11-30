@@ -1207,3 +1207,8 @@ p.more.on-click::after{
   --ionicon-stroke-width: 60px;
   cursor: pointer;
 }
+
+.confirm-item {
+    font-size: 1rem;
+    font-weight: bold;
+}
