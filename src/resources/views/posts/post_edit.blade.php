@@ -20,7 +20,7 @@
                     <span style="font-size: 1.2rem">プロフィール画面へ</span>
                 </a>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ url('post_edit') }}" class="validationForm"
+            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit_confirm') }}" class="validationForm"
                 novalidate>
                 @csrf
                 <div class="text-center box-center">
@@ -72,7 +72,7 @@
                     </div>
                     <input type="text" name="comment" placeholder="ひとこと" value="{{ $post->comment }}"
                         class="input-field required"><br>
-                    <button type="submit" class="post-btn btn btn-lg">編集する</button>
+                    <button type="submit" class="post-btn btn btn-lg">確認画面へ</button>
                 </div>
             </form>
         </div>
