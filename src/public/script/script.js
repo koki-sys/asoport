@@ -148,8 +148,8 @@ $(function () {
     });
 });
 
-$(".port_edit_link").on("click", function () {
-    location.href = $(this).attr("href");
+$(".portfolio_edit").on("click", function () {
+    location.href = `post_edit/${$(this).data('id')}`;
 });
 
 //メール表示非表示切り替え
