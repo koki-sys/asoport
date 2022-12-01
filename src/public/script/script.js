@@ -92,7 +92,6 @@ $(function () {
     });
 
     $(".portfolio_list").imagesLoaded(function(){
-        console.log("imagedlodedが呼ばれました")
     // $(window).on("load", function () { // ウィンドウを更新した後に画像サイズを取得
         // Masonryの関数
         $('.portfolio_list').masonry({ //オプション指定箇所
