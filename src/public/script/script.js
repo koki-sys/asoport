@@ -91,7 +91,8 @@ $(function () {
         return false;
     });
 
-    $(window).on("load", function () { // ウィンドウを更新した後に画像サイズを取得
+    $(".portfolio_list").imagesLoaded(function(){
+    // $(window).on("load", function () { // ウィンドウを更新した後に画像サイズを取得
         // Masonryの関数
         $('.portfolio_list').masonry({ //オプション指定箇所
             itemSelector: '.portfolio', //コンテンツを指定
@@ -129,7 +130,8 @@ $(function () {
             return false;
         });
     });
-});
+})
+// });
 
 $(document).click(function (event) {
     if ($(".search_black_back").hasClass("active")) {
