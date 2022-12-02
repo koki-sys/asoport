@@ -98,37 +98,37 @@ $(function () {
             itemSelector: '.portfolio', //コンテンツを指定
             fitWidth: true, //コンテンツ数に合わせ親の幅を自動調整
         });
+    });
+    
+    $(".portfolio").on("click", function () {
+        //ポートフォリオの画像サイズを取得
+        var height = $(this).find("img").prop("naturalHeight");
+        var width = $(this).find("img").prop("naturalWidth");
 
-        $(".portfolio").on("click", function () {
-            //ポートフォリオの画像サイズを取得
-            var height = $(this).find("img").prop("naturalHeight");
-            var width = $(this).find("img").prop("naturalWidth");
+        //画像のアスペクト比に応じてポートフォリオ詳細画面の表示形式を変えるようにする
+        if (height > width) {
+            // 縦表示
+            $(this).addClass("active img_vertical c_flex_center");
+            $(".portfolio_list").addClass("active");
+        } else {
+            // 横表示
+            $(this).addClass("active img_horizon c_flex_center");
+            $(".portfolio_list").addClass("active");
+        }
 
-            //画像のアスペクト比に応じてポートフォリオ詳細画面の表示形式を変えるようにする
-            if (height > width) {
-                // 縦表示
-                $(this).addClass("active img_vertical c_flex_center");
-                $(".portfolio_list").addClass("active");
-            } else {
-                // 横表示
-                $(this).addClass("active img_horizon c_flex_center");
-                $(".portfolio_list").addClass("active");
-            }
+        return false;
+    });
 
-            return false;
-        });
+    // 詳細画面のリンクをクリックした時に遷移
+    $(".portfolio_link").on("click", function () {
+        window.open($(this).attr("href"), '_blank');
+    });
 
-        // 詳細画面のリンクをクリックした時に遷移
-        $(".portfolio_link").on("click", function () {
-            window.open($(this).attr("href"), '_blank');
-        });
-
-        $(".portfolio_operate ion-icon").on("click", function () {
-            // alert("削除が押されました。")
-            $(".portfolio_list").children("div").removeClass("img_horizon img_vertical active c_flex_center");
-            $(".portfolio_list").removeClass("active");
-            return false;
-        });
+    $(".portfolio_operate ion-icon").on("click", function () {
+        // alert("削除が押されました。")
+        $(".portfolio_list").children("div").removeClass("img_horizon img_vertical active c_flex_center");
+        $(".portfolio_list").removeClass("active");
+        return false;
     });
 })
 // });
