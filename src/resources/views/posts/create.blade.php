@@ -10,15 +10,23 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container mt-2">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            <a href="{{ url('/') }}" class="back-box d-flex align-items-center">
+                <ion-icon name="arrow-back-outline" style="font-size: 1.6rem" class="mr-2"></ion-icon>
+                <span style="font-size: 1.2rem">一覧画面へ</span>
+            </a>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 mt-5">
+            <div class="mb-3 text-center"><span style="font-size: 1.5rem">ポートフォリオ投稿</span></div>
             <div class="mb-3 align-middle d-inline-block">
-                <a href="{{ url('/') }}" class="back-box d-flex align-items-center">
-                    <ion-icon name="arrow-back-outline" style="font-size: 1.6rem" class="mr-2"></ion-icon>
-                    <span style="font-size: 1.2rem">一覧画面へ</span>
-                </a>
+            
             </div>
             <form method="post" enctype="multipart/form-data" action="{{ url('post_submit_confirm') }}" class="validationForm"
                 novalidate>
