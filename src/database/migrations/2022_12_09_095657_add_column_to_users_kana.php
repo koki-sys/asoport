@@ -14,7 +14,7 @@ class AddColumnToUsersKana extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('kana');
+            $table->string('kana')->nullable();
         });
     }
 
