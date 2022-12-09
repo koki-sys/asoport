@@ -43,7 +43,7 @@ jobs:
           # 秘密鍵をgithubactionsにコピー
           mkdir -p /home/runner/.ssh
           touch /home/runner/.ssh/id_rsa
-          echo "$TEST_PRIVATE_KEY" > /home/runner/.ssh/id_rsa
+          echo "$PRIVATE_KEY" > /home/runner/.ssh/id_rsa
           # パーミッション変更
           chmod 600 /home/runner/.ssh/id_rsa
           ssh-keyscan ${{ secrets.TEST_HOST_NAME }} >> ~/.ssh/known_hosts
