@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class detailController extends Controller
+class DetailController extends Controller
 {
-
-
-
     /**
      * Create a new controller instance.
      *
