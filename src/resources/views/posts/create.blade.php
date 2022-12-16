@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 mt-5">
-            <div class="mb-3 text-center"><span style="font-size: 1.5rem; font-weight: bold;">ポートフォリオ投稿</span></div>
+            <div class="mb-3 text-center"><span style="font-size: 1.5rem; font-weight: bold;">新規投稿</span></div>
             <div class="mb-3 align-middle d-inline-block">
             
             </div>
