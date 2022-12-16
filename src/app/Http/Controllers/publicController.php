@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class publicController extends Controller
 {
@@ -11,21 +12,17 @@ class publicController extends Controller
      *
      * @return void
      */
-    public function post_Public (Request $request)
+    public function post_public (Request $request, $id)
     {
-        $id  =  $request->input('id');
-
         $post = Post::find($id);
-        $post->update(['public_flg' => 1]);
-        return view('####');
+        $post-> update(['public_flg' => 1]);
+        return redirect('/profile');
     }
 
-    public function post_UnPublic (Request $request)
+    public function post_unpublic (Request $request, $id)
     {
-        $id  =  $request->input('id');
-
         $post = Post::find($id);
-        $post->update(['public_flg' => 0]);
-        return view('####');
+        $post-> update(['public_flg' => 0]);
+        return redirect('/profile');
     }
 }
