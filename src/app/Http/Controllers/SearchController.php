@@ -40,7 +40,8 @@ class SearchController extends BaseController
                     $query = $query->where('use_language', 'LIKE', $langFormat);
                 }
                 return $query;
-            })->get();
+            })->where('posts.public_flg','1')
+            ->get();
 
             $langs = Language::all();
 
