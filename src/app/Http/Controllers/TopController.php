@@ -19,6 +19,7 @@ class TopController extends Controller
     {
         $posts = Post::select('users.name', 'users.class', 'posts.*')
             ->join('users', 'users.id', '=', 'posts.user_id')
+            ->where('posts.public_flg','1')
             ->get();
 
         $langs = Language::all();
