@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
-
-
-
     /**
      * Create a new controller instance.
      *
