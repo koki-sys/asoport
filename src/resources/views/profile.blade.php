@@ -37,10 +37,13 @@
                         <ion-icon class="portfolio_edit" name="pencil-outline" data-id="{{ $post->id }}"></ion-icon>
                         <!-- button押下時にポップアップに情報を作成 -->
                         <ion-icon class="portfolio_delete" name="trash-outline" data-id="{{ $post->id }}"></ion-icon>
+                        @if(($post -> public_flg) == 1)
                         <!-- 公開に設定している場合は↓のアイコンを表示 -->
-                        <!-- <ion-icon class="portfolio_show" name="eye-outline"></ion-icon> -->
+                        <ion-icon class="portfolio_show" name="eye-outline" data-id="{{ $post->id }}"></ion-icon>
+                        @elseif(($post -> public_flg) == 0)
                         <!-- 非公開に設定している場合は↓のアイコンを表示 -->
-                        <!-- <ion-icon class="portfolio_hide" name="eye-off-outline"></ion-icon> -->
+                        <ion-icon class="portfolio_hide" name="eye-off-outline" data-id="{{ $post->id }}"></ion-icon>
+                        @endif
                     </div>
                 </div>
                 <div class="content">
@@ -71,12 +74,12 @@
 
 <div class="portfolio_popup hide_popup">
     <h1 class="c_font_bold">この投稿を非公開にしますか</h1>
-    <a class="c_font_bold" href="#">非公開にする</a>
+    <a class="c_font_bold" href="/public_off/{{$post -> id}}">非公開にする</a>
     <ion-icon class="popup_close" name="close-outline"></ion-icon>
 </div>
 <div class="portfolio_popup show_popup">
     <h1 class="c_font_bold">この投稿を公開しますか</h1>
-    <a class="c_font_bold" href="#">公開する</a>
+    <a class="c_font_bold" href="/public_on/{{$post -> id}}">公開する</a>
     <ion-icon class="popup_close" name="close-outline"></ion-icon>
 </div>
 <div class="portfolio_popup delete_popup">

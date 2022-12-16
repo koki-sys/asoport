@@ -23,8 +23,11 @@ Route::get('/profile_edit', 'profileeditController@edit');
 Route::post('/prof_edit_submit', 'profileeditController@index');
 Route::post('/post_edit', 'PostEditController@post');
 Route::get('/post_edit/{id}', 'PostEditController@edit');
-Route::post('/post/delete', 'PostDelete@postdelete');
+Route::post('/post/delete', 'PostDeleteController@postdelete');
 Route::post('/post_submit_confirm', 'PostConfirmController@post');
+Route::get('/public_on/{id}', 'PublicController@post_public');
+Route::get('/public_off/{id}', 'PublicController@post_unpublic');
+
 
 Auth::routes();
 
