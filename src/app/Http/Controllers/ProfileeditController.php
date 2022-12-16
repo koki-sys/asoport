@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
-class profileeditController extends Controller
+class ProfileeditController extends Controller
 {
     public function index(Request $request)
     {
@@ -29,7 +29,8 @@ class profileeditController extends Controller
         return redirect('/profile');
     }
 
-    public function edit(Request $request){
+    public function edit(Request $request)
+    {
         $langs = Language::all();
         $user = User::find(Auth::id());
 
