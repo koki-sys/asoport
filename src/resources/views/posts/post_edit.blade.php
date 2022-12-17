@@ -13,23 +13,16 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <a href="{{ url('/profile') }}" class="back-box d-flex align-items-center">
-                <ion-icon name="arrow-back-outline" style="font-size: 1.6rem" class="mr-2"></ion-icon>
-                <span style="font-size: 1.2rem">マイページへ</span>
-            </a>
-        </div>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-2"></div>
         <div class="col-md-8 mt-5">
-            <div class="mb-3 text-center"><span style="font-size: 1.5rem; font-weight: bold;">投稿編集</span></div>
-            <div class="mb-3 align-middle d-inline-block">
-                
+            <div class="mb-5 text-center">
+                <a href="{{ url('/profile') }}" class="back-box d-flex align-items-center">
+                    <ion-icon name="arrow-back-outline" style="font-size: 1.6rem" class="mr-2"></ion-icon>
+                    <span style="font-size: 1.2rem">マイページへ</span>
+                </a>
+                <span style="font-size: 1.5rem; font-weight: bold;">投稿編集</span>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit_confirm') }}" class="validationForm"
-                novalidate>
+            <form method="post" enctype="multipart/form-data" action="{{ url('post_submit_confirm') }}"
+                class="validationForm" novalidate>
                 @csrf
                 <div class="text-center box-center">
                     <div id="dragDropArea">
