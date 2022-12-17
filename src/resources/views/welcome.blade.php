@@ -36,6 +36,10 @@
                     <p>使用言語</p>
                     {{ $post -> use_language }}
                 </h4>
+                <h4>
+                    <p>作成日</p>
+                    {{ \Carbon\Carbon::parse($post->created_at)->format("Y/m/d") }}
+                </h4>
             </div>
             <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
         </div>
