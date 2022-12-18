@@ -36,7 +36,7 @@
                             <div id="previewArea">
                                 <!-- url形式になってるか確認して、url形式だったら表示する。 -->
                                 @if(preg_match("/(https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*)|(img\/.*)/", $post->img_url) == 1)
-                                <img src="{{ asset($post->img_url) }}" alt="image" width="100">
+                                <img src="{{ asset($post->img_url) }}" alt="image" width="100" id="previewImage">
                                 @endif
                             </div>
                         </div>

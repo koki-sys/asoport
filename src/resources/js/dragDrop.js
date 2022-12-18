@@ -22,9 +22,9 @@ function photoPreview(event, f = null) {
     if (file === null) {
         file = event.target.files[0];
     }
-    var reader = new FileReader();
-    var preview = document.getElementById("previewArea");
-    var previewImage = document.getElementById("previewImage");
+    const reader = new FileReader();
+    const preview = document.getElementById("previewArea");
+    const previewImage = document.getElementById("previewImage");
 
     // 画像を入れてないときは、プレビューを表示しない
     if (previewImage != null) {
