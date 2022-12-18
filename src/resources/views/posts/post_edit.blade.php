@@ -28,7 +28,7 @@
                     <div id="dragDropArea">
                         <div class="drag-drop-inside">
                             <ion-icon name="add-outline" style="font-size: 5rem;" id="drag-drop-icon"></ion-icon><br>
-                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ<br>※画像の再アップロードをお願いいたします。</p>
+                            <p class="drag-drop-info" id="drag-drop-info">画像をドラッグ＆ドロップ</p>
                             <p class="drag-drop-buttons">
                                 <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="photo"
                                     class="d-none required" onChange="photoPreview(event)">
