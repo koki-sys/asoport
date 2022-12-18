@@ -21,39 +21,39 @@ var isLandscape = function isLandscape(element) {
   return false;
 };
 
-function photoPreview(event) {
-  var f = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  var file = f;
+var checkAspect = function checkAspect(result, imageElement) {
+  var imageObj = new Image();
+  imageObj.setAttribute("src", result);
 
-  if (file === null) {
-    file = event.target.files[0];
-  }
+  imageObj.onload = function () {
+    // 縦横比を調べてサイズを変更する
+    if (isLandscape(imageObj)) {
+      imageElement.classList.add('preview-size-landscape');
+    } else {
+      imageElement.classList.add('preview-size-portrait');
+    }
+  };
+};
 
+var photoPreview = function photoPreview(file) {
   var reader = new FileReader();
   var preview = document.getElementById("previewArea");
-  var previewImage = document.getElementById("previewImage"); // 画像を入れてないときは、プレビューを表示しない
+  var previewImage = document.getElementById("previewImage");
+  reader.readAsDataURL(file); // 画像を入れてないときは、プレビューを表示しない
 
   if (previewImage != null) {
     preview.removeChild(previewImage);
   } // 画像のプレビューを表示
 
 
-  reader.onload = function (event) {
+  reader.onload = function () {
     var img = document.createElement("img");
     img.setAttribute("src", reader.result);
-    img.setAttribute("id", "previewImage"); // 縦横比を調べてサイズを変更する
-
-    if (isLandscape(img)) {
-      img.classList.add('preview-size-landscape');
-    } else {
-      img.classList.add('preview-size-portrait');
-    }
-
+    img.setAttribute("id", "previewImage");
+    checkAspect(reader.result, img);
     preview.appendChild(img);
   };
-
-  reader.readAsDataURL(file);
-}
+};
 
 fileArea.addEventListener('dragover', function (evt) {
   evt.preventDefault();
@@ -68,11 +68,8 @@ fileArea.addEventListener('drop', function (evt) {
   fileArea.classList.remove('dragenter');
   dragDropIcon.remove();
   dragDropInfo.remove();
-  var files = evt.dataTransfer.files;
-  console.log("DRAG & DROP");
-  console.table(files);
-  fileInput.files = files;
-  photoPreview('onChenge', files[0]);
+  fileInput.files = evt.dataTransfer.files;
+  photoPreview(fileInput.files[0]);
 });
 /******/ })()
 ;
