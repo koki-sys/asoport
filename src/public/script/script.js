@@ -28,13 +28,41 @@ $(function () {
 
     // ===== 表示/非表示、削除ボタンのポップアップ =====
     $('.portfolio_show').on("click", function () {
+        $(".id_info").remove();
+        $(".delete_btn").remove();
+    // アイコンからport_idを取得しURLに変換
+        const portId = $(this).data('id');
+        const url    = "/pubbic_on/" + portId;
+
+        //ぼたんとか情報をまとめて追加
+        $("<input>").attr({
+            type: 'submit',
+            value: '削除する',
+            class: 'c_font_bold delete_btn'
+        }).appendTo(".public_on_form");
+
         $(".hide_popup").toggleClass("active");
         $(".search_black_back").toggleClass("active");
     });
     $('.portfolio_hide').on("click", function () {
+
+        $(".id_info").remove();
+        $(".delete_btn").remove();
+    // アイコンからport_idを取得しURLに変換
+        const portId = $(this).data('id');
+        const url    = "/pubbic_off/" + portId;
+
+        //ぼたんとか情報をまとめて追加
+        $("<input>").attr({
+            type: 'submit',
+            value: '削除する',
+            class: 'c_font_bold delete_btn'
+        }).appendTo(".public_off_form");
+        
         $(".show_popup").toggleClass("active");
         $(".search_black_back").toggleClass("active");
     });
+    
     $('.portfolio_delete').on("click", function () {
         // ポートフォリオ削除するときの処理を追加
         $(".id_info").remove();

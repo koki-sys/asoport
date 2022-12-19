@@ -39,6 +39,10 @@
                     <p>使用言語</p>
                     {{ $post -> use_language }}
                 </h4>
+                <h5>
+                    <p>作成日</p>
+                    {{$post -> created_at}}
+                </h5>
             </div>
             <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
         </div>
