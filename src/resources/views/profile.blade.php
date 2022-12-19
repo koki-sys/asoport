@@ -71,12 +71,19 @@
 
 <div class="portfolio_popup hide_popup">
     <h1 class="c_font_bold">この投稿を非公開にしますか</h1>
-    <a class="c_font_bold" href="/public_off/{{$post -> id}}">非公開にする</a>
-    <ion-icon class="popup_close" name="close-outline"></ion-icon>
+    <form action="" method="POST" class="public_off_form">
+        @csrf
+
+    </form>
+        <ion-icon class="popup_close" name="close-outline"></ion-icon>
 </div>
 <div class="portfolio_popup show_popup">
     <h1 class="c_font_bold">この投稿を公開しますか</h1>
-    <a class="c_font_bold" href="/public_on/{{$post -> id}}">公開する</a>
+    <form action="" method="POST" class="public_on_form">
+        @csrf
+
+    </form>
+    <!--<a class="c_font_bold" href="/public_on/?data-id">公開する</a> -->
     <ion-icon class="popup_close" name="close-outline"></ion-icon>
 </div>
 <div class="portfolio_popup delete_popup">
