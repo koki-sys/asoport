@@ -12,7 +12,26 @@
 -   プロフィール編集機能
 -   外観モード（ライト、ダーク）
 -   Github の公開リポジトリの閲覧機能
+-   公開・非公開機能
 
+**使用技術**<br>
+[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,jquery,php,bootstrap,docker,laravel,git,github,githubactions,webpack&theme=dark)](https://skillicons.dev)<br>
+
+-   HTML5
+-   CSS3
+-   JavaScript(ES2015)
+-   jQuery v3.6.0
+-   php v7.4
+-   BootStrap v4.0.0
+-   docker v20.10.22
+-   docker-compose v2.2.3
+-   Laravel v6.20.26
+-   git v2.25.1
+-   github
+-   githubacitons
+-   webpack v4
+
+## **--ここから開発者向け--**
 ## make コマンドのインストール
 
 **初回セットアップを行う前に実行してください。**<br>
