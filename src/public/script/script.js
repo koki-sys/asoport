@@ -30,16 +30,21 @@ $(function () {
     $('.portfolio_show').on("click", function () {
         $(".id_info").remove();
         $(".delete_btn").remove();
-    // アイコンからport_idを取得しURLに変換
+        // アイコンからport_idを取得しURLに変換
         const portId = $(this).data('id');
-        const url    = "/pubbic_on/" + portId;
 
         //ぼたんとか情報をまとめて追加
         $("<input>").attr({
+            type: 'hidden',
+            name: 'id',
+            class: 'id_info',
+            value: portId
+        }).appendTo(".public_off_form");
+        $("<input>").attr({
             type: 'submit',
-            value: '削除する',
+            value: '非公開にする',
             class: 'c_font_bold delete_btn'
-        }).appendTo(".public_on_form");
+        }).appendTo(".public_off_form");
 
         $(".hide_popup").toggleClass("active");
         $(".search_black_back").toggleClass("active");
@@ -48,21 +53,26 @@ $(function () {
 
         $(".id_info").remove();
         $(".delete_btn").remove();
-    // アイコンからport_idを取得しURLに変換
+        // アイコンからport_idを取得しURLに変換
         const portId = $(this).data('id');
-        const url    = "/pubbic_off/" + portId;
 
         //ぼたんとか情報をまとめて追加
         $("<input>").attr({
+            type: 'hidden',
+            name: 'id',
+            class: 'id_info',
+            value: portId
+        }).appendTo(".public_on_form");
+        $("<input>").attr({
             type: 'submit',
-            value: '削除する',
+            value: '公開にする',
             class: 'c_font_bold delete_btn'
-        }).appendTo(".public_off_form");
-        
+        }).appendTo(".public_on_form");
+
         $(".show_popup").toggleClass("active");
         $(".search_black_back").toggleClass("active");
     });
-    
+
     $('.portfolio_delete').on("click", function () {
         // ポートフォリオ削除するときの処理を追加
         $(".id_info").remove();
@@ -120,16 +130,16 @@ $(function () {
     });
 
     $("img.lazy").lazyload();
-    $(window).on("load", function() {
-        $(".portfolio_list").imagesLoaded(function(){
-                // Masonryの関数
-                $('.portfolio_list').masonry({ //オプション指定箇所
-                    itemSelector: '.portfolio', //コンテンツを指定
-                    fitWidth: true, //コンテンツ数に合わせ親の幅を自動調整
-                });
+    $(window).on("load", function () {
+        $(".portfolio_list").imagesLoaded(function () {
+            // Masonryの関数
+            $('.portfolio_list').masonry({ //オプション指定箇所
+                itemSelector: '.portfolio', //コンテンツを指定
+                fitWidth: true, //コンテンツ数に合わせ親の幅を自動調整
             });
+        });
     });
-    
+
     $(".portfolio").on("click", function () {
         //ポートフォリオの画像サイズを取得
         var height = $(this).find("img").prop("naturalHeight");
@@ -185,17 +195,17 @@ $(".portfolio_edit").on("click", function () {
 });
 
 //メール表示非表示切り替え
-$(".mail_show").click(function() {
+$(".mail_show").click(function () {
     $(".mail_show").css("display", "none");
     $(".mail_hide").css("display", "table-cell");
 });
-$(".mail_hide").click(function() {
+$(".mail_hide").click(function () {
     $(".mail_hide").css("display", "none");
     $(".mail_show").css("display", "table-cell");
 });
 
 //メール表示非表示フラグ更新
-$(".post-btn").click(function() {
+$(".post-btn").click(function () {
     var flag = 1;
     if ($('.mail_show').css('display') == 'none') {
         flag = 0;

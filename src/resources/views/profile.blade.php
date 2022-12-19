@@ -25,7 +25,8 @@
         <div class="portfolio">
             <div class="portfolio_background">
                 <div class="portfolio_img">
-                    <img class="lazy" src="{{ asset($post -> img_url) }}" alt="" data-original="{{ asset($post -> img_url) }}"/>
+                    <img class="lazy" src="{{ asset($post -> img_url) }}" alt=""
+                        data-original="{{ asset($post -> img_url) }}" />
                     <div class="img_hover_style c_font_bold">
                         <ion-icon name="camera-outline"></ion-icon>
                         詳細を見る
@@ -71,15 +72,15 @@
 
 <div class="portfolio_popup hide_popup">
     <h1 class="c_font_bold">この投稿を非公開にしますか</h1>
-    <form action="" method="POST" class="public_off_form">
+    <form action="{{ url('/public_off') }}" method="POST" class="public_off_form">
         @csrf
 
     </form>
-        <ion-icon class="popup_close" name="close-outline"></ion-icon>
+    <ion-icon class="popup_close" name="close-outline"></ion-icon>
 </div>
 <div class="portfolio_popup show_popup">
     <h1 class="c_font_bold">この投稿を公開しますか</h1>
-    <form action="" method="POST" class="public_on_form">
+    <form action="{{ url('/public_on') }}" method="POST" class="public_on_form">
         @csrf
 
     </form>

@@ -12,16 +12,16 @@ class PublicController extends Controller
      *
      * @return void
      */
-    public function post_public(Request $request, $id)
+    public function post_public(Request $request)
     {
-        $post = Post::find($id);
+        $post = Post::find($request->id);
         $post->update(['public_flg' => 1]);
         return redirect('/profile');
     }
 
-    public function post_unpublic(Request $request, $id)
+    public function post_unpublic(Request $request)
     {
-        $post = Post::find($id);
+        $post = Post::find($request->id);
         $post->update(['public_flg' => 0]);
         return redirect('/profile');
     }

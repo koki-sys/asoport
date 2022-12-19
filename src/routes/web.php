@@ -25,8 +25,8 @@ Route::post('/post_edit', 'PostEditController@post');
 Route::get('/post_edit/{id}', 'PostEditController@edit');
 Route::post('/post/delete', 'PostDeleteController@postdelete');
 Route::post('/post_submit_confirm', 'PostConfirmController@post');
-Route::post('/public_on/{id}', 'PublicController@post_public');
-Route::post('/public_off/{id}', 'PublicController@post_unpublic');
+Route::post('/public_on', 'PublicController@post_public');
+Route::post('/public_off', 'PublicController@post_unpublic');
 
 
 Auth::routes();
