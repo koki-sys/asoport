@@ -119,13 +119,15 @@ $(function () {
         return false;
     });
 
-    $(".portfolio_list").imagesLoaded(function(){
-    // $(window).on("load", function () { // ウィンドウを更新した後に画像サイズを取得
-        // Masonryの関数
-        $('.portfolio_list').masonry({ //オプション指定箇所
-            itemSelector: '.portfolio', //コンテンツを指定
-            fitWidth: true, //コンテンツ数に合わせ親の幅を自動調整
-        });
+    $("img.lazy").lazyload();
+    $(window).on("load", function() {
+        $(".portfolio_list").imagesLoaded(function(){
+                // Masonryの関数
+                $('.portfolio_list').masonry({ //オプション指定箇所
+                    itemSelector: '.portfolio', //コンテンツを指定
+                    fitWidth: true, //コンテンツ数に合わせ親の幅を自動調整
+                });
+            });
     });
     
     $(".portfolio").on("click", function () {

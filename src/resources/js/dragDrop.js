@@ -1,5 +1,5 @@
-var fileArea = document.getElementById('dragDropArea');
-var fileInput = document.getElementById('fileInput');
+const fileArea = document.getElementById('dragDropArea');
+const fileInput = document.getElementById('fileInput');
 const dragDropIcon = document.getElementById('drag-drop-icon');
 const dragDropInfo = document.getElementById('drag-drop-info');
 
@@ -17,38 +17,39 @@ const isLandscape = (element) => {
     return false;
 }
 
-function photoPreview(event, f = null) {
-    var file = f;
-    if (file === null) {
-        file = event.target.files[0];
-    }
-    var reader = new FileReader();
-    var preview = document.getElementById("previewArea");
-    var previewImage = document.getElementById("previewImage");
+const checkAspect = (result, imageElement) => {
+    const imageObj = new Image();
+    imageObj.setAttribute("src", result);
+    imageObj.onload = () => {
+        // 縦横比を調べてサイズを変更する
+        if (isLandscape(imageObj)) {
+            imageElement.classList.add('preview-size-landscape');
+        } else {
+            imageElement.classList.add('preview-size-portrait');
+        }
+    };
+}
 
+const photoPreview = (file) => {
+    const reader = new FileReader();
+    const preview = document.getElementById("previewArea");
+    const previewImage = document.getElementById("previewImage");
+
+    reader.readAsDataURL(file);
     // 画像を入れてないときは、プレビューを表示しない
     if (previewImage != null) {
         preview.removeChild(previewImage);
     }
 
     // 画像のプレビューを表示
-    reader.onload = function (event) {
+    reader.onload = () => {
         const img = document.createElement("img");
         img.setAttribute("src", reader.result);
         img.setAttribute("id", "previewImage");
-        // 縦横比を調べてサイズを変更する
-        if (isLandscape(img)) {
-            img.classList.add('preview-size-landscape');
-        } else {
-            img.classList.add('preview-size-portrait');
-        }
+        checkAspect(reader.result, img);
         preview.appendChild(img);
     };
-
-    reader.readAsDataURL(file);
 }
-
-
 
 fileArea.addEventListener('dragover', function (evt) {
     evt.preventDefault();
@@ -65,9 +66,6 @@ fileArea.addEventListener('drop', function (evt) {
     fileArea.classList.remove('dragenter');
     dragDropIcon.remove();
     dragDropInfo.remove();
-    var files = evt.dataTransfer.files;
-    console.log("DRAG & DROP");
-    console.table(files);
-    fileInput.files = files;
-    photoPreview('onChenge', files[0]);
+    fileInput.files = evt.dataTransfer.files;
+    photoPreview(fileInput.files[0]);
 });

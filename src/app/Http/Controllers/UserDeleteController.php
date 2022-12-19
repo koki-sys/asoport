@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class UserDeleteController extends Controller
 {
-    //
     public function userdelete(Request $request)
     {
         $id = auth()->id();
@@ -20,5 +19,4 @@ class UserDeleteController extends Controller
 
         return redirect('/top');
     }
-
 }

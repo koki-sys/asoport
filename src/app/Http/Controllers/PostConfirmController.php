@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Post;
-use App\Language;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PostConfirmController extends Controller
@@ -24,13 +21,19 @@ class PostConfirmController extends Controller
         //$langs = implode(" ",$lang);
         //$lang = $request->input('lang');
 
-        $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
-        $img_url = Storage::disk('s3')->url($path);
+        // urlの場合（処理なし）と、blobの場合で分ける。
+        $img_url = "";
+        if (preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $request->photo) == 1) {
+            $img_url = $request->photo;
+        } else {
+            $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
+            $img_url = Storage::disk('s3')->url($path);
+        }
 
         // リファラを使って、actionを変える。
         $is_edit_referer = (preg_match('/^https?:\/\/.+\/(post_edit\/[0-9]+)$/u', $request->header('referer'), $m) == 1) ? true : false;
         $is_create_referer = (preg_match('/^https?:\/\/.+\/create$/u', $request->header('referer'), $m) == 1) ? true : false;
-        
+
         $action = "";
         $btn_title = "";
         if ($is_edit_referer) {

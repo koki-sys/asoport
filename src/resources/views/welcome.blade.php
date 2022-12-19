@@ -2,9 +2,6 @@
 
 @section('style')
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="script/masonry.pkgd.min.js"></script>
-<script src="script/imagesloaded.pkgd.min.js"></script>
 @endsection
 
 @section('content')
@@ -15,7 +12,7 @@
     <div class="portfolio">
         <div class="portfolio_background">
             <div class="portfolio_img">
-                <img src="{{ asset($post -> img_url) }}" alt="" />
+                <img class="lazy" src="{{ asset($post -> img_url) }}" alt="" data-original="{{ asset($post -> img_url) }}"/>
                 <div class="img_hover_style c_font_bold">
                     <ion-icon name="camera-outline"></ion-icon>
                     詳細を見る
@@ -39,10 +36,10 @@
                     <p>使用言語</p>
                     {{ $post -> use_language }}
                 </h4>
-                <h5>
+                <h4>
                     <p>作成日</p>
-                    {{$post -> created_at}}
-                </h5>
+                    {{ \Carbon\Carbon::parse($post->created_at)->format("Y/m/d") }}
+                </h4>
             </div>
             <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
         </div>
