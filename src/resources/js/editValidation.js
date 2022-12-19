@@ -40,10 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
             //.required を指定した要素を検証
             requiredElems.forEach((elem) => {
                 const elemValue = elem.value.trim();
+                const imgElem = document.getElementById("previewImage");
                 //値が空の場合はエラーを表示してフォームの送信を中止
-                if (elem.getAttribute('type') === 'file' && elemValue.length === 0) {
+                if (elem.getAttribute('type') === 'file' && elemValue.length === 0 && imgElem.src.length === 0) {
                     createError(document.querySelector('#dragDropArea'), '入力は必須です')
-                } else if (elemValue.length === 0) {
+                } else if (elem.getAttribute('type') != 'file' && elemValue.length === 0) {
                     createError(elem, '入力は必須です');
                     e.preventDefault();
                 }
