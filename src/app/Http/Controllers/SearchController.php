@@ -41,6 +41,7 @@ class SearchController extends BaseController
                 }
                 return $query;
             })->where('posts.public_flg','1')
+            ->orderByDesc('posts.id')
             ->get();
 
             $langs = Language::all();
