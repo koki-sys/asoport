@@ -1212,3 +1212,7 @@ p.more.on-click::after{
     font-size: 1rem;
     font-weight: bold;
 }
+
+.detail_port_date {
+    float: right;
+}
