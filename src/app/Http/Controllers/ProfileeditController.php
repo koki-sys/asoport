@@ -14,7 +14,11 @@ class ProfileeditController extends Controller
         $name = $request->input('name');
         $class = $request->input('class');
         $email = $request->input('email');
-        $flag = $request->input('mail_flag');
+        //$flag = $request->input('mail_flag');
+        $flag = $request->input('mail_public');
+
+
+
         // dd($flag);
 
         //ひとまず固定idのuser情報を変更
