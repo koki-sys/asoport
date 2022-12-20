@@ -212,3 +212,29 @@ $(".post-btn").click(function () {
     }
     $('#flag').val(flag);
 });
+
+//プロフィールのメール公開の処理※<hidden>で値を持たせる
+$(".mail_public").click(function(){
+    $(".mail_change").remove();
+
+    //ぼたんとか情報をまとめて追加
+    $("<input>").attr({
+        type: 'hidden',
+        name: 'mail_public',
+        class: 'mail_change',
+        value: 1
+    }).appendTo(".validationForm");
+});
+
+//プロフィールのメール非公開の処理※<hidden>で値を持たせる
+$(".mail_unpublic").click(function(){
+    $(".mail_change").remove();
+
+    //ぼたんとか情報をまとめて追加
+    $("<input>").attr({
+        type: 'hidden',
+        name: 'mail_public',
+        class: 'mail_change',
+        value: 0
+    }).appendTo(".validationForm");
+});

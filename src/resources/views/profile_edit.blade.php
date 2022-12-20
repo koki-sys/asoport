@@ -31,17 +31,19 @@
                         <div class="col-10"><input type="text" name="email" placeholder="メール" class="input-field required" value="{{ $user->email }}"></div>
                         <div class="col-2 eye-wrapper">
                             <!-- 公開に設定している場合は↓のアイコンを表示 -->
-                            <ion-icon name="eye-outline" class="mail_show" value="1"></ion-icon>
+                            <ion-icon name="eye-outline" class="mail_show mail_unpublic" value="1"></ion-icon>
                             <!-- 非公開に設定している場合は↓のアイコンを表示 -->
-                            <ion-icon name="eye-off-outline" class="mail_hide" value="0"></ion-icon>
+                            <ion-icon name="eye-off-outline" class="mail_hide mail_public" value="0"></ion-icon>
                         </div>
                     </div>
                     <button type="submit" class="post-btn btn btn-lg mt-5">確定する</button>
                 </div>
+                <input type="hidden" name="mail_public" class="mail_change" value="1">
             </form>
         </div>
         <div class="col-md-2"></div>
     </div>
 </div>
 <script src="{{ asset('js/editValidation.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection('content')
