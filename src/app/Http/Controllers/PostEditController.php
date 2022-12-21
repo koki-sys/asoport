@@ -6,17 +6,21 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Language;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+
 
 class PostEditController extends Controller
 {
     public function post(Request $request)
     {
         // s3のupload処理の修正 koki-sys
-        $img_url = "";
-        if (preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $request->img_url) == 1) {
-            $img_url = $request->img_url;
-        } else {
-            $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
+        $img_url = $request->img_url;
+        $is_uploaded = preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $img_url) == 1 ? true : false;
+
+        if (!$is_uploaded) {
+            $path = Storage::disk('s3')->putFile('asoport', new File($img_url), 'public');
+            Storage::delete($img_url);
             $img_url = Storage::disk('s3')->url($path);
         }
 

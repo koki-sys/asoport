@@ -7,20 +7,17 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Language;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class PostController extends Controller
 {
     public function post(Request $request)
     {
         // s3upload処理追加 koki-sys
-        $img_url = "";
-        if (preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $request->img_url) == 1) {
-            $img_url = $request->img_url;
-        } else {
-            // 削除処理を追加する。
-            $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
-            $img_url = Storage::disk('s3')->url($path);
-        }
+        $path = Storage::disk('s3')->putFile('asoport', new File($request->img_url), 'public');
+        Storage::delete($request->img_url);
+        $img_url = Storage::disk('s3')->url($path);
 
         //postsテーブル->登録処理
         $posts = new Post;
