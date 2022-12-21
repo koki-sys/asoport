@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 
 class PostConfirmController extends Controller
 {
@@ -13,6 +13,8 @@ class PostConfirmController extends Controller
         $port = $request->port;
         $git = $request->git;
         $comment = $request->comment;
+        $img_url = $request->photo;
+        $is_uploaded = preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $img_url) == 1 ? true : false;
 
         $language = "";
         if (!empty($request->lang)) {
@@ -21,13 +23,11 @@ class PostConfirmController extends Controller
         //$langs = implode(" ",$lang);
         //$lang = $request->input('lang');
 
-        // urlの場合（処理なし）と、blobの場合で分ける。
-        $img_url = "";
-        if (preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $request->photo) == 1) {
-            $img_url = $request->photo;
-        } else {
-            $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
-            $img_url = Storage::disk('s3')->url($path);
+        if (!$is_uploaded) {
+            // 開発用の画像の場合は、ファイル名を変えて一時保存する。
+            $imgfile = $request->file('photo') ? $request->file('photo') : new UploadedFile($request->photo, Str::random(20));
+            $temp_url = $imgfile->store('public/temp');
+            $img_url = str_replace('public/', 'storage/', $temp_url);
         }
 
         // リファラを使って、actionを変える。
