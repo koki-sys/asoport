@@ -25,8 +25,8 @@ class PostConfirmController extends Controller
         if (preg_match("/(https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*)|(img\/.*)/", $img_url) == 0) {
             // 確認画面のための処理する。
             $imgfile = $request->file('photo');
-            $img_url = $imgfile->store('public/temp');
-            dd($img_url);
+            $temp_url = $imgfile->store('public/temp');
+            $img_url = $read_temp_path = str_replace('public/', 'storage/', $temp_url);
         }
 
         // リファラを使って、actionを変える。
