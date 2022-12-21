@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PostConfirmController extends Controller
@@ -13,6 +13,7 @@ class PostConfirmController extends Controller
         $port = $request->port;
         $git = $request->git;
         $comment = $request->comment;
+        $img_url = $request->photo;
 
         $language = "";
         if (!empty($request->lang)) {
@@ -21,13 +22,11 @@ class PostConfirmController extends Controller
         //$langs = implode(" ",$lang);
         //$lang = $request->input('lang');
 
-        // urlの場合（処理なし）と、blobの場合で分ける。
-        $img_url = "";
-        if (preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $request->photo) == 1) {
-            $img_url = $request->photo;
-        } else {
-            $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
-            $img_url = Storage::disk('s3')->url($path);
+        if (preg_match("/(https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*)|(img\/.*)/", $img_url) == 0) {
+            // 確認画面のための処理する。
+            $imgfile = $request->file('photo');
+            $img_url = $imgfile->store('public/temp');
+            dd($img_url);
         }
 
         // リファラを使って、actionを変える。

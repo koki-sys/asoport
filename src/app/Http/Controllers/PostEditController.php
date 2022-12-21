@@ -11,6 +11,15 @@ class PostEditController extends Controller
 {
     public function post(Request $request)
     {
+        // s3のupload処理の修正 koki-sys
+        $img_url = "";
+        if (preg_match("/https:\/\/asoport-s3.s3.ap-northeast-3.amazonaws.com\/.*/", $request->img_url) == 1) {
+            $img_url = $request->img_url;
+        } else {
+            $path = Storage::disk('s3')->putFile('asoport', $request->photo, 'public');
+            $img_url = Storage::disk('s3')->url($path);
+        }
+
         //postsテーブル->投稿内容変更処理
         $postId = $request->id;
         $userId = Auth::id();
@@ -21,7 +30,7 @@ class PostEditController extends Controller
         $posts->git_url = $request->git;
         $posts->comment = $request->comment;
         $posts->use_language = $request->lang;
-        $posts->img_url = $request->img_url;
+        $posts->img_url = $img_url;
         $posts->save();
 
         return redirect('/');
