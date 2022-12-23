@@ -10978,6 +10978,11 @@ a.text-dark:focus {
   height: auto;
 }
 
+.preview-size-square {
+  width: 45%;
+  height: auto;
+}
+
 .drag-drop-buttons input {
   margin: auto;
 }

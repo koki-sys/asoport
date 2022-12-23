@@ -17,18 +17,35 @@ const isLandscape = (element) => {
     return false;
 }
 
+const isSquare = (element) => {
+    const imgWidth = element.width;
+    const imgHeight = element.height;
+
+    // 横幅÷縦幅の値をaspectRatioに代入
+    aspectRatio = imgWidth / imgHeight;
+
+    // aspectRatioが1の場合、正方形である。
+    if (aspectRatio == 1) {
+        return true;
+    }
+    return false;
+}
+
 const checkAspect = (result, imageElement) => {
     const imageObj = new Image();
     imageObj.setAttribute("src", result);
     imageObj.onload = () => {
         // 縦横比を調べてサイズを変更する
-        if (isLandscape(imageObj)) {
+        if (isSquare(imageObj)) {
+            imageElement.classList.add('preview-size-square');
+        } else if (isLandscape(imageObj)) {
             imageElement.classList.add('preview-size-landscape');
         } else {
             imageElement.classList.add('preview-size-portrait');
         }
-    };
-}
+    }
+};
+
 
 const photoPreview = (file) => {
     const reader = new FileReader();
