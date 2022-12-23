@@ -21,13 +21,28 @@ var isLandscape = function isLandscape(element) {
   return false;
 };
 
+var isSquare = function isSquare(element) {
+  var imgWidth = element.width;
+  var imgHeight = element.height; // 横幅÷縦幅の値をaspectRatioに代入
+
+  aspectRatio = imgWidth / imgHeight; // aspectRatioが1の場合、正方形である。
+
+  if (aspectRatio == 1) {
+    return true;
+  }
+
+  return false;
+};
+
 var checkAspect = function checkAspect(result, imageElement) {
   var imageObj = new Image();
   imageObj.setAttribute("src", result);
 
   imageObj.onload = function () {
     // 縦横比を調べてサイズを変更する
-    if (isLandscape(imageObj)) {
+    if (isSquare(imageObj)) {
+      imageElement.classList.add('preview-size-square');
+    } else if (isLandscape(imageObj)) {
       imageElement.classList.add('preview-size-landscape');
     } else {
       imageElement.classList.add('preview-size-portrait');
