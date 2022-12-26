@@ -876,6 +876,7 @@ header .menu::after {
 .eye-wrapper {
   display: table;
   background-color: var(--createpage-frame);
+  color: var(--createpage-text);
   border-radius: 50%;
   max-width: 80px;
 }
