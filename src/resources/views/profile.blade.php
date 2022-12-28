@@ -24,6 +24,8 @@
         <button class="switch_portfolio_btn c_font_bold" id="switch_portfolio_public">公開中</button>
         <button class="switch_portfolio_btn c_font_bold" id="switch_portfolio_private">非公開</button>
     </div>
+</section>
+<section class="your_portfolio" id="public_portfolio">
     <div class="your_portfolio_head">
         <h1>公開中</h1>
     </div>
@@ -76,6 +78,9 @@
         </div>
         @endforeach
     </div>
+</section>
+
+<section class="your_portfolio" id="private_portfolio">
     <div class="your_portfolio_head">
         <h1>非公開</h1>
     </div>

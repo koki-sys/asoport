@@ -1220,7 +1220,6 @@ p.more.on-click::after{
 
 .switch_portfolio {
     text-align: center;
-    margin-bottom: 1rem;
 }
 
 .switch_portfolio_btn {
@@ -1240,3 +1239,4 @@ p.more.on-click::after{
     margin: 0 0.3rem;
     border: none;
 }
+

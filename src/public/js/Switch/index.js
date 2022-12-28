@@ -31,22 +31,32 @@ var eraseDisabled = function eraseDisabled() {
   }
 };
 
+var portfolioDispStyle = function portfolioDispStyle(publicStyle, privateStyle) {
+  var publicPortfolio = document.getElementById("public_portfolio");
+  var privatePortfolio = document.getElementById("private_portfolio");
+  publicPortfolio.style.display = publicStyle;
+  privatePortfolio.style.display = privateStyle;
+};
+
 var switchAll = function switchAll() {
   // 全てを表示する処理
   eraseDisabled();
   allBtn.disabled = true;
+  portfolioDispStyle("block", "block");
 };
 
 var switchPublic = function switchPublic() {
   // 公開を表示する処理
   eraseDisabled();
   publicBtn.disabled = true;
+  portfolioDispStyle("block", "none");
 };
 
 var switchPrivate = function switchPrivate() {
   // 非公開を表示する処理
   eraseDisabled();
   privateBtn.disabled = true;
+  portfolioDispStyle("none", "block");
 };
 
 allBtn.addEventListener('click', switchAll);
