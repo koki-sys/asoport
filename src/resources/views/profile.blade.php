@@ -11,13 +11,19 @@
         {{ $user->name }}<span>{{ $user->class }}</span>
     </h1>
 
-    <h2 class="c_font_bold">{{ $user->email }}</h2>
+    <h2 class="c_font_bold">{{ $user->email }} - {{ $user->email_public_flg == 1 ? "公開中" : "非公開" }}</h2>
 </section>
 
 <!-- ===== Portfolio List ===== -->
 <section class="your_portfolio">
     <div class="your_portfolio_head">
         <h1>あなたの投稿</h1>
+    </div>
+    <div class="your_portfolio_head">
+        <h1>公開中</h1>
+    </div>
+    <div class="your_portfolio_head">
+        <h1>非公開</h1>
     </div>
     <div class="portfolio_list">
         @foreach($posts as $post)
