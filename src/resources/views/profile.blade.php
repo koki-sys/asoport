@@ -19,14 +19,64 @@
     <div class="your_portfolio_head">
         <h1>あなたの投稿</h1>
     </div>
+
     <div class="your_portfolio_head">
         <h1>公開中</h1>
+    </div>
+    <div class="portfolio_list">
+        @foreach($public_posts as $post)
+        <!-- ===== ポートフォリオの一塊 ===== -->
+        <div class="portfolio">
+            <div class="portfolio_background">
+                <div class="portfolio_img">
+                    <img class="lazy" src="{{ asset($post -> img_url) }}" alt=""
+                        data-original="{{ asset($post -> img_url) }}" />
+                    <div class="img_hover_style c_font_bold">
+                        <ion-icon name="camera-outline"></ion-icon>
+                        詳細を見る
+                    </div>
+                    <div class="portfolio_operate">
+                        <ion-icon class="portfolio_edit" name="pencil-outline" data-id="{{ $post->id }}"></ion-icon>
+                        <!-- button押下時にポップアップに情報を作成 -->
+                        <ion-icon class="portfolio_delete" name="trash-outline" data-id="{{ $post->id }}"></ion-icon>
+                        @if(($post -> public_flg) == 1)
+                        <!-- 公開に設定している場合は↓のアイコンを表示 -->
+                        <ion-icon class="portfolio_show" name="eye-outline" data-id="{{ $post->id }}"></ion-icon>
+                        @elseif(($post -> public_flg) == 0)
+                        <!-- 非公開に設定している場合は↓のアイコンを表示 -->
+                        <ion-icon class="portfolio_hide" name="eye-off-outline" data-id="{{ $post->id }}"></ion-icon>
+                        @endif
+                    </div>
+                </div>
+                <div class="content">
+                    <p><a href="{{ $post->port_url }}">{{ $post->port_url }}</a></p>
+                    <h1 class="c_font_bold">
+                        {{ $user->name }}<span>{{ $user->class }}</span>
+                    </h1>
+                    <h3>
+                        <a href="/">
+                            <ion-icon name="logo-github"></ion-icon>
+                            GitHub <span>{{ $post->port_url }}</span>
+                        </a>
+                    </h3>
+                    <h2>
+                        {{ $post->comment }}
+                    </h2>
+                    <h4>
+                        <p>使用言語</p>
+                        {{ $post->use_language }}
+                    </h4>
+                </div>
+                <ion-icon class="portfolio_close" name="arrow-back-outline"></ion-icon>
+            </div>
+        </div>
+        @endforeach
     </div>
     <div class="your_portfolio_head">
         <h1>非公開</h1>
     </div>
     <div class="portfolio_list">
-        @foreach($posts as $post)
+        @foreach($private_posts as $post)
         <!-- ===== ポートフォリオの一塊 ===== -->
         <div class="portfolio">
             <div class="portfolio_background">
@@ -102,5 +152,5 @@
     </form>
     <ion-icon class="popup_close" name="close-outline"></ion-icon>
 </div>
-
+<script src="{{asset('js/Switch/index.js')}}"></script>
 @endsection
