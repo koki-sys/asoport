@@ -19,7 +19,11 @@
     <div class="your_portfolio_head">
         <h1>あなたの投稿</h1>
     </div>
-
+    <div class="switch_portfolio">
+        <button class="switch_portfolio_btn c_font_bold" id="switch_portfolio_all" disabled>すべて表示</button>
+        <button class="switch_portfolio_btn c_font_bold" id="switch_portfolio_public">公開中</button>
+        <button class="switch_portfolio_btn c_font_bold" id="switch_portfolio_private">非公開</button>
+    </div>
     <div class="your_portfolio_head">
         <h1>公開中</h1>
     </div>
