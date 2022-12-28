@@ -1217,3 +1217,26 @@ p.more.on-click::after{
 .detail_port_date {
     float: right;
 }
+
+.switch_portfolio {
+    text-align: center;
+}
+
+.switch_portfolio_btn {
+    background-color: #DADADA;
+    color: #000000;
+    border-radius: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.3rem;
+    border: none;
+}
+
+.switch_portfolio_btn:disabled {
+    background-color: #ACACAC;
+    color: #000000;
+    border-radius: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.3rem;
+    border: none;
+}
+

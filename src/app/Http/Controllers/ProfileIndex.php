@@ -23,14 +23,14 @@ class ProfileIndex extends Controller
         if (Auth::check()) {
             $user = User::find(Auth::id());
 
-            $posts = Post::where('user_id', $user->id)->get();
+            $public_posts = Post::where('user_id', $user->id)->where('public_flg', 1)->get();
+            $private_posts = Post::where('user_id', $user->id)->where('public_flg', 0)->get();
 
             $langs = Language::all();
 
-            return view('profile', compact('user', 'posts', 'langs'));
+            return view('profile', compact('user', 'public_posts', 'private_posts', 'langs'));
         }
 
         return redirect('/login');
     }
-
 }
