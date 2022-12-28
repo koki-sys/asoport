@@ -3,5 +3,6 @@
     "/js/createValidation.js": "/js/createValidation.js",
     "/js/dragDrop.js": "/js/dragDrop.js",
     "/js/editValidation.js": "/js/editValidation.js",
+    "/js/Switch/index.js": "/js/Switch/index.js",
     "/css/app.css": "/css/app.css"
 }
