@@ -42,7 +42,7 @@
                 <!-- 要修正(css) -->
                 <form action="{{ url('/logout') }}" method="POST">
                     @csrf
-                    <input type="submit" value="ログアウト" class="c_font_bold">
+                    <input type="submit" value="ログアウト" class="c_font_bold" style="cursor: pointer;">
                 </form>
             </div>
         </header>
