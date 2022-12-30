@@ -39,11 +39,8 @@
             <div class="menu">
                 <a class="c_font_bold" href="{{ url('/profile') }}">マイページへ</a>
                 <a class="c_font_bold" href="{{ url('/profile_edit') }}">プロフィールを編集</a>
-                <!-- 要修正(css) -->
-                <form action="{{ url('/logout') }}" method="POST">
-                    @csrf
-                    <input type="submit" value="ログアウト" class="c_font_bold" style="cursor: pointer;">
-                </form>
+                <!-- 削除＆修正 -->
+                <a class="c_font_bold" id="logout" style="cursor:pointer;">ログアウト</a>
             </div>
         </header>
     </div>
@@ -84,8 +81,8 @@
                         @endif
                         <label class="search-lang-label" style="margin"><input type="checkbox" name="language[]"
                                 value="{{ $lang->name }}" class="required-lang"><span>{{ $lang->name }}</span></label>
-                        @if($lang->id % 5 == 0 && $lang->id< 6)
-                        <div style="margin-bottom: 7px;"></div>
+                        @if($lang->id % 5 == 0 && $lang->id< 6) <div style="margin-bottom: 7px;">
+                    </div>
                     @elseif(($lang->id - 5) % 5 == 0 && $lang->id > 6)
                     <div style="margin-bottom: 7px;"></div>
                     @endif
@@ -113,11 +110,20 @@
     </div>
     <!-- ===== 検索フィールド表示時の黒背景 ===== -->
     <div class="search_black_back"></div>
+    <div class="portfolio_popup logout_popup">
+        <h1 class="c_font_bold">ログアウトしますか</h1>
+        <form action="{{ url('/logout') }}" method="POST" class="logout_form">
+            @csrf
+
+        </form>
+        <ion-icon class="popup_close" name="close-outline"></ion-icon>
+    </div>
 
     <!-- それぞれのページの中身をインポート -->
     @yield('content')
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script/masonry.pkgd.min.js"></script>
     <script src="script/lazyload.min.js"></script>
     <script src="script/imagesloaded.pkgd.min.js"></script>
