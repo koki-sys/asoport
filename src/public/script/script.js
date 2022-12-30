@@ -97,6 +97,30 @@ $(function () {
         $(".delete_popup").toggleClass("active");
         $(".search_black_back").toggleClass("active");
     });
+    $('#logout').on("click", function () {
+        // ポートフォリオ削除するときの処理を追加
+        $(".id_info").remove();
+        $(".delete_btn").remove();
+
+        // アイコンからport_idを取得
+        const portId = $(this).data('id');
+
+        //ぼたんとか情報をまとめて追加
+        $("<input>").attr({
+            type: 'hidden',
+            name: 'id',
+            class: 'id_info',
+            value: portId
+        }).appendTo(".delete_form");
+        $("<input>").attr({
+            type: 'submit',
+            value: 'ログアウトする',
+            class: 'c_font_bold delete_btn'
+        }).appendTo(".logout_form");
+
+        $(".logout_popup").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
+    });
     $('.popup_close').on("click", function () {
         $(".portfolio_popup").removeClass("active");
         $(".search_black_back").toggleClass("active");
