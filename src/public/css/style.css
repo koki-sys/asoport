@@ -1016,6 +1016,7 @@ header .menu::after {
 
 .lang-label {
     margin: 1rem; /* ボタン同士の間隔 */
+    cursor: pointer;
 }
 
 .lang-label input {
@@ -1082,6 +1083,7 @@ p.more {
     outline: 0;
     transition: .5s;
     -erbkit-transition: .5s;
+    cursor: pointer;
 }
 
 p.more::after {
@@ -1119,6 +1121,7 @@ p.more.on-click::after{
 
 .search-lang-label {
     margin: 0.5rem; /* ボタン同士の間隔 */
+    cursor: pointer;
 }
 
 .search-lang-label input {
@@ -1183,6 +1186,7 @@ p.more.on-click::after{
   background-color: #E60023;
   padding: 8px 20px;
   border-radius: 25px;
+  cursor: pointer;
 }
 /*
 結合のため、スタイルを変更しています - takahashi koki
@@ -1229,6 +1233,7 @@ p.more.on-click::after{
     padding: 0.4rem 0.8rem;
     margin: 0 0.3rem;
     border: none;
+    cursor: pointer;
 }
 
 .switch_portfolio_btn:disabled {
