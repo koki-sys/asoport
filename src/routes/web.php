@@ -20,6 +20,7 @@ Route::get('/create', 'PostController@create');
 Route::post('/detail', 'DetailController@index');
 Route::get('/profile', 'ProfileIndex@index');
 Route::get('/profile_edit', 'ProfileeditController@edit');
+Route::get('/user_delete', 'UserDeleteController@userdelete');
 Route::post('/prof_edit_submit', 'ProfileeditController@index');
 Route::post('/post_edit', 'PostEditController@post');
 Route::get('/post_edit/{id}', 'PostEditController@edit');
