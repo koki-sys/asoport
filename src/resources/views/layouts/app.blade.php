@@ -94,17 +94,6 @@
                 @endforeach
                 <p class="more"></p>
             </div>
-
-            <!--
-                <div class="checkbox_wrapper">
-                    <input type="checkbox" name="language[]" value="HTML" id="html"><label for="html">HTML</label>
-                    <input type="checkbox" name="language[]" value="CSS" id="css"><label for="css">CSS</label>
-                    <input type="checkbox" name="language[]" value="JavaScript" id="javascript"><label for="javascript">JavaScript</label>
-                    <input type="checkbox" name="language[]" value="PHP" id="php"><label for="php">PHP</label>
-                    <input type="checkbox" name="language[]" value="Java" id="java"><label for="java">Java</label>
-                </div>
-                -->
-
             <button type="submit" class="c_font_bold">検索する</button>
     </div>
     </form>
@@ -130,16 +119,6 @@
         <ion-icon class="popup_close" name="close-outline"></ion-icon>
     </div>
 
-    <!-- ===== アカウント削除機能のポップ =====
-    <div class="portfolio_popup account_popup">
-        <h1 class="c_font_bold">アカウントを削除しますか</h1>
-        <form action="{{  url('/user_delete') }}" method="get" class="account_delete_form">
-            @csrf
-
-        </form>
-        <ion-icon class="popup_close" name="close-outline"></ion-icon>
-    </div>
--->
     <!-- それぞれのページの中身をインポート -->
     @yield('content')
 
