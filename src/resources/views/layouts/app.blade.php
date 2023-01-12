@@ -39,6 +39,7 @@
             <div class="menu">
                 <a class="c_font_bold" href="{{ url('/profile') }}">マイページへ</a>
                 <a class="c_font_bold" href="{{ url('/profile_edit') }}">プロフィールを編集</a>
+                <a class="c_font_bold" href="{{ url('/user_delete') }}">アカウント削除</a>
                 <!-- 削除＆修正 -->
                 <a class="c_font_bold" id="logout" style="cursor:pointer;">ログアウト</a>
             </div>

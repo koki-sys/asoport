@@ -4,19 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+
 class UserDeleteController extends Controller
 {
     public function userdelete(Request $request)
     {
-        $id = auth()->id();
+        $user = User::find(auth::id());
+
+         //ユーザが投稿したデータ削除
+        $post = Post::where('user_id', $user->id)->delete();
+
         //ユーザ削除
-        $user = User::find($id);
         $user->delete();
-        //ユーザが投稿したデータ削除
-        $post = Post::find($id);
-        $post->delete();
+       
 
-
-        return redirect('/top');
+        return redirect('/');
     }
 }
