@@ -18,14 +18,13 @@ class TopController extends Controller
     public function index(Request $request)
     {
         $posts = Post::orderBy('id', 'desc')
-            ->select('users.name', 'users.class', 'posts.*')
+            ->select('users.name', 'users.class', 'users.email_public_flg', 'users.email', 'posts.*')
             ->join('users', 'users.id', '=', 'posts.user_id')
-            ->where('posts.public_flg','1')
+            ->where('posts.public_flg', '1')
             ->get();
 
         $langs = Language::all();
 
         return view('welcome', compact('posts', 'langs'));
     }
-
 }

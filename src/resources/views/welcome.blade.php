@@ -29,6 +29,15 @@
                 <h1 class="c_font_bold">
                     {{ $post -> name }}<span>{{ $post -> class }}</span>
                 </h1>
+                <!-- style属性を使用しています。発表後修正します。by koki-sys -->
+                @if($post->email_public_flg == 1)
+                <h3 style="float: right; margin-top: 0.5rem">
+                    <a href="mailto:{{ $post->email }}" class="portfolio_link">
+                        連絡する
+                        <ion-icon name="send-outline"></ion-icon>
+                    </a>
+                </h3>
+                @endif
                 <h3>
                     @if(isset($post->git_url))
                     <a href="{{ $post -> git_url }}" class="portfolio_link">
