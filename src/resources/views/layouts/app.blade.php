@@ -41,6 +41,7 @@
                 <a class="c_font_bold" href="{{ url('/profile_edit') }}">プロフィールを編集</a>
                 <a class="c_font_bold" href="{{ url('/user_delete') }}">アカウント削除</a>
                 <!-- 削除＆修正 -->
+                <a class="c_font_bold account_delete" style="cursor:pointer;">アカウント削除</a>
                 <a class="c_font_bold" id="logout" style="cursor:pointer;">ログアウト</a>
             </div>
         </header>
@@ -120,6 +121,26 @@
         <ion-icon class="popup_close" name="close-outline"></ion-icon>
     </div>
 
+    <div class="search_black_back"></div>
+    <div class="portfolio_popup account_popup">
+        <h1 class="c_font_bold">アカウント削除しますか</h1>
+        <form action="{{ url('/logout') }}" method="POST" class="account_delete_form">
+            @csrf
+
+        </form>
+        <ion-icon class="popup_close" name="close-outline"></ion-icon>
+    </div>
+
+    <!-- ===== アカウント削除機能のポップ ===== 
+    <div class="portfolio_popup account_popup">
+        <h1 class="c_font_bold">アカウントを削除しますか</h1>
+        <form action="{{  url('/user_delete') }}" method="get" class="account_delete_form">
+            @csrf
+
+        </form>
+        <ion-icon class="popup_close" name="close-outline"></ion-icon>
+    </div>
+-->
     <!-- それぞれのページの中身をインポート -->
     @yield('content')
 

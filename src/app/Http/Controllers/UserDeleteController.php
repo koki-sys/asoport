@@ -13,8 +13,7 @@ class UserDeleteController extends Controller
     public function userdelete(Request $request)
     {
         $user = User::find(auth::id());
-
-         //ユーザが投稿したデータ削除
+        
         $post = Post::where('user_id', $user->id)->delete();
 
         //ユーザ削除
@@ -22,5 +21,11 @@ class UserDeleteController extends Controller
        
 
         return redirect('/');
+
+        //ユーザが投稿したデータ削除
+       $post = Post::where('user_id', $user->id)->delete();
+
+       return redirect('/');
+
     }
 }

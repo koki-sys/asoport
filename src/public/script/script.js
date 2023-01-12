@@ -25,7 +25,20 @@ $(function () {
         $(".menu").toggleClass("active");
         $(".search_black_back").toggleClass("active");
     });
+    // ===== アカウント削除機能のポップアップ      =====
+    $('.account_delete').on("click", function () {
+        $(".id_info").remove();
+        $(".delete_btn").remove();
+        //ぼたんとか情報をまとめて追加
+        $("<input>").attr({
+            type: 'submit',
+            value: 'アカウントを削除する',
+            class: 'c_font_bold delete_btn'
+        }).appendTo(".account_delete_form");
 
+        $(".account_popup").toggleClass("active");
+        $(".search_black_back").toggleClass("active");
+    });
     // ===== 表示/非表示、削除ボタンのポップアップ =====
     $('.portfolio_show').on("click", function () {
         $(".id_info").remove();
